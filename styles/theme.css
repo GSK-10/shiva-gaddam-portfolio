@@ -1,0 +1,31 @@
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-background: 250 250 250;
+  --color-foreground: 24 24 27;
+  --color-muted: 113 113 122;
+  --color-border: 228 228 231;
+  --color-card: 255 255 255;
+  --color-card-foreground: 24 24 27;
+  --color-primary: 39 39 42;
+  --color-primary-foreground: 250 250 250;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow-soft: 0 8px 30px rgb(0 0 0 / 0.06);
+}
+
+.dark {
+  --color-background: 9 9 11;
+  --color-foreground: 250 250 250;
+  --color-muted: 161 161 170;
+  --color-border: 39 39 42;
+  --color-card: 24 24 27;
+  --color-card-foreground: 250 250 250;
+  --color-primary: 250 250 250;
+  --color-primary-foreground: 24 24 27;
+  --shadow-soft: 0 8px 30px rgb(0 0 0 / 0.25);
+}
+
