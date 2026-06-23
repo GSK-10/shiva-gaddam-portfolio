@@ -1,6 +1,6 @@
 # Shiva Gaddam Portfolio
 
-Minimal Next.js portfolio scaffold for v1.
+Minimal Next.js portfolio - v1
 
 ## Structure
 
