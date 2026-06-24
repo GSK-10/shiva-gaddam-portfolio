@@ -5,7 +5,7 @@ import { navigationItems } from "@/content/navigation";
 export function Navbar() {
   return (
     <header className="sticky top-4 z-50 px-3 sm:px-4">
-      <Container className="max-w-[55rem]">
+      <Container className="max-w-[56rem]">
         <div className="relative">
           <div
             aria-hidden="true"
@@ -47,7 +47,7 @@ export function Navbar() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="group relative rounded-full px-4 text-[0.8rem] font-semibold uppercase tracking-[0.08em] transition-all duration-300 ease-out md:text-[0.84rem] lg:text-[0.89rem] hover:[color:var(--nav-link-hover-text)]"
+                    className="group relative rounded-full px-4 text-[0.8rem] font-semibold uppercase tracking-[0.08em] transition-all duration-300 ease-out md:text-[0.84rem] lg:text-[0.88rem] hover:[color:var(--nav-link-hover-text)]"
                     style={{ color: "var(--color-muted)" }}
                   >
                     {item.label}
