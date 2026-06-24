@@ -1,4 +1,5 @@
 import type { Experience } from "@/content/experience";
+import { GlassSurface } from "@/components/ui/GlassSurface";
 
 type ExperienceCardProps = {
   experience: Experience;
@@ -6,7 +7,8 @@ type ExperienceCardProps = {
 
 export function ExperienceCard({ experience }: ExperienceCardProps) {
   return (
-    <article className="rounded-lg border border-border bg-card p-5 text-card-foreground">
+    <GlassSurface className="p-5">
+      <article>
       <header>
         <h3 className="text-lg font-medium">{experience.company}</h3>
         <p className="text-sm text-muted">
@@ -18,7 +20,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           <li key={bullet}>{bullet}</li>
         ))}
       </ul>
-    </article>
+      </article>
+    </GlassSurface>
   );
 }
-

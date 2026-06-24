@@ -7,11 +7,38 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+  background: rgb(var(--color-background));
+}
+
+section[id] {
+  scroll-margin-top: 1.5rem;
 }
 
 body {
   margin: 0;
-  background: rgb(var(--color-background));
+  min-height: 100vh;
+  background-color: rgb(var(--color-background));
+  background-image: var(--page-background);
+  background-attachment: scroll;
+  background-size: cover;
   color: rgb(var(--color-foreground));
   font-family: var(--font-sans);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top, rgb(255 255 255 / 0.16), transparent 24%),
+    radial-gradient(circle at 80% 10%, rgb(255 255 255 / 0.08), transparent 18%);
+  opacity: 0.45;
+  mix-blend-mode: screen;
 }
