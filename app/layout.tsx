@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Shiva Gaddam | Software Engineer",
-    description: "Backend | Distributed Systems | Automation | Cloud",
+    description: "Backend | Distributed Systems | Automation | Cloud | Goku-inspired Energy",
     images: [
       {
         url: "/images/share_preview_image.jpg",
