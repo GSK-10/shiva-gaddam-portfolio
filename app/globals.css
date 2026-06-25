@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 
 @import "../styles/theme.css";
+@import "../styles/layout.css";
 @import "../styles/typography.css";
 
 html {

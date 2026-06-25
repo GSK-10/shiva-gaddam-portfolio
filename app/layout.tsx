@@ -5,8 +5,8 @@ import { Providers } from "@/components/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Shiva Gaddam | Portfolio",
-  description: "Minimal developer portfolio for backend, automation, and infrastructure roles.",
+  title: "Shiva Gaddam | Software Engineer",
+  description: "My Developer portfolio for backend, automation, and infrastructure roles.",
 };
 
 export default function RootLayout({

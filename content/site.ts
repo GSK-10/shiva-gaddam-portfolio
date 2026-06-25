@@ -11,7 +11,8 @@ export const siteConfig = {
   links: {
     github: "https://github.com/GSK-10",
     linkedin: "https://www.linkedin.com/in/shivakumar19/",
-    leetcode: "",
+    codolio: "http://codolio.com/profile/GSK-10",
+    leetcode: "https://leetcode.com/u/shiva_kumar_01/",
     codechef: "",
   },
 };

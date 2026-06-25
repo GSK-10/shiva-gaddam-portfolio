@@ -3,6 +3,5 @@ type HighlightCardProps = {
 };
 
 export function HighlightCard({ highlight }: HighlightCardProps) {
-  return <span className="rounded-full border border-border px-4 py-2 text-sm text-muted">{highlight}</span>;
+  return <span className="rounded-[var(--layout-pill-radius)] border border-border px-4 py-2 text-sm text-muted">{highlight}</span>;
 }
-

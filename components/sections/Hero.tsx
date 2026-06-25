@@ -4,17 +4,25 @@ import { Container } from "@/components/layout/Container";
 
 export function Hero() {
   return (
-    <section id="hero" className="py-14 sm:py-16 lg:py-20">
+    <section id="hero" className="py-[var(--layout-hero-padding-y)]">
       <Container>
-        <div className="mx-auto max-w-7xl">
-          <p className="text-sm text-muted md:text-base">{siteConfig.location}</p>
+        <div className="mx-auto max-w-[var(--layout-content-width)]">
+          <p className="text-muted" style={{ fontSize: "var(--layout-hero-meta-size)" }}>
+            {siteConfig.location}
+          </p>
           <h1
-            className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
-            style={{ fontFamily: "var(--font-display)" }}
+            className="mt-4 tracking-tight"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "var(--layout-hero-name-size)",
+              fontWeight: "var(--layout-hero-name-weight)",
+            }}
           >
             {siteConfig.name}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted md:text-xl lg:text-[1.35rem]">{siteConfig.headline}</p>
+          <p className="mt-4 max-w-2xl text-muted" style={{ fontSize: "var(--layout-hero-copy-size)" }}>
+            {siteConfig.headline}
+          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={siteConfig.resumeUrl}>View Resume</Button>
             <Button href={`mailto:${siteConfig.email}`} variant="secondary">

@@ -42,7 +42,7 @@ export function ThemeToggle() {
 
   return (
     <div
-      className="inline-flex items-center gap-0.5 rounded-full border p-[0.1rem] backdrop-blur-2xl"
+      className="inline-flex items-center gap-0.5 rounded-[var(--layout-pill-radius)] border p-[var(--layout-toggle-shell-padding)] backdrop-blur-2xl"
       aria-label="Theme toggle"
       style={{
         backgroundColor: "var(--nav-shell-bg)",
@@ -83,12 +83,12 @@ export function ThemeToggle() {
         aria-label={`Switch theme, currently ${activeTheme}`}
         title={`Switch theme, currently ${activeTheme}`}
         onClick={handleCycleTheme}
-        className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-transparent text-muted transition-all duration-300 ease-out hover:scale-105 hover:border-border hover:[background-color:var(--nav-link-hover-bg)] hover:[color:var(--nav-link-hover-text)]"
+        className="inline-flex h-[var(--layout-toggle-button-size)] w-[var(--layout-toggle-button-size)] items-center justify-center rounded-[var(--layout-pill-radius)] border border-transparent text-muted transition-all duration-300 ease-out hover:scale-105 hover:border-border hover:[background-color:var(--nav-link-hover-bg)] hover:[color:var(--nav-link-hover-text)]"
         style={{
           boxShadow: activeButtonGlow,
         }}
       >
-        <ActiveIcon className={`h-[0.9rem] w-[0.9rem] transition-transform duration-300 ease-out ${iconRotation}`} />
+        <ActiveIcon className={`h-[var(--layout-toggle-icon-size)] w-[var(--layout-toggle-icon-size)] transition-transform duration-300 ease-out ${iconRotation}`} />
       </button>
     </div>
   );
