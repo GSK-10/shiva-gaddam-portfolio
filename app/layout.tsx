@@ -5,19 +5,34 @@ import { Providers } from "@/components/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shivagaddam.dev"),
   title: "Shiva Gaddam | Software Engineer",
   description: "Backend | Distributed Systems | Automation | Cloud",
   openGraph: {
     title: "Shiva Gaddam | Software Engineer",
     description: "Backend | Distributed Systems | Automation | Cloud",
-    images: ["/images/share_preview_image.jpg"],
+    images: [
+      {
+        url: "/images/share_preview_image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Shiva Gaddam | Software Engineer preview image",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Shiva Gaddam | Software Engineer",
     description: "Backend | Distributed Systems | Automation | Cloud",
-    images: ["/images/share_preview_image.jpg"],
+    images: [
+      {
+        url: "/images/share_preview_image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Shiva Gaddam | Software Engineer preview image",
+      },
+    ],
   },
 };
 
