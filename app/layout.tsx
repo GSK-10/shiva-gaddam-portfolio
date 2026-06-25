@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Backend | Distributed Systems | Automation | Cloud | Goku-inspired Energy",
   openGraph: {
     title: "Shiva Gaddam | Software Engineer",
-    description: "Backend | Distributed Systems | Automation | Cloud || Goku-inspired Energy",
+    description: "Backend | Distributed Systems | Automation | Cloud | Goku-inspired Energy",
     images: [
       {
         url: "/images/share_preview_image.jpg",
