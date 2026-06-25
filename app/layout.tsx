@@ -6,7 +6,19 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Shiva Gaddam | Software Engineer",
-  description: "My Developer portfolio for backend, automation, and infrastructure roles.",
+  description: "Backend | Distributed Systems | Automation | Cloud",
+  openGraph: {
+    title: "Shiva Gaddam | Software Engineer",
+    description: "Backend | Distributed Systems | Automation | Cloud",
+    images: ["/images/share_preview_image.jpg"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shiva Gaddam | Software Engineer",
+    description: "Backend | Distributed Systems | Automation | Cloud",
+    images: ["/images/share_preview_image.jpg"],
+  },
 };
 
 export default function RootLayout({
