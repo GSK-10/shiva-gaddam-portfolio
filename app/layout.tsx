@@ -7,10 +7,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivagaddam.dev"),
   title: "Shiva Gaddam | Software Engineer",
-  description: "Backend | Distributed Systems | Automation | Cloud",
+  description: "Backend | Distributed Systems | Automation | Cloud | Goku-inspired Energy",
   openGraph: {
     title: "Shiva Gaddam | Software Engineer",
-    description: "Backend | Distributed Systems | Automation | Cloud",
+    description: "Backend | Distributed Systems | Automation | Cloud || Goku-inspired Energy",
     images: [
       {
         url: "/images/share_preview_image.jpg",
