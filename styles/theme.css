@@ -47,7 +47,6 @@
   --nav-shell-bg: rgb(255 255 255 / 0.94);
   --nav-shell-border: rgb(179 196 223 / 0.52);
   --nav-shell-shadow: 0 10px 24px rgb(79 112 176 / 0.08);
-  --nav-link-hover-bg: rgb(93 125 226 / 0.08);
   --nav-link-hover-text: rgb(23 32 51);
   --nav-brand-bg: rgb(93 125 226 / 0.08);
   --nav-brand-text: rgb(93 125 226);
@@ -92,7 +91,6 @@
   --nav-shell-bg: rgb(17 23 38 / 0.94);
   --nav-shell-border: rgb(139 162 209 / 0.18);
   --nav-shell-shadow: 0 10px 24px rgb(0 0 0 / 0.22);
-  --nav-link-hover-bg: rgb(255 255 255 / 0.06);
   --nav-link-hover-text: rgb(237 243 255);
   --nav-brand-bg: rgb(142 168 255 / 0.12);
   --nav-brand-text: rgb(237 243 255);
@@ -135,7 +133,6 @@
   --nav-shell-bg: rgb(36 23 20 / 0.94);
   --nav-shell-border: rgb(215 161 122 / 0.16);
   --nav-shell-shadow: 0 10px 24px rgb(0 0 0 / 0.22);
-  --nav-link-hover-bg: rgb(210 137 87 / 0.1);
   --nav-link-hover-text: rgb(247 237 229);
   --nav-brand-bg: rgb(210 137 87 / 0.12);
   --nav-brand-text: rgb(247 237 229);

@@ -1,15 +1,18 @@
 import { Section } from "@/components/layout/Section";
+import { SectionCollection } from "@/components/layout/SectionCollection";
 import { siteConfig } from "@/content/site";
 
 export function Contact() {
   return (
     <Section id="contact" title="Contact">
-      <p className="text-muted">Open to software engineering roles across backend, platform, and automation teams.</p>
-      <div className="mt-4 flex flex-wrap gap-4">
-        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-        <a href={siteConfig.links.linkedin}>LinkedIn</a>
-        <a href={siteConfig.links.github}>GitHub</a>
-      </div>
+      <p className="text-muted">{siteConfig.contactIntro}</p>
+      <SectionCollection variant="wrap" className="mt-4">
+        {siteConfig.profileLinks.map((link) => (
+          <a key={link.href} href={link.href}>
+            {link.label === "Email" ? siteConfig.email : link.label}
+          </a>
+        ))}
+      </SectionCollection>
     </Section>
   );
 }

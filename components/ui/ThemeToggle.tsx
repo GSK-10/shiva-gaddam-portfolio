@@ -9,12 +9,17 @@ import { cn } from "@/lib/utils";
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [initialTheme, setInitialTheme] = useState("light");
 
   useEffect(() => {
+    const rootTheme = document.documentElement.getAttribute("data-theme");
+    if (rootTheme) {
+      setInitialTheme(rootTheme);
+    }
     setMounted(true);
   }, []);
 
-  const activeTheme = mounted ? theme ?? resolvedTheme ?? "light" : "light";
+  const activeTheme = mounted ? theme ?? resolvedTheme ?? initialTheme : initialTheme;
   const themeOrder = themes.map((item) => item.key);
 
   const iconMap = {
@@ -33,12 +38,8 @@ export function ThemeToggle() {
 
   return (
     <div
-      className="inline-flex items-center gap-0.5 rounded-[var(--layout-pill-radius)] border p-[var(--layout-toggle-shell-padding)]"
+      className="theme-shell inline-flex items-center gap-0.5 rounded-[var(--layout-pill-radius)] border p-[var(--layout-toggle-shell-padding)]"
       aria-label="Theme toggle"
-      style={{
-        backgroundColor: "var(--nav-shell-bg)",
-        borderColor: "var(--nav-shell-border)",
-      }}
     >
       <button
         type="button"
@@ -55,6 +56,7 @@ export function ThemeToggle() {
             "h-[var(--layout-toggle-icon-size)] w-[var(--layout-toggle-icon-size)] transition-transform duration-200 ease-out",
           )}
           style={{
+            opacity: mounted ? 1 : 0,
             transform: "rotate(var(--theme-toggle-icon-rotate))",
           }}
         />
