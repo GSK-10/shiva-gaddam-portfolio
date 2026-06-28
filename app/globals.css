@@ -22,24 +22,66 @@ body {
   background-color: rgb(var(--color-background));
   background-image: var(--page-background);
   background-attachment: scroll;
+  background-repeat: no-repeat;
   background-size: cover;
   color: rgb(var(--color-foreground));
   font-family: var(--font-sans);
   transition:
     background-color 200ms ease,
     color 200ms ease,
-    border-color 200ms ease,
-    box-shadow 200ms ease;
+    border-color 200ms ease;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at top, rgb(255 255 255 / 0.16), transparent 24%),
-    radial-gradient(circle at 80% 10%, rgb(255 255 255 / 0.08), transparent 18%);
-  opacity: 0.45;
-  mix-blend-mode: screen;
+/* Shared design-system surfaces:
+   - use Tailwind for structure/layout
+   - use these classes for richer themed shells/cards
+   - keep effects subtle so future timeline/carousel sections stay fast */
+.theme-shell {
+  background-color: var(--nav-shell-bg);
+  border-color: var(--nav-shell-border);
+  box-shadow: var(--nav-shell-shadow);
+}
+
+.theme-surface {
+  background-color: var(--surface-card);
+  border-color: var(--surface-border);
+  box-shadow: var(--shadow-card);
+}
+
+.theme-surface-muted {
+  background-color: var(--surface-card-muted);
+  border-color: var(--surface-border);
+}
+
+.theme-surface-interactive {
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-surface-interactive:hover {
+    transform: translateY(var(--surface-hover-translate));
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
 }

@@ -14,9 +14,9 @@ export function SkillGroupCard({ skillGroup }: SkillGroupCardProps) {
           {skillGroup.items.map((item) => (
             <li
               key={item}
-              className="rounded-full border border-[color:var(--glass-border)] bg-[color:var(--surface-glass-2)] px-3 py-1 text-sm text-muted shadow-sm backdrop-blur-md"
+              className="rounded-full border border-[color:var(--surface-border)] bg-[color:var(--surface-card-muted)] px-3 py-1 text-sm text-muted"
               style={{
-                boxShadow: "var(--shadow-card)",
+                boxShadow: "0 1px 0 rgb(255 255 255 / 0.04) inset",
               }}
             >
               {item}

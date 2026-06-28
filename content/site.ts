@@ -1,19 +1,13 @@
 export const siteConfig = {
   name: "Shiva Kumar Reddy Gaddam",
-  shortName: "Shiva",
   role: "Software Engineer",
   headline:
-    "Software Engineer focused on backend systems, automation, Kubernetes, and reliable developer infrastructure.",
+    "Software engineer building dependable backend systems, automation, and tools that make teams move faster.",
   location: "Hyderabad, India",
   email: "shiva.kumar.reddy.gaddam19@gmail.com",
-  phone: "+91 9515426334",
   resumeUrl: "/resume.pdf",
   links: {
     github: "https://github.com/GSK-10",
     linkedin: "https://www.linkedin.com/in/shivakumar19/",
-    codolio: "http://codolio.com/profile/GSK-10",
-    leetcode: "https://leetcode.com/u/shiva_kumar_01/",
-    codechef: "",
   },
 };
-

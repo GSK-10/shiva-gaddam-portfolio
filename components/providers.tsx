@@ -11,7 +11,8 @@ export function Providers({ children }: PropsWithChildren) {
       defaultTheme={defaultTheme}
       enableSystem={false}
       disableTransitionOnChange
-      themes={["light", "dark", "cosmic"]}
+      storageKey="portfolio-theme"
+      themes={["light", "dark", "ember"]}
     >
       {children}
     </NextThemesProvider>
