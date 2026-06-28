@@ -22,7 +22,7 @@
   --layout-navbar-brand-padding-x: 0.44rem;
   --layout-navbar-brand-padding-y: 0.18rem;
   --layout-navbar-link-underline-height: 1.5px;
-  --layout-navbar-link-underline-offset: -0.14rem;
+  --layout-navbar-link-underline-offset: -0.15rem;
 
   /* Shared page content sizing */
   --layout-section-padding-y: 3.25rem;
@@ -52,6 +52,11 @@
   --layout-toggle-shell-padding: 0.08rem;
   --layout-toggle-button-size: 1.85rem;
   --layout-toggle-icon-size: 0.95rem;
+
+  /* Mobile menu sizing */
+  --layout-menu-button-size: 1.85rem;
+  --layout-menu-icon-size: 0.95rem;
+  --layout-menu-panel-gap: 0.5rem;
 }
 
 @media (min-width: 640px) {
@@ -82,6 +87,8 @@
     --layout-hero-copy-size: 1rem;
     --layout-toggle-button-size: 1.95rem;
     --layout-toggle-icon-size: 0.98rem;
+    --layout-menu-button-size: 1.95rem;
+    --layout-menu-icon-size: 0.98rem;
   }
 }
 
@@ -113,6 +120,8 @@
     --layout-hero-copy-size: 1.08rem;
     --layout-toggle-button-size: 2.05rem;
     --layout-toggle-icon-size: 1.02rem;
+    --layout-menu-button-size: 2.05rem;
+    --layout-menu-icon-size: 1.02rem;
   }
 }
 
@@ -154,5 +163,7 @@
     --layout-toggle-shell-padding: 0.12rem;
     --layout-toggle-button-size: 2.0rem;
     --layout-toggle-icon-size: 1.10rem;
+    --layout-menu-button-size: 2rem;
+    --layout-menu-icon-size: 1.05rem;
   }
 }

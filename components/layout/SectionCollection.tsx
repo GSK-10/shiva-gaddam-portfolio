@@ -10,7 +10,7 @@ type SectionCollectionProps<T extends ElementType = "div"> = PropsWithChildren<{
 const variantClasses = {
   stack: "grid gap-[var(--layout-collection-gap)]",
   grid: "grid gap-[var(--layout-collection-gap)] md:grid-cols-2",
-  wrap: "flex flex-wrap gap-3",
+  wrap: "flex flex-wrap gap-[var(--layout-collection-gap)]",
 } as const;
 
 export function SectionCollection<T extends ElementType = "div">({

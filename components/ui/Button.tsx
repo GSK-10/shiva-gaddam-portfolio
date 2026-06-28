@@ -17,7 +17,7 @@ type ButtonProps =
 
 export function Button(props: ButtonProps) {
   const base =
-    "inline-flex items-center rounded-[var(--layout-pill-radius)] border px-4 py-2 text-sm font-medium transition-colors duration-200";
+    "inline-flex items-center rounded-[var(--layout-pill-radius)] border px-4 py-2 text-sm font-medium transition-[background-color,border-color,color,opacity] duration-200";
   const variant = props.variant ?? "primary";
   const variantClass =
     variant === "secondary"

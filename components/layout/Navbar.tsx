@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/Container";
+import { MobileNav } from "@/components/layout/MobileNav";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { navigationItems } from "@/content/navigation";
 
@@ -8,12 +9,7 @@ export function Navbar() {
       <Container className="max-w-[var(--layout-navbar-container-width)]">
         <nav
           aria-label="Primary"
-          className="mx-auto flex w-[var(--layout-navbar-width)] min-h-[var(--layout-navbar-height)] items-center justify-between gap-[var(--layout-navbar-gap)] overflow-hidden rounded-[var(--layout-navbar-radius)] border px-[var(--layout-navbar-padding-x)] py-[var(--layout-navbar-padding-y)]"
-          style={{
-            backgroundColor: "var(--nav-shell-bg)",
-            borderColor: "var(--nav-shell-border)",
-            boxShadow: "var(--nav-shell-shadow)",
-          }}
+          className="theme-shell mx-auto flex w-[var(--layout-navbar-width)] min-h-[var(--layout-navbar-height)] items-center justify-between gap-[var(--layout-navbar-gap)] overflow-hidden rounded-[var(--layout-navbar-radius)] border px-[var(--layout-navbar-padding-x)] py-[var(--layout-navbar-padding-y)]"
         >
           <a
             href="#hero"
@@ -41,7 +37,7 @@ export function Navbar() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="group relative rounded-full px-[var(--layout-navbar-link-padding-x)] font-semibold uppercase tracking-[0.08em] transition-colors duration-200 hover:[background-color:var(--nav-link-hover-bg)] hover:[color:var(--nav-link-hover-text)]"
+                  className="group relative rounded-full px-[var(--layout-navbar-link-padding-x)] font-semibold uppercase tracking-[0.08em] transition-colors duration-300 hover:[color:var(--nav-link-hover-text)]"
                   style={{
                     color: "var(--color-muted)",
                     fontSize: "var(--layout-navbar-link-compact-size)",
@@ -50,7 +46,7 @@ export function Navbar() {
                   {item.label}
                   <span
                     aria-hidden="true"
-                    className="absolute inset-x-3 origin-left scale-x-0 transition-transform duration-200 ease-out group-hover:scale-x-100"
+                    className="absolute inset-x-3 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
                     style={{
                       bottom: "var(--layout-navbar-link-underline-offset)",
                       height: "var(--layout-navbar-link-underline-height)",
@@ -62,9 +58,11 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="flex shrink-0 items-center gap-1">
+          <div className="hidden shrink-0 items-center gap-1 md:flex">
             <ThemeToggle />
           </div>
+
+          <MobileNav items={navigationItems} />
         </nav>
       </Container>
     </header>
