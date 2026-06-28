@@ -16,12 +16,11 @@ export function SectionHeading({ eyebrow, children }: SectionHeadingProps) {
         </p>
       ) : null}
       <h2
-        className=""
+        className="tracking-tight"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "var(--layout-section-heading-title-size)",
-          fontWeight: "var(--layout-section-heading-title-weight)"  
-          // lineHeight: "1.05",
+          fontWeight: "var(--layout-section-heading-title-weight)",
         }}
       >
         {children}

@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { MoonStar, Orbit, SunMedium } from "lucide-react";
+import { Flame, MoonStar, SunMedium } from "lucide-react";
 import { themes } from "@/content/themes";
+import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -19,20 +20,10 @@ export function ThemeToggle() {
   const iconMap = {
     light: SunMedium,
     dark: MoonStar,
-    cosmic: Orbit,
+    ember: Flame,
   } as const;
 
   const ActiveIcon = iconMap[activeTheme as keyof typeof iconMap];
-
-  const activeButtonGlow =
-    activeTheme === "light"
-      ? "0 0 0 1px rgb(124 58 237 / 0.18), 0 0 18px rgb(124 58 237 / 0.16)"
-      : activeTheme === "dark"
-        ? "0 0 0 1px rgb(90 104 130 / 0.18), 0 0 18px rgb(90 104 130 / 0.14)"
-        : "0 0 0 1px rgb(56 189 248 / 0.18), 0 0 18px rgb(56 189 248 / 0.18)";
-
-  const iconRotation =
-    activeTheme === "light" ? "rotate-0" : activeTheme === "dark" ? "rotate-12" : "rotate-180";
 
   const handleCycleTheme = () => {
     const currentIndex = themeOrder.indexOf(activeTheme as (typeof themeOrder)[number]);
@@ -42,53 +33,31 @@ export function ThemeToggle() {
 
   return (
     <div
-      className="inline-flex items-center gap-0.5 rounded-[var(--layout-pill-radius)] border p-[var(--layout-toggle-shell-padding)] backdrop-blur-2xl"
+      className="inline-flex items-center gap-0.5 rounded-[var(--layout-pill-radius)] border p-[var(--layout-toggle-shell-padding)]"
       aria-label="Theme toggle"
       style={{
         backgroundColor: "var(--nav-shell-bg)",
         borderColor: "var(--nav-shell-border)",
-        boxShadow: "var(--nav-shell-shadow)",
       }}
     >
-      {/*
-      Previous direct theme selection logic preserved for rollback.
-      {themes.map((item) => {
-        const selected = activeTheme === item.key;
-        const Icon = iconMap[item.key];
-
-        return (
-          <button
-            key={item.key}
-            type="button"
-            role="radio"
-            aria-checked={selected}
-            aria-label={item.name}
-            title={item.name}
-            onClick={() => setTheme(item.key)}
-            className={[
-              "inline-flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ease-out",
-              selected
-                ? "scale-105 border-primary bg-primary text-primary-foreground shadow-soft"
-                : "border-transparent text-muted hover:scale-105 hover:border-border hover:[background-color:var(--nav-link-hover-bg)] hover:[color:var(--nav-link-hover-text)]",
-            ].join(" ")}
-          >
-            <Icon className="h-[0.95rem] w-[0.95rem]" />
-          </button>
-        );
-      })}
-      */}
-
       <button
         type="button"
         aria-label={`Switch theme, currently ${activeTheme}`}
         title={`Switch theme, currently ${activeTheme}`}
         onClick={handleCycleTheme}
-        className="inline-flex h-[var(--layout-toggle-button-size)] w-[var(--layout-toggle-button-size)] items-center justify-center rounded-[var(--layout-pill-radius)] border border-transparent text-muted transition-all duration-300 ease-out hover:scale-105 hover:border-border hover:[background-color:var(--nav-link-hover-bg)] hover:[color:var(--nav-link-hover-text)]"
+        className="inline-flex h-[var(--layout-toggle-button-size)] w-[var(--layout-toggle-button-size)] items-center justify-center rounded-[var(--layout-pill-radius)] border border-transparent text-muted transition-colors duration-200 hover:border-border hover:[background-color:var(--nav-link-hover-bg)] hover:[color:var(--nav-link-hover-text)]"
         style={{
-          boxShadow: activeButtonGlow,
+          boxShadow: "var(--theme-toggle-shadow)",
         }}
       >
-        <ActiveIcon className={`h-[var(--layout-toggle-icon-size)] w-[var(--layout-toggle-icon-size)] transition-transform duration-300 ease-out ${iconRotation}`} />
+        <ActiveIcon
+          className={cn(
+            "h-[var(--layout-toggle-icon-size)] w-[var(--layout-toggle-icon-size)] transition-transform duration-200 ease-out",
+          )}
+          style={{
+            transform: "rotate(var(--theme-toggle-icon-rotate))",
+          }}
+        />
       </button>
     </div>
   );

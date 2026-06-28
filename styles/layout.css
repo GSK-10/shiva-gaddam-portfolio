@@ -1,4 +1,6 @@
 :root {
+  /* Layout tokens are the single source of truth for spacing and sizing.
+     Edit these first before touching per-component classes. */
   /* Navbar shell sizing */
   --layout-navbar-width: 18rem;
   --layout-navbar-container-width: 19rem;
@@ -16,9 +18,6 @@
   --layout-navbar-link-compact-size: var(--layout-navbar-link-size);
 
   /* Navbar spacing and shell rhythm */
-  --layout-navbar-shell-radius: 0.95rem;
-  --layout-navbar-shell-padding-x: 0.34rem;
-  --layout-navbar-shell-padding-y: 0.08rem;
   --layout-navbar-link-padding-x: 0.38rem;
   --layout-navbar-brand-padding-x: 0.44rem;
   --layout-navbar-brand-padding-y: 0.18rem;
@@ -28,6 +27,7 @@
   /* Shared page content sizing */
   --layout-section-padding-y: 3.25rem;
   --layout-section-gap: 0.9rem;
+  --layout-collection-gap: 1rem;
   --layout-content-width: 80rem;
 
   /* Section heading sizing */
@@ -67,14 +67,12 @@
     --layout-navbar-link-size: 0.58rem;
     --layout-navbar-brand-size: var(--layout-navbar-logo-size);
     --layout-navbar-link-compact-size: var(--layout-navbar-link-size);
-    --layout-navbar-shell-radius: 1rem;
-    --layout-navbar-shell-padding-x: 0.4rem;
-    --layout-navbar-shell-padding-y: 0.08rem;
     --layout-navbar-link-padding-x: 0.44rem;
     --layout-navbar-brand-padding-x: 0.48rem;
     --layout-navbar-brand-padding-y: 0.2rem;
     --layout-section-padding-y: 3.75rem;
     --layout-section-gap: 1rem;
+    --layout-collection-gap: 1rem;
     --layout-heading-eyebrow-size: 0.72rem;
     --layout-heading-title-size: 2.1rem;
     --layout-hero-padding-y: 3.6rem;
@@ -100,14 +98,12 @@
     --layout-navbar-link-size: 0.64rem;
     --layout-navbar-brand-size: var(--layout-navbar-logo-size);
     --layout-navbar-link-compact-size: var(--layout-navbar-link-size);
-    --layout-navbar-shell-radius: 1.04rem;
-    --layout-navbar-shell-padding-x: 0.48rem;
-    --layout-navbar-shell-padding-y: 0.09rem;
     --layout-navbar-link-padding-x: 0.5rem;
     --layout-navbar-brand-padding-x: 0.54rem;
     --layout-navbar-brand-padding-y: 0.22rem;
     --layout-section-padding-y: 4.25rem;
     --layout-section-gap: 1.15rem;
+    --layout-collection-gap: 1rem;
     --layout-heading-eyebrow-size: 0.78rem;
     --layout-heading-title-size: 2.45rem;
     --layout-hero-padding-y: 4.05rem;
@@ -137,16 +133,13 @@
     --layout-navbar-brand-size: var(--layout-navbar-logo-size);
     --layout-navbar-link-compact-size: var(--layout-navbar-link-size);
 
-    --layout-navbar-shell-radius: 1.12rem;
-    --layout-navbar-shell-padding-x: 0.6rem;
-    --layout-navbar-shell-padding-y: 0.12rem;
-
     --layout-navbar-link-padding-x: 0.86rem;
     --layout-navbar-brand-padding-x: 0.56rem;
     --layout-navbar-brand-padding-y: 0.10rem;
     
     --layout-section-padding-y: 5rem;
     --layout-section-gap: 1.4rem;
+    --layout-collection-gap: 1rem;
     --layout-section-heading-title-weight: 400;
 
     --layout-heading-eyebrow-size: 0.86rem;

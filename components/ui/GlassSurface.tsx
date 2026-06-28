@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from "react";
+import { cn } from "@/lib/utils";
 
 type GlassSurfaceProps = PropsWithChildren<{
   className?: string;
@@ -7,14 +8,10 @@ type GlassSurfaceProps = PropsWithChildren<{
 export function GlassSurface({ children, className = "" }: GlassSurfaceProps) {
   return (
     <div
-      className={[
-        "rounded-[var(--layout-surface-radius)] border text-card-foreground shadow-soft backdrop-blur-2xl",
-        "border-[color:var(--glass-border)] bg-[color:var(--surface-glass)]",
+      className={cn(
+        "theme-surface theme-surface-interactive rounded-[var(--layout-surface-radius)] border text-card-foreground shadow-soft",
         className,
-      ].join(" ")}
-      style={{
-        boxShadow: "var(--shadow-card)",
-      }}
+      )}
     >
       {children}
     </div>

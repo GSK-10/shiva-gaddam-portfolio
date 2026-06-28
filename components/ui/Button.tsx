@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
+import { cn } from "@/lib/utils";
 
 type AnchorButtonProps = {
   href: string;
@@ -15,17 +16,18 @@ type ButtonProps =
   | NativeButtonProps;
 
 export function Button(props: ButtonProps) {
-  const base = "inline-flex items-center rounded-[var(--layout-pill-radius)] px-4 py-2 text-sm font-medium transition";
+  const base =
+    "inline-flex items-center rounded-[var(--layout-pill-radius)] border px-4 py-2 text-sm font-medium transition-colors duration-200";
   const variant = props.variant ?? "primary";
   const variantClass =
     variant === "secondary"
-      ? "border border-border bg-transparent text-foreground"
-      : "bg-primary text-primary-foreground";
+      ? "border-border bg-transparent text-foreground hover:bg-[color:var(--accent-soft)]"
+      : "border-transparent bg-primary text-primary-foreground hover:opacity-90";
 
   if ("href" in props) {
     const { href, className = "", children, variant: _variant, ...rest } = props as AnchorButtonProps;
     return (
-      <a href={href} className={`${base} ${variantClass} ${className}`.trim()} {...rest}>
+      <a href={href} className={cn(base, variantClass, className)} {...rest}>
         {children}
       </a>
     );
@@ -33,7 +35,7 @@ export function Button(props: ButtonProps) {
 
   const { className = "", children, variant: _variant, ...rest } = props as NativeButtonProps;
   return (
-    <button className={`${base} ${variantClass} ${className}`.trim()} {...rest}>
+    <button className={cn(base, variantClass, className)} {...rest}>
       {children}
     </button>
   );
