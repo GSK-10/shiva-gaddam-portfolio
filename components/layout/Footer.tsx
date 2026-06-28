@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { siteConfig } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -24,12 +25,13 @@ export function Footer() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={cn("group relative text-muted transition-colors duration-200")}
+                  className={cn("group relative inline-flex items-center gap-1 text-muted transition-colors duration-200")}
                   style={{
                     color: "var(--color-muted)",
                   }}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 translate-y-[-1px] transition-transform duration-200 ease-out group-hover:translate-x-[1px] group-hover:translate-y-[-2px]" />
                   <span
                     aria-hidden="true"
                     className="absolute inset-x-0 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"

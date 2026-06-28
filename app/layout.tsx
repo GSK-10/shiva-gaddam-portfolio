@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     description: siteConfig.headline,
     images: [
       {
-        url: "/images/share_preview_image.jpg",
+        url: "/images/share_preview_image_v2.png",
         width: 1200,
         height: 630,
         alt: "Shiva Gaddam | Software Engineer preview image",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     description: siteConfig.headline,
     images: [
       {
-        url: "/images/share_preview_image.jpg",
+        url: "/images/share_preview_image_v2.png",
         width: 1200,
         height: 630,
         alt: "Shiva Gaddam | Software Engineer preview image",
