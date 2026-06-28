@@ -9,7 +9,7 @@ export function Navbar() {
       <Container className="max-w-[var(--layout-navbar-container-width)]">
         <nav
           aria-label="Primary"
-          className="theme-shell mx-auto flex w-[var(--layout-navbar-width)] min-h-[var(--layout-navbar-height)] items-center justify-between gap-[var(--layout-navbar-gap)] overflow-hidden rounded-[var(--layout-navbar-radius)] border px-[var(--layout-navbar-padding-x)] py-[var(--layout-navbar-padding-y)]"
+          className="theme-shell mx-auto flex w-[var(--layout-navbar-width)] min-h-[var(--layout-navbar-height)] items-center justify-between gap-[var(--layout-navbar-gap)] rounded-[var(--layout-navbar-radius)] border px-[var(--layout-navbar-padding-x)] py-[var(--layout-navbar-padding-y)]"
         >
           <a
             href="#hero"
