@@ -79,9 +79,3 @@ body {
   background: var(--selection-bg);
   color: var(--selection-text);
 }
-
-@media (max-width: 768px) {
-  html {
-    scroll-behavior: auto;
-  }
-}
