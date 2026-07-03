@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Hanken_Grotesk, JetBrains_Mono, Newsreader } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Providers } from "@/components/providers";
 import { siteConfig, siteSeo } from "@/content/site";
+import { defaultTheme, themeKeys } from "@/content/themes";
 import "./globals.css";
 
 const THEME_STORAGE_KEY = "portfolio-theme";
@@ -12,8 +13,8 @@ const THEME_STORAGE_KEY = "portfolio-theme";
 const THEME_BOOTSTRAP_SCRIPT = `
   (() => {
     const storageKey = "${THEME_STORAGE_KEY}";
-    const fallbackTheme = "light";
-    const allowedThemes = new Set(["light", "dark", "ember"]);
+    const fallbackTheme = "${defaultTheme}";
+    const allowedThemes = new Set(${JSON.stringify([...themeKeys])});
 
     try {
       const storedTheme = window.localStorage.getItem(storageKey);
@@ -21,10 +22,11 @@ const THEME_BOOTSTRAP_SCRIPT = `
       const root = document.documentElement;
 
       root.setAttribute("data-theme", theme);
-      root.classList.toggle("dark", theme === "dark");
       root.style.colorScheme = theme === "light" ? "light" : "dark";
     } catch {
-      document.documentElement.setAttribute("data-theme", fallbackTheme);
+      const root = document.documentElement;
+      root.setAttribute("data-theme", fallbackTheme);
+      root.style.colorScheme = fallbackTheme === "light" ? "light" : "dark";
     }
   })();
 `;
@@ -55,18 +57,25 @@ const structuredData = {
   ],
 };
 
-const sans = Manrope({
+const sans = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-sans",
 });
 
-const display = Fraunces({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["500", "600"],
   display: "swap",
-  variable: "--font-display",
+  variable: "--font-mono",
+});
+
+const serif = Newsreader({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -101,6 +110,7 @@ export const metadata: Metadata = {
     title: siteSeo.title,
     description: siteSeo.description,
     images: [siteSeo.shareImage.url],
+    site: siteSeo.twitterHandle,
   },
   robots: {
     index: true,
@@ -129,7 +139,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${sans.variable} ${display.variable}`}>
+      <body className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
         <Providers>
           <Navbar />
           {children}

@@ -2,7 +2,7 @@
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { PropsWithChildren } from "react";
-import { defaultTheme } from "@/content/themes";
+import { defaultTheme, themeKeys } from "@/content/themes";
 
 export function Providers({ children }: PropsWithChildren) {
   return (
@@ -12,7 +12,7 @@ export function Providers({ children }: PropsWithChildren) {
       enableSystem={false}
       disableTransitionOnChange
       storageKey="portfolio-theme"
-      themes={["light", "dark", "ember"]}
+      themes={[...themeKeys]}
     >
       {children}
     </NextThemesProvider>

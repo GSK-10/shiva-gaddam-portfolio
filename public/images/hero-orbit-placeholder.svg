@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="70" x2="520" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A6B9FF"/>
+      <stop offset="1" stop-color="#7C91E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="300" fill="url(#bg)"/>
+  <circle cx="300" cy="300" r="214" fill="#EEF3FF" fill-opacity=".3"/>
+  <circle cx="190" cy="198" r="34" fill="#EEF3FF" fill-opacity=".42"/>
+  <circle cx="404" cy="176" r="22" fill="#EEF3FF" fill-opacity=".38"/>
+  <circle cx="420" cy="390" r="30" fill="#EEF3FF" fill-opacity=".34"/>
+  <path d="M188 379c34-62 89-100 151-100 36 0 69 13 97 37-35 59-90 99-151 99-37 0-70-13-97-36Z" fill="#F9FBFF" fill-opacity=".78"/>
+  <path d="M237 258c18-19 39-28 63-28 23 0 45 10 60 28" stroke="#F9FBFF" stroke-width="16" stroke-linecap="round"/>
+  <path d="M216 220h168" stroke="#F9FBFF" stroke-opacity=".68" stroke-width="10" stroke-linecap="round"/>
+  <path d="M210 438c33-16 61-22 90-22 34 0 61 8 96 28" stroke="#F9FBFF" stroke-opacity=".75" stroke-width="16" stroke-linecap="round"/>
+  <text x="300" y="525" fill="#F9FBFF" font-family="Georgia, serif" font-size="44" text-anchor="middle">Tap to Reveal</text>
+</svg>

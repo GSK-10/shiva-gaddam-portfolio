@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Container } from "@/components/layout/Container";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -5,7 +6,10 @@ import { navigationItems } from "@/content/navigation";
 
 export function Navbar() {
   return (
-    <header className="sticky top-4 z-50 px-3 sm:px-4">
+    <header
+      className="motion-fade-up sticky top-4 z-50 px-3 sm:px-4"
+      style={{ "--motion-delay": "80ms" } as CSSProperties}
+    >
       <Container className="max-w-[var(--layout-navbar-container-width)]">
         <nav
           aria-label="Primary"
@@ -13,12 +17,12 @@ export function Navbar() {
         >
           <a
             href="#hero"
-            className="inline-flex shrink-0 items-center rounded-[var(--layout-navbar-inner-radius)] border px-[var(--layout-navbar-brand-padding-x)] py-[var(--layout-navbar-brand-padding-y)] tracking-[-0.01em] transition-colors duration-200"
+            className="inline-flex shrink-0 pt-1.5 items-center rounded-[var(--layout-navbar-inner-radius)] border px-[var(--layout-navbar-brand-padding-x)] py-[var(--layout-navbar-brand-padding-y)] tracking-[-0.01em] transition-colors duration-200"
             style={{
               borderColor: "var(--nav-shell-border)",
               backgroundColor: "var(--nav-brand-bg)",
               color: "var(--nav-brand-text)",
-              fontFamily: "var(--font-display)",
+              fontFamily: "var(--font-brand)",
               fontSize: "var(--layout-navbar-brand-size)",
             }}
           >
@@ -39,6 +43,7 @@ export function Navbar() {
                   href={item.href}
                   className="group relative rounded-full px-[var(--layout-navbar-link-padding-x)] font-semibold uppercase tracking-[0.08em] transition-colors duration-300 hover:[color:var(--nav-link-hover-text)]"
                   style={{
+                    fontFamily: "var(--font-sans)",
                     color: "var(--color-muted)",
                     fontSize: "var(--layout-navbar-link-compact-size)",
                   }}

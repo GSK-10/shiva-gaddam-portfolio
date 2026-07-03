@@ -10,7 +10,10 @@ export function SectionHeading({ eyebrow, children }: SectionHeadingProps) {
       {eyebrow ? (
         <p
           className="uppercase tracking-[0.25em] text-muted"
-          style={{ fontSize: "var(--layout-section-heading-eyebrow-size)" }}
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "var(--layout-section-heading-eyebrow-size)",
+          }}
         >
           {eyebrow}
         </p>
@@ -18,7 +21,7 @@ export function SectionHeading({ eyebrow, children }: SectionHeadingProps) {
       <h2
         className="tracking-tight"
         style={{
-          fontFamily: "var(--font-display)",
+          fontFamily: "var(--font-serif)",
           fontSize: "var(--layout-section-heading-title-size)",
           fontWeight: "var(--layout-section-heading-title-weight)",
         }}

@@ -3,24 +3,24 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Flame, MoonStar, SunMedium } from "lucide-react";
-import { themes } from "@/content/themes";
+import { defaultTheme, themeKeys } from "@/content/themes";
 import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [initialTheme, setInitialTheme] = useState("light");
+  const [initialTheme, setInitialTheme] = useState(defaultTheme);
 
   useEffect(() => {
     const rootTheme = document.documentElement.getAttribute("data-theme");
-    if (rootTheme) {
-      setInitialTheme(rootTheme);
+    if (rootTheme && themeOrder.includes(rootTheme as (typeof themeOrder)[number])) {
+      setInitialTheme(rootTheme as (typeof themeOrder)[number]);
     }
     setMounted(true);
   }, []);
 
   const activeTheme = mounted ? theme ?? resolvedTheme ?? initialTheme : initialTheme;
-  const themeOrder = themes.map((item) => item.key);
+  const themeOrder = [...themeKeys];
 
   const iconMap = {
     light: SunMedium,
