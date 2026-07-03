@@ -15,12 +15,14 @@ export type HeroContent = {
   };
   orbitReveal: {
     defaultImage: string;
-    revealedImage: string;
     defaultAlt: string;
-    revealedAlt: string;
     hintLabel: string;
     revealAriaLabel: string;
     resetAriaLabel: string;
+    revealQuote: string;
+    revealMarker: string;
+    revealWord: string;
+    revealAccentIndex: number;
   };
 };
 
@@ -45,11 +47,13 @@ export const heroContent: HeroContent = {
   },
   orbitReveal: {
     defaultImage: "/images/hero-orbit-reveal.png",
-    revealedImage: "/images/hero-orbit-placeholder.png",
     defaultAlt: "Portrait of Shiva Kumar Reddy Gaddam",
-    revealedAlt: "ADAPT motto artwork",
     hintLabel: "Click Me",
-    revealAriaLabel: "Reveal ADAPT artwork",
+    revealAriaLabel: "Reveal ADAPT message",
     resetAriaLabel: "Show portrait again",
+    revealQuote: "Changes happen.",
+    revealMarker: "I",
+    revealWord: "ADAPT",
+    revealAccentIndex: 3,
   },
 };

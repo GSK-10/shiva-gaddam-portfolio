@@ -62,6 +62,9 @@
   --layout-hero-orbit-dot-size: 0.8rem;
   --layout-hero-orbit-dot-offset: 1rem;
   --layout-hero-button-radius: 1rem;
+  --layout-hero-orbit-quote-size: 0.6rem;
+  --layout-hero-orbit-marker-size: 0.55rem;
+  --layout-hero-orbit-word-size: 0.9rem;
 
   /* Theme toggle sizing */
   --layout-toggle-shell-padding: 0.08rem;
@@ -115,6 +118,9 @@
     --layout-hero-orbit-dot-size: 0.85rem;
     --layout-hero-orbit-dot-offset: 1.05rem;
     --layout-hero-button-radius: 1rem;
+    --layout-hero-orbit-quote-size: 1rem;
+    --layout-hero-orbit-marker-size: 0.5rem;
+    --layout-hero-orbit-word-size: 1rem;
     --layout-toggle-button-size: 1.95rem;
     --layout-toggle-icon-size: 0.98rem;
     --layout-menu-button-size: 1.95rem;
@@ -163,6 +169,9 @@
     --layout-hero-orbit-dot-size: 0.9rem;
     --layout-hero-orbit-dot-offset: 1.1rem;
     --layout-hero-button-radius: 1rem;
+    --layout-hero-orbit-quote-size: 0.9rem;
+    --layout-hero-orbit-marker-size: 0.6rem;
+    --layout-hero-orbit-word-size: 1.3rem;
     --layout-toggle-button-size: 2.05rem;
     --layout-toggle-icon-size: 1.02rem;
     --layout-menu-button-size: 2.05rem;
@@ -219,6 +228,9 @@
     --layout-hero-orbit-dot-size: 0.95rem;
     --layout-hero-orbit-dot-offset: 1.2rem;
     --layout-hero-button-radius: 0.6rem;
+    --layout-hero-orbit-quote-size: 1.5rem;
+    --layout-hero-orbit-marker-size: 1rem;
+    --layout-hero-orbit-word-size: 2.5rem;
     
     --layout-toggle-shell-padding: 0.12rem;
     --layout-toggle-button-size: 2.0rem;

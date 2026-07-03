@@ -67,12 +67,14 @@ export function Hero() {
                   size="var(--layout-hero-orbit-size-mobile)"
                   delay="180ms"
                   defaultImage={heroContent.orbitReveal.defaultImage}
-                  revealedImage={heroContent.orbitReveal.revealedImage}
                   defaultAlt={heroContent.orbitReveal.defaultAlt}
-                  revealedAlt={heroContent.orbitReveal.revealedAlt}
                   hintLabel={heroContent.orbitReveal.hintLabel}
                   revealAriaLabel={heroContent.orbitReveal.revealAriaLabel}
                   resetAriaLabel={heroContent.orbitReveal.resetAriaLabel}
+                  revealQuote={heroContent.orbitReveal.revealQuote}
+                  revealMarker={heroContent.orbitReveal.revealMarker}
+                  revealWord={heroContent.orbitReveal.revealWord}
+                  revealAccentIndex={heroContent.orbitReveal.revealAccentIndex}
                 />
               </div>
 
@@ -106,7 +108,7 @@ export function Hero() {
                 </span>
               </div>
               <h1
-                className="motion-fade-up mt-10 max-w-4xl tracking-[-0.03em]"
+                className="motion-fade-up mt-8 max-w-4xl tracking-[-0.03em]"
                 style={{
                   "--motion-delay": "220ms",
                   fontFamily: "var(--font-serif)",
@@ -226,12 +228,14 @@ export function Hero() {
                 size="var(--layout-hero-orbit-size)"
                 delay="240ms"
                 defaultImage={heroContent.orbitReveal.defaultImage}
-                revealedImage={heroContent.orbitReveal.revealedImage}
                 defaultAlt={heroContent.orbitReveal.defaultAlt}
-                revealedAlt={heroContent.orbitReveal.revealedAlt}
                 hintLabel={heroContent.orbitReveal.hintLabel}
                 revealAriaLabel={heroContent.orbitReveal.revealAriaLabel}
                 resetAriaLabel={heroContent.orbitReveal.resetAriaLabel}
+                revealQuote={heroContent.orbitReveal.revealQuote}
+                revealMarker={heroContent.orbitReveal.revealMarker}
+                revealWord={heroContent.orbitReveal.revealWord}
+                revealAccentIndex={heroContent.orbitReveal.revealAccentIndex}
               />
             </div>
           </div>

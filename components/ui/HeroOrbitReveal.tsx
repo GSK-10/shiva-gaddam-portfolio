@@ -9,12 +9,14 @@ type HeroOrbitRevealProps = {
   size: string;
   delay?: string;
   defaultImage: string;
-  revealedImage: string;
   defaultAlt: string;
-  revealedAlt: string;
   hintLabel: string;
   revealAriaLabel: string;
   resetAriaLabel: string;
+  revealQuote: string;
+  revealMarker: string;
+  revealWord: string;
+  revealAccentIndex: number;
 };
 
 export function HeroOrbitReveal({
@@ -22,12 +24,14 @@ export function HeroOrbitReveal({
   size,
   delay = "0ms",
   defaultImage,
-  revealedImage,
   defaultAlt,
-  revealedAlt,
   hintLabel,
   revealAriaLabel,
   resetAriaLabel,
+  revealQuote,
+  revealMarker,
+  revealWord,
+  revealAccentIndex,
 }: HeroOrbitRevealProps) {
   const [revealed, setRevealed] = useState(false);
 
@@ -69,13 +73,60 @@ export function HeroOrbitReveal({
             revealed ? "opacity-100 blur-0 scale-100" : "opacity-0 blur-md scale-[0.98]"
           }`}
         >
-          <Image
-            src={revealedImage}
-            alt={revealedAlt}
-            fill
-            className="object-cover"
-            sizes="(min-width: 1024px) 384px, 168px"
-          />
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 grid place-content-center justify-items-center gap-[clamp(0.35rem,2vw,0.85rem)] px-[14%] py-[16%] text-center"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 38%, var(--surface-card-muted), rgb(var(--color-background)) 78%)",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontStyle: "italic",
+                fontSize: "var(--layout-hero-orbit-quote-size)",
+                lineHeight: 1.18,
+                color: "rgb(var(--color-foreground))",
+                maxWidth: "11ch",
+              }}
+            >
+              {revealQuote}
+            </span>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "var(--layout-hero-orbit-marker-size)",
+                letterSpacing: "0.24em",
+                textTransform: "uppercase",
+                color: "rgb(var(--color-muted))",
+              }}
+            >
+              {revealMarker}
+            </span>
+            <span
+              aria-label={revealWord}
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontWeight: 700,
+                fontSize: "var(--layout-hero-orbit-word-size)",
+                letterSpacing: "0.14em",
+                lineHeight: 1,
+                color: "rgb(var(--color-foreground))",
+              }}
+            >
+              {revealWord.split("").map((letter, index) => (
+                <span
+                  key={`${letter}-${index}`}
+                  style={{
+                    color: index === revealAccentIndex ? "rgb(var(--color-primary))" : undefined,
+                  }}
+                >
+                  {letter}
+                </span>
+              ))}
+            </span>
+          </span>
         </span>
       </span>
 
