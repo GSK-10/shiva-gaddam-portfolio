@@ -135,7 +135,7 @@ export function Hero() {
               </h1>
               
               <p
-                className="motion-fade-up mt-6 max-w-2xl text-balance text-[1.6rem] leading-none text-foreground sm:text-[1.95rem]"
+                className="motion-fade-up mt-6 max-w-2xl text-balance text-[1.3rem] leading-none text-foreground sm:text-[1.95rem]"
                 style={{ "--motion-delay": "320ms", fontFamily: "var(--font-serif)" } as CSSProperties}
               >
                 {heroContent.statement.prefix} <em className="text-primary italic">{heroContent.statement.accent}</em>{" "}
@@ -152,6 +152,7 @@ export function Hero() {
                     borderRadius: "var(--layout-hero-button-radius)",
                     paddingInline: "1.25rem",
                     paddingBlock: "0.625rem",
+                    fontSize: "0.84rem",
                   }}
                 >
                   View My Work
@@ -165,6 +166,7 @@ export function Hero() {
                     borderRadius: "var(--layout-hero-button-radius)",
                     paddingInline: "1.25rem",
                     paddingBlock: "0.625rem",
+                    fontSize: "0.84rem",
                   }}
                 >
                   View Resume
@@ -172,7 +174,7 @@ export function Hero() {
               </div>
               
               <div
-                className="motion-fade-up mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm"
+                className="motion-fade-up mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.78rem] sm:text-sm"
                 style={{ "--motion-delay": "520ms" } as CSSProperties}
               >
                 {siteConfig.profileLinks.map((link) => (
@@ -208,7 +210,7 @@ export function Hero() {
                 {heroHighlights.map((item) => (
                   <span
                     key={item}
-                    className="inline-flex items-center border px-3.5 py-1.5 text-[0.84rem] text-foreground"
+                    className="inline-flex items-center border px-3 py-1.5 text-[0.72rem] text-foreground sm:px-3.5 sm:text-[0.84rem]"
                     style={{
                       fontFamily: "var(--font-mono)",
                       borderRadius: "var(--layout-hero-button-radius)",

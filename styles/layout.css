@@ -47,10 +47,10 @@
   --layout-hero-grid-gap: 1rem;
   --layout-hero-shell-padding: 1.35rem;
   --layout-hero-min-height: calc(100vh - 5.75rem);
-  --layout-hero-name-size: 2.6rem;
+  --layout-hero-name-size: 2rem;
   --layout-hero-name-weight: 400;
-  --layout-hero-eyebrow-size: 0.7rem;
-  --layout-hero-eyebrow-dot-size: 0.4rem;
+  --layout-hero-eyebrow-size: 0.5rem;
+  --layout-hero-eyebrow-dot-size: 0.3rem;
   --layout-hero-meta-size: 0.84rem;
   --layout-hero-copy-size: 1.15rem;
   --layout-hero-panel-padding: 1rem;
@@ -62,9 +62,9 @@
   --layout-hero-orbit-dot-size: 0.8rem;
   --layout-hero-orbit-dot-offset: 1rem;
   --layout-hero-button-radius: 1rem;
-  --layout-hero-orbit-quote-size: 0.6rem;
-  --layout-hero-orbit-marker-size: 0.55rem;
-  --layout-hero-orbit-word-size: 0.9rem;
+  --layout-hero-orbit-quote-size: 0.52rem;
+  --layout-hero-orbit-marker-size: 0.42rem;
+  --layout-hero-orbit-word-size: 0.78rem;
 
   /* Theme toggle sizing */
   --layout-toggle-shell-padding: 0.08rem;
