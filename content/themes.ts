@@ -18,6 +18,12 @@ export type ThemePreview = {
   };
 };
 
+/* Single source of truth for:
+   - the available theme keys
+   - the toggle cycle order
+   - the first/default theme */
+export const themeKeys = ["dark", "light", "ember"] as const;
+
 export const themes: ThemePreview[] = [
   {
     key: "light",
@@ -72,4 +78,4 @@ export const themes: ThemePreview[] = [
   },
 ];
 
-export const defaultTheme: ThemeKey = "light";
+export const defaultTheme: ThemeKey = themeKeys[0];

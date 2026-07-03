@@ -1,8 +1,10 @@
 :root {
   /* Typography is injected by next/font in app/layout.tsx. */
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Manrope", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-brand: var(--font-serif);
+  --font-accent: var(--font-serif);
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
@@ -41,6 +43,8 @@
   --selection-bg: var(--accent);
   --selection-text: #ffffff;
   --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
+  --scrollbar-track: rgba(232, 241, 255, 0.7);
+  --scrollbar-thumb-border: rgba(247, 251, 255, 0.9);
 
   /* Component-specific tokens. Edit these when you want a themed variant,
      not when you are changing semantic colors globally. */
@@ -61,8 +65,7 @@
     linear-gradient(180deg, rgb(247 251 255) 0%, rgb(238 244 255) 56%, rgb(232 241 255) 100%);
 }
 
-[data-theme="dark"],
-.dark {
+[data-theme="dark"] {
   --color-background: 17 23 38;
   --color-foreground: 237 243 255;
   --color-muted: 154 169 200;
@@ -87,6 +90,8 @@
   --selection-bg: var(--accent);
   --selection-text: #0a1018;
   --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
+  --scrollbar-track: rgba(13, 20, 32, 0.72);
+  --scrollbar-thumb-border: rgba(17, 23, 38, 0.94);
 
   --nav-shell-bg: rgb(17 23 38 / 0.94);
   --nav-shell-border: rgb(139 162 209 / 0.18);
@@ -129,6 +134,8 @@
   --selection-bg: var(--accent);
   --selection-text: #130d0b;
   --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
+  --scrollbar-track: rgba(26, 18, 15, 0.72);
+  --scrollbar-thumb-border: rgba(36, 23, 20, 0.94);
 
   --nav-shell-bg: rgb(36 23 20 / 0.94);
   --nav-shell-border: rgb(215 161 122 / 0.16);

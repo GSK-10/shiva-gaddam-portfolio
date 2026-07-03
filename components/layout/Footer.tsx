@@ -25,6 +25,8 @@ export function Footer() {
                 <a
                   key={link.href}
                   href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className={cn("group relative inline-flex items-center gap-1 text-muted transition-colors duration-200")}
                   style={{
                     color: "var(--color-muted)",
