@@ -45,7 +45,7 @@ export function MobileNav({ items }: MobileNavProps) {
   }, [open]);
 
   return (
-    <div ref={containerRef} className="relative md:hidden">
+    <div ref={containerRef} className="relative shrink-0 md:hidden">
       <div className="flex items-center gap-1">
         <ThemeToggle />
         <button
@@ -67,11 +67,11 @@ export function MobileNav({ items }: MobileNavProps) {
       <div
         id="mobile-navigation"
         className={cn(
-          "theme-shell absolute right-0 top-[calc(100%+0.75rem)] z-50 min-w-52 rounded-[var(--layout-surface-radius)] border p-2 shadow-soft transition-[opacity,transform,visibility] duration-200 ease-out",
+          "theme-shell absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(16rem,calc(100vw-2rem))] rounded-[var(--layout-surface-radius)] border p-2 shadow-soft transition-[opacity,transform,visibility] duration-200 ease-out",
           open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0",
         )}
       >
-        <div className="border-b border-[color:var(--surface-border)] px-3 pb-2 pt-1 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-muted">
+        <div className="border-b border-[color:var(--surface-border)] px-3 pb-2 pt-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted">
           Menu
         </div>
         <div className="grid gap-[var(--layout-menu-panel-gap)]">
@@ -80,7 +80,8 @@ export function MobileNav({ items }: MobileNavProps) {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-[calc(var(--layout-surface-radius)-0.5rem)] px-3 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-muted transition-colors duration-300 hover:[color:var(--nav-link-hover-text)]"
+              className="rounded-[calc(var(--layout-surface-radius)-0.2rem)] px-3 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-muted transition-colors duration-300 hover:[color:var(--nav-link-hover-text)]"
+              style={{ fontFamily: "var(--font-serif)" }}
             >
               {item.label}
             </a>

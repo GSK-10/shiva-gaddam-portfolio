@@ -2,13 +2,13 @@
   /* Layout tokens are the single source of truth for spacing and sizing.
      Edit these first before touching per-component classes. */
   /* Navbar shell sizing */
-  --layout-navbar-width: 18rem;
-  --layout-navbar-container-width: 19rem;
-  --layout-navbar-height: 2.35rem;
-  --layout-navbar-radius: 1.3rem;
-  --layout-navbar-inner-radius: 0.9rem;
-  --layout-navbar-padding-x: 0.4rem;
-  --layout-navbar-padding-y: 0.2rem;
+  --layout-navbar-width: 100%;
+  --layout-navbar-container-width: 100%;
+  --layout-navbar-height: 2.85rem;
+  --layout-navbar-radius: 0.35rem;
+  --layout-navbar-inner-radius: 0.15rem;
+  --layout-navbar-padding-x: 0.55rem;
+  --layout-navbar-padding-y: 0.24rem;
   --layout-navbar-gap: 0.4rem;
 
   /* Navbar text scale */
@@ -18,14 +18,14 @@
   --layout-navbar-link-compact-size: var(--layout-navbar-link-size);
 
   /* Navbar spacing and shell rhythm */
-  --layout-navbar-link-padding-x: 0.38rem;
-  --layout-navbar-brand-padding-x: 0.5rem;
-  --layout-navbar-brand-padding-y: 0.16rem;
-  --layout-navbar-link-underline-height: 1.5px;
-  --layout-navbar-link-underline-offset: -0.15rem;
+  --layout-navbar-link-padding-x: 0.48rem;
+  --layout-navbar-brand-padding-x: 0.6rem;
+  --layout-navbar-brand-padding-y: 0.24rem;
+  --layout-navbar-link-underline-height: 1px;
+  --layout-navbar-link-underline-offset: -0.2rem;
 
   /* Shared page content sizing */
-  --layout-section-padding-y: 3.25rem;
+  --layout-section-padding-y: 3.5rem;
   --layout-section-gap: 0.9rem;
   --layout-collection-gap: 1rem;
   --layout-content-width: 80rem;
@@ -33,95 +33,95 @@
   /* Section heading sizing */
   --layout-heading-eyebrow-size: 0.64rem;
   --layout-section-heading-eyebrow-size: var(--layout-heading-eyebrow-size);
-  --layout-heading-title-size: 1.85rem;
+  --layout-heading-title-size: 1.7rem;
   --layout-section-heading-title-size: var(--layout-heading-title-size);
   --layout-section-heading-title-weight: 700;
 
   /* Reusable surface and pill shapes */
-  --layout-surface-radius: 1.5rem;
-  --layout-pill-radius: 999px;
+  --layout-surface-radius: 0.5rem;
+  --layout-pill-radius: 0.15rem;
 
   /* Hero sizing */
-  --layout-hero-padding-y: 3.25rem;
-  --layout-hero-start-offset: 1rem;
+  --layout-hero-padding-y: 2rem;
+  --layout-hero-start-offset: 0.5rem;
   --layout-hero-grid-gap: 1rem;
-  --layout-hero-shell-padding: 1.35rem;
-  --layout-hero-min-height: calc(100vh - 5.75rem);
-  --layout-hero-name-size: 2rem;
-  --layout-hero-name-weight: 400;
-  --layout-hero-eyebrow-size: 0.5rem;
-  --layout-hero-eyebrow-dot-size: 0.3rem;
+  --layout-hero-shell-padding: 1rem;
+  --layout-hero-min-height: calc(100vh - 5rem);
+  --layout-hero-name-size: 2.2rem;
+  --layout-hero-name-weight: 700;
+  --layout-hero-eyebrow-size: 0.56rem;
+  --layout-hero-eyebrow-dot-size: 0.22rem;
   --layout-hero-meta-size: 0.84rem;
-  --layout-hero-copy-size: 1.15rem;
+  --layout-hero-copy-size: 1rem;
   --layout-hero-panel-padding: 1rem;
-  --layout-hero-panel-title-size: 0.74rem;
-  --layout-hero-monogram-size: 2rem;
-  --layout-hero-orbit-size-mobile: 6.5rem;
+  --layout-hero-panel-title-size: 0.68rem;
+  --layout-hero-monogram-size: 1.65rem;
+  --layout-hero-orbit-size-mobile: 5.75rem;
   --layout-hero-orbit-ring-offset-mobile: 0.7rem;
-  --layout-hero-orbit-size: 15.5rem;
+  --layout-hero-orbit-size: 14rem;
   --layout-hero-orbit-dot-size: 0.8rem;
   --layout-hero-orbit-dot-offset: 1rem;
-  --layout-hero-button-radius: 1rem;
-  --layout-hero-orbit-quote-size: 0.52rem;
+  --layout-hero-button-radius: 0.12rem;
+  --layout-hero-orbit-quote-size: 0.6rem;
   --layout-hero-orbit-marker-size: 0.42rem;
   --layout-hero-orbit-word-size: 0.78rem;
 
   /* Theme toggle sizing */
-  --layout-toggle-shell-padding: 0.08rem;
-  --layout-toggle-button-size: 1.85rem;
+  --layout-toggle-shell-padding: 0;
+  --layout-toggle-button-size: 2rem;
   --layout-toggle-icon-size: 0.95rem;
 
   /* Mobile menu sizing */
   --layout-menu-button-size: 1.85rem;
   --layout-menu-icon-size: 0.95rem;
-  --layout-menu-panel-gap: 0.5rem;
+  --layout-menu-panel-gap: 0.3rem;
 }
 
 @media (min-width: 640px) {
   :root {
-    --layout-navbar-width: 30rem;
-    --layout-navbar-container-width: 32rem;
-    --layout-navbar-height: 2.45rem;
-    --layout-navbar-radius: 1.45rem;
-    --layout-navbar-inner-radius: 0.95rem;
-    --layout-navbar-padding-x: 0.48rem;
+    --layout-navbar-width: 100%;
+    --layout-navbar-container-width: 100%;
+    --layout-navbar-height: 2.95rem;
+    --layout-navbar-radius: 0.45rem;
+    --layout-navbar-inner-radius: 0.15rem;
+    --layout-navbar-padding-x: 0.6rem;
     --layout-navbar-padding-y: 0.24rem;
     --layout-navbar-logo-size: 1.08rem;
     --layout-navbar-link-size: 0.58rem;
     --layout-navbar-brand-size: var(--layout-navbar-logo-size);
     --layout-navbar-link-compact-size: var(--layout-navbar-link-size);
-    --layout-navbar-link-padding-x: 0.44rem;
-    --layout-navbar-brand-padding-x: 0.54rem;
-    --layout-navbar-brand-padding-y: 0.18rem;
+    --layout-navbar-link-padding-x: 0.58rem;
+    --layout-navbar-brand-padding-x: 0.7rem;
+    --layout-navbar-brand-padding-y: 0.22rem;
     --layout-section-padding-y: 3.75rem;
     --layout-section-gap: 1rem;
     --layout-collection-gap: 1rem;
     --layout-heading-eyebrow-size: 0.72rem;
-    --layout-heading-title-size: 2.1rem;
-    --layout-hero-padding-y: 3.6rem;
+    --layout-heading-title-size: 1.95rem;
+    --layout-hero-padding-y: 3rem;
     --layout-hero-start-offset: 1rem;
-    --layout-hero-grid-gap: 1.1rem;
-    --layout-hero-shell-padding: 1.55rem;
-    --layout-hero-min-height: calc(100vh - 6rem);
-    --layout-hero-name-size: 3.15rem;
-    --layout-hero-name-weight: 400;
-    --layout-hero-eyebrow-size: 0.8rem;
-    --layout-hero-eyebrow-dot-size: 0.4rem;
+    --layout-hero-grid-gap: 1.15rem;
+    --layout-hero-shell-padding: 1.25rem;
+    --layout-hero-min-height: calc(100vh - 5.4rem);
+    --layout-hero-name-size: 3.65rem;
+    --layout-hero-name-weight: 700;
+    --layout-hero-eyebrow-size: 0.68rem;
+    --layout-hero-eyebrow-dot-size: 0.22rem;
     --layout-hero-meta-size: 0.88rem;
-    --layout-hero-copy-size: 1.28rem;
+    --layout-hero-copy-size: 1.08rem;
     --layout-hero-panel-padding: 1.1rem;
-    --layout-hero-panel-title-size: 0.76rem;
-    --layout-hero-monogram-size: 2.2rem;
-    --layout-hero-orbit-size-mobile: 7.25rem;
+    --layout-hero-panel-title-size: 0.7rem;
+    --layout-hero-monogram-size: 1.85rem;
+    --layout-hero-orbit-size-mobile: 6.25rem;
     --layout-hero-orbit-ring-offset-mobile: 0.8rem;
-    --layout-hero-orbit-size: 17.5rem;
+    --layout-hero-orbit-size: 15.5rem;
     --layout-hero-orbit-dot-size: 0.85rem;
     --layout-hero-orbit-dot-offset: 1.05rem;
-    --layout-hero-button-radius: 1rem;
-    --layout-hero-orbit-quote-size: 1rem;
+    --layout-hero-button-radius: 0.12rem;
+    --layout-hero-orbit-quote-size: 0.8rem;
     --layout-hero-orbit-marker-size: 0.5rem;
     --layout-hero-orbit-word-size: 1rem;
-    --layout-toggle-button-size: 1.95rem;
+    --layout-toggle-button-size: 2rem;
     --layout-toggle-icon-size: 0.98rem;
     --layout-menu-button-size: 1.95rem;
     --layout-menu-icon-size: 0.98rem;
@@ -130,46 +130,46 @@
 
 @media (min-width: 768px) {
   :root {
-    --layout-navbar-width: 42rem;
-    --layout-navbar-container-width: 44rem;
-    --layout-navbar-height: 2.5rem;
-    --layout-navbar-radius: 1.6rem;
-    --layout-navbar-inner-radius: 1rem;
-    --layout-navbar-padding-x: 0.56rem;
+    --layout-navbar-width: 100%;
+    --layout-navbar-container-width: 100%;
+    --layout-navbar-height: 3rem;
+    --layout-navbar-radius: 0.45rem;
+    --layout-navbar-inner-radius: 0.15rem;
+    --layout-navbar-padding-x: 0.72rem;
     --layout-navbar-padding-y: 0.28rem;
     --layout-navbar-logo-size: 1.18rem;
     --layout-navbar-link-size: 0.64rem;
     --layout-navbar-brand-size: var(--layout-navbar-logo-size);
     --layout-navbar-link-compact-size: var(--layout-navbar-link-size);
-    --layout-navbar-link-padding-x: 0.5rem;
-    --layout-navbar-brand-padding-x: 0.6rem;
+    --layout-navbar-link-padding-x: 0.72rem;
+    --layout-navbar-brand-padding-x: 0.8rem;
     --layout-navbar-brand-padding-y: 0.2rem;
-    --layout-section-padding-y: 4.25rem;
+    --layout-section-padding-y: 4.5rem;
     --layout-section-gap: 1.15rem;
     --layout-collection-gap: 1rem;
     --layout-heading-eyebrow-size: 0.78rem;
-    --layout-heading-title-size: 2.45rem;
-    --layout-hero-padding-y: 4.05rem;
+    --layout-heading-title-size: 2.15rem;
+    --layout-hero-padding-y: 3.5rem;
     --layout-hero-start-offset: 1rem;
-    --layout-hero-grid-gap: 1.2rem;
-    --layout-hero-shell-padding: 1.9rem;
-    --layout-hero-min-height: calc(100vh - 6.25rem);
-    --layout-hero-name-size: 3.85rem;
-    --layout-hero-name-weight: 400;
-    --layout-hero-eyebrow-size: 0.9rem;
-    --layout-hero-eyebrow-dot-size: 0.4rem;
+    --layout-hero-grid-gap: 1.3rem;
+    --layout-hero-shell-padding: 1.45rem;
+    --layout-hero-min-height: calc(100vh - 5.7rem);
+    --layout-hero-name-size: 4.6rem;
+    --layout-hero-name-weight: 700;
+    --layout-hero-eyebrow-size: 0.72rem;
+    --layout-hero-eyebrow-dot-size: 0.22rem;
     --layout-hero-meta-size: 0.94rem;
-    --layout-hero-copy-size: 1.45rem;
+    --layout-hero-copy-size: 1.12rem;
     --layout-hero-panel-padding: 1.2rem;
-    --layout-hero-panel-title-size: 0.78rem;
-    --layout-hero-monogram-size: 2.35rem;
-    --layout-hero-orbit-size-mobile: 8.5rem;
+    --layout-hero-panel-title-size: 0.72rem;
+    --layout-hero-monogram-size: 2rem;
+    --layout-hero-orbit-size-mobile: 7.1rem;
     --layout-hero-orbit-ring-offset-mobile: 0.95rem;
-    --layout-hero-orbit-size: 20.5rem;
+    --layout-hero-orbit-size: 17.75rem;
     --layout-hero-orbit-dot-size: 0.9rem;
     --layout-hero-orbit-dot-offset: 1.1rem;
-    --layout-hero-button-radius: 1rem;
-    --layout-hero-orbit-quote-size: 0.9rem;
+    --layout-hero-button-radius: 0.12rem;
+    --layout-hero-orbit-quote-size: 0.88rem;
     --layout-hero-orbit-marker-size: 0.6rem;
     --layout-hero-orbit-word-size: 1.3rem;
     --layout-toggle-button-size: 2.05rem;
@@ -181,54 +181,54 @@
 
 @media (min-width: 1024px) {
   :root {
-    --layout-navbar-width: 52rem;
-    --layout-navbar-container-width: 58rem;
+    --layout-navbar-width: 100%;
+    --layout-navbar-container-width: min(100%, 86rem);
 
-    --layout-navbar-height: 2.45rem;
-    --layout-navbar-radius: 2.5rem;
-    --layout-navbar-inner-radius: 1.25rem;
+    --layout-navbar-height: 3.2rem;
+    --layout-navbar-radius: 0.45rem;
+    --layout-navbar-inner-radius: 0.12rem;
 
-    --layout-navbar-padding-x: 0.46rem;
+    --layout-navbar-padding-x: 0.9rem;
     --layout-navbar-padding-y: 0.28rem;
 
     --layout-navbar-logo-size: 1.25rem;
-    --layout-navbar-link-size: 0.80rem;
+    --layout-navbar-link-size: 0.74rem;
     --layout-navbar-brand-size: var(--layout-navbar-logo-size);
     --layout-navbar-link-compact-size: var(--layout-navbar-link-size);
 
-    --layout-navbar-link-padding-x: 0.86rem;
-    --layout-navbar-brand-padding-x: 0.64rem;
-    --layout-navbar-brand-padding-y: 0.08rem;
+    --layout-navbar-link-padding-x: 0.92rem;
+    --layout-navbar-brand-padding-x: 0.78rem;
+    --layout-navbar-brand-padding-y: 0.16rem;
     
-    --layout-section-padding-y: 5rem;
+    --layout-section-padding-y: 5.5rem;
     --layout-section-gap: 1.4rem;
     --layout-collection-gap: 1rem;
     --layout-section-heading-title-weight: 700;
 
     --layout-heading-eyebrow-size: 0.86rem;
-    --layout-heading-title-size: 2.8rem;
+    --layout-heading-title-size: 2.45rem;
     
-    --layout-hero-padding-y: 4rem;
-    --layout-hero-start-offset: 1rem;
-    --layout-hero-grid-gap: 1.15rem;
-    --layout-hero-shell-padding: 2.4rem;
-    --layout-hero-min-height: calc(100vh - 6.5rem);
-    --layout-hero-name-size: 5.5rem;
-    --layout-hero-name-weight: 400;
-    --layout-hero-eyebrow-size: 1rem;
-    --layout-hero-eyebrow-dot-size: 0.4rem;
+    --layout-hero-padding-y: 3rem;
+    --layout-hero-start-offset: 0rem;
+    --layout-hero-grid-gap: 1.5rem;
+    --layout-hero-shell-padding: 1.7rem;
+    --layout-hero-min-height: calc(100vh - 5.95rem);
+    --layout-hero-name-size: 5rem;
+    --layout-hero-name-weight: 700;
+    --layout-hero-eyebrow-size: 0.9rem;
+    --layout-hero-eyebrow-dot-size: 0.22rem;
     --layout-hero-meta-size: 1rem;
-    --layout-hero-copy-size: 1.7rem;
-    --layout-hero-panel-padding: 1.35rem;
-    --layout-hero-panel-title-size: 0.8rem;
-    --layout-hero-monogram-size: 2.5rem;
-    --layout-hero-orbit-size-mobile: 8.5rem;
+    --layout-hero-copy-size: 1.18rem;
+    --layout-hero-panel-padding: 1.5rem;
+    --layout-hero-panel-title-size: 0.74rem;
+    --layout-hero-monogram-size: 2.3rem;
+    --layout-hero-orbit-size-mobile: 7.1rem;
     --layout-hero-orbit-ring-offset-mobile: 0.95rem;
-    --layout-hero-orbit-size: 24rem;
+    --layout-hero-orbit-size: 20.5rem;
     --layout-hero-orbit-dot-size: 0.95rem;
     --layout-hero-orbit-dot-offset: 1.2rem;
-    --layout-hero-button-radius: 0.6rem;
-    --layout-hero-orbit-quote-size: 1.5rem;
+    --layout-hero-button-radius: 0.12rem;
+    --layout-hero-orbit-quote-size: 1rem;
     --layout-hero-orbit-marker-size: 1rem;
     --layout-hero-orbit-word-size: 2.5rem;
     

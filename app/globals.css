@@ -19,6 +19,7 @@ section[id] {
 }
 
 body {
+  position: relative;
   margin: 0;
   min-height: 100vh;
   background-color: rgb(var(--color-background));
@@ -34,6 +35,37 @@ body {
     border-color 200ms ease;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 1;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(var(--grid-major-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major-line) 1px, transparent 1px),
+    var(--grid-diagonal),
+    linear-gradient(180deg, transparent 0%, rgb(var(--color-primary) / 0.055) 100%);
+  background-size:
+    var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size),
+    var(--grid-major-size) var(--grid-major-size),
+    var(--grid-major-size) var(--grid-major-size),
+    320px 320px,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    -1px -1px,
+    -1px -1px,
+    center center,
+    0 0;
+  mask-image: var(--grid-fade);
 }
 
 @keyframes app-fade-up {
@@ -137,12 +169,38 @@ body {
   background-color: var(--nav-shell-bg);
   border-color: var(--nav-shell-border);
   box-shadow: var(--nav-shell-shadow);
+  position: relative;
+  isolation: isolate;
+}
+
+.theme-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(var(--color-primary) / 0.08), transparent 12%, transparent 88%, rgb(var(--color-primary) / 0.08)),
+    linear-gradient(rgb(255 255 255 / 0.02), rgb(255 255 255 / 0));
+  clip-path: polygon(0 0, calc(100% - 1.1rem) 0, 100% 1.1rem, 100% 100%, 0 100%);
+  opacity: 0.6;
 }
 
 .theme-surface {
   background-color: var(--surface-card);
   border-color: var(--surface-border);
   box-shadow: var(--shadow-card);
+  position: relative;
+  isolation: isolate;
+}
+
+.theme-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 0 100%);
+  border: 1px solid rgb(var(--color-primary) / 0.08);
+  opacity: 0.9;
 }
 
 .theme-surface-muted {
@@ -164,6 +222,34 @@ body {
     transform: translateY(var(--surface-hover-translate));
     box-shadow: var(--shadow-card-hover);
   }
+}
+
+.tech-corners {
+  position: relative;
+}
+
+.tech-corners::before,
+.tech-corners::after {
+  content: "";
+  position: absolute;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-color: rgb(var(--color-primary));
+  pointer-events: none;
+}
+
+.tech-corners::before {
+  top: -1px;
+  left: -1px;
+  border-left: 2px solid;
+  border-top: 2px solid;
+}
+
+.tech-corners::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
 }
 
 * {

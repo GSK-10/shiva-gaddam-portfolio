@@ -4,9 +4,13 @@ import { siteConfig } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
 import { HeroOrbitReveal } from "@/components/ui/HeroOrbitReveal";
-import { ArrowUpRight } from "lucide-react";
+import { Github, Globe, Linkedin, Mail } from "lucide-react";
 
 export function Hero() {
+  const heroLinks = siteConfig.profileLinks.filter((link) =>
+    ["Email", "LinkedIn", "GitHub"].includes(link.label),
+  );
+
   return (
     <section
       id="hero"
@@ -15,11 +19,20 @@ export function Hero() {
         borderBottom: "1px solid var(--surface-border)",
       }}
     >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-[58%] hidden w-[12%] lg:block"
+        style={{
+          background: "linear-gradient(180deg, rgb(var(--color-primary) / 0.08), transparent 88%)",
+          transform: "skewX(-12deg)",
+          transformOrigin: "top",
+        }}
+      />
       <Container>
-        <div className="theme-shell relative mx-auto max-w-[var(--layout-content-width)] rounded-[var(--layout-surface-radius)] border px-[var(--layout-hero-shell-padding)] py-[calc(var(--layout-hero-shell-padding)*1.2)] lg:rounded-none lg:border-transparent lg:bg-transparent lg:shadow-none">
+        <div className="relative mx-auto max-w-[var(--layout-content-width)] px-[var(--layout-hero-shell-padding)] py-[calc(var(--layout-hero-shell-padding)*0.85)]">
           <svg
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 h-full w-full opacity-55"
+            className="pointer-events-none absolute inset-0 h-full w-full opacity-40"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
@@ -60,8 +73,8 @@ export function Hero() {
             </defs>
           </svg>
 
-          <div className="grid items-center gap-[var(--layout-hero-grid-gap)] lg:grid-cols-[minmax(0,1.28fr)_minmax(16rem,0.72fr)]">
-            <div className="max-w-3xl">
+          <div className="grid items-start gap-[var(--layout-hero-grid-gap)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+            <div className="max-w-3xl pt-1 sm:pt-4">
               <div className="mb-6 flex justify-center lg:hidden">
                 <HeroOrbitReveal
                   size="var(--layout-hero-orbit-size-mobile)"
@@ -82,39 +95,52 @@ export function Hero() {
                 className="motion-fade-up flex flex-wrap items-center gap-2"
                 style={{ "--motion-delay": "140ms" } as CSSProperties}
               >
-                <span
-                  className="inline-flex items-center gap-3 rounded-[var(--layout-pill-radius)] border px-4 py-2 font-medium uppercase tracking-[0.12em] text-foreground"
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "var(--layout-hero-eyebrow-size)",
-                    borderColor: "var(--surface-border)",
-                    backgroundColor: "var(--accent-soft)",
-                    color: "rgb(var(--color-primary))",
-                  }}
-                >
+                <div className="inline-flex items-center gap-3">
                   <span
                     aria-hidden="true"
-                    className="rounded-full bg-current"
+                    className="inline-flex h-7 w-7 shrink-0 rotate-45 items-center justify-center"
                     style={{
-                      width: "var(--layout-hero-eyebrow-dot-size)",
-                      height: "var(--layout-hero-eyebrow-dot-size)",
+                      backgroundColor: "var(--hero-cta-bg)",
+                      color: "var(--hero-cta-text)",
+                      transformOrigin: "center",
                     }}
-                  />
-                  <span>{heroContent.eyebrow.primary}</span>
-                  <span aria-hidden="true" className="opacity-70">
-                    |
+                  >
+                    <span
+                      className="-rotate-45 font-semibold"
+                      style={{
+                        fontFamily: "var(--font-serif)",
+                        fontSize: "var(--layout-hero-eyebrow-size)",
+                      }}
+                    >
+                      #1
+                    </span>
                   </span>
-                  <span>{heroContent.eyebrow.secondary}</span>
-                </span>
+                  <span
+                    className="inline-flex items-center gap-3 border px-4 py-2 font-medium uppercase tracking-[0.22em] text-foreground"
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "var(--layout-hero-eyebrow-size)",
+                      borderColor: "var(--surface-border)",
+                      color: "rgb(var(--color-primary))",
+                    }}
+                  >
+                    <span>{heroContent.eyebrow.primary}</span>
+                    <span aria-hidden="true" className="opacity-70">
+                      |
+                    </span>
+                    <span>{heroContent.eyebrow.secondary}</span>
+                  </span>
+                </div>
               </div>
+
               <h1
-                className="motion-fade-up mt-8 max-w-4xl tracking-[-0.03em]"
+                className="motion-fade-up mt-6 max-w-4xl uppercase tracking-[0.04em]"
                 style={{
                   "--motion-delay": "220ms",
                   fontFamily: "var(--font-serif)",
                   fontSize: "var(--layout-hero-name-size)",
                   fontWeight: "var(--layout-hero-name-weight)",
-                  lineHeight: 0.95,
+                  lineHeight: 0.9,
                 } as CSSProperties}
               >
                 {heroContent.displayName.lines.map((line, index) => {
@@ -135,24 +161,27 @@ export function Hero() {
               </h1>
               
               <p
-                className="motion-fade-up mt-6 max-w-2xl text-balance text-[1.3rem] leading-none text-foreground sm:text-[1.95rem]"
-                style={{ "--motion-delay": "320ms", fontFamily: "var(--font-serif)" } as CSSProperties}
+                className="motion-fade-up mt-5 max-w-2xl border-l-2 border-[color:rgb(var(--color-primary)/0.48)] pl-4 text-pretty leading-[1.65] text-foreground"
+                style={{
+                  "--motion-delay": "320ms",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "var(--layout-hero-copy-size)",
+                } as CSSProperties}
               >
                 {heroContent.statement.prefix} <em className="text-primary italic">{heroContent.statement.accent}</em>{" "}
                 {heroContent.statement.suffix}
               </p>
 
               <div
-                className="motion-fade-up mt-8 flex flex-wrap gap-3"
+                className="motion-fade-up mt-5 flex flex-wrap items-center gap-2.5"
                 style={{ "--motion-delay": "420ms" } as CSSProperties}
               >
                 <Button
-                  href="#experience"
+                  href="#projects"
                   style={{
                     borderRadius: "var(--layout-hero-button-radius)",
-                    paddingInline: "1.25rem",
-                    paddingBlock: "0.625rem",
-                    fontSize: "0.84rem",
+                    paddingInline: "1.12rem",
+                    paddingBlock: "0.72rem",
                   }}
                 >
                   View My Work
@@ -164,68 +193,48 @@ export function Hero() {
                   rel="noreferrer"
                   style={{
                     borderRadius: "var(--layout-hero-button-radius)",
-                    paddingInline: "1.25rem",
-                    paddingBlock: "0.625rem",
-                    fontSize: "0.84rem",
+                    paddingInline: "1.12rem",
+                    paddingBlock: "0.72rem",
                   }}
                 >
                   View Resume
                 </Button>
-              </div>
-              
-              <div
-                className="motion-fade-up mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.78rem] sm:text-sm"
-                style={{ "--motion-delay": "520ms" } as CSSProperties}
-              >
-                {siteConfig.profileLinks.map((link) => (
+                <div className="ml-1 flex items-center gap-2">
+                  {heroLinks.map((link) => {
+                    const Icon =
+                      link.label === "Email"
+                        ? Mail
+                        : link.label === "LinkedIn"
+                          ? Linkedin
+                          : link.label === "GitHub"
+                            ? Github
+                            : Globe;
+
+                    return (
                   <a
                     key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group relative inline-flex items-center gap-1 pb-1 text-muted transition-colors duration-200"
+                    aria-label={link.label}
+                    title={link.label}
+                    className="inline-flex h-10 w-10 items-center justify-center border text-muted transition-colors duration-200 hover:border-[color:rgb(var(--color-primary)/0.5)] hover:text-primary"
                     style={{
-                      fontFamily: "var(--font-mono)",
-                      color: "rgb(var(--color-primary))",
-                    }}
-                  >
-                    <span>{link.label}</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 translate-y-[-1px] transition-transform duration-200 ease-out group-hover:translate-x-[1px] group-hover:translate-y-[-2px]" />
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-x-0 bottom-0 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
-                      style={{
-                        height: "var(--layout-navbar-link-underline-height)",
-                        backgroundImage: "var(--nav-link-underline)",
-                      }}
-                    />
-                  </a>
-                ))}
-              </div>
-
-              <div
-                className="motion-fade-up mt-6 flex max-w-3xl flex-wrap gap-3"
-                style={{ "--motion-delay": "580ms" } as CSSProperties}
-              >
-                {heroHighlights.map((item) => (
-                  <span
-                    key={item}
-                    className="inline-flex items-center border px-3 py-1.5 text-[0.72rem] text-foreground sm:px-3.5 sm:text-[0.84rem]"
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      borderRadius: "var(--layout-hero-button-radius)",
+                      clipPath: "polygon(0.55rem 0, 100% 0, calc(100% - 0.55rem) 100%, 0 100%)",
                       borderColor: "var(--surface-border)",
-                      backgroundColor: "rgb(var(--color-foreground) / 0.05)",
-                      color: "rgb(var(--color-foreground))",
+                      backgroundColor: "rgb(var(--color-background) / 0.3)",
+                      boxShadow: "var(--hero-cta-shadow)",
                     }}
                   >
-                    {item}
-                  </span>
-                ))}
+                    <Icon className="h-4 w-4" />
+                  </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            <div className="relative hidden min-h-[22rem] items-center justify-center lg:flex">
+            <div className="relative hidden min-h-[25rem] items-start justify-center lg:flex">
               <HeroOrbitReveal
                 size="var(--layout-hero-orbit-size)"
                 delay="240ms"
@@ -239,6 +248,33 @@ export function Hero() {
                 revealWord={heroContent.orbitReveal.revealWord}
                 revealAccentIndex={heroContent.orbitReveal.revealAccentIndex}
               />
+            </div>
+          </div>
+
+          <div
+            className="motion-fade-up mt-6 border-t border-[color:var(--surface-border)] pt-3"
+            style={{ "--motion-delay": "580ms" } as CSSProperties}
+          >
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 lg:grid-cols-5">
+              {heroHighlights.map((item, index) => (
+                <div
+                  key={item}
+                  className="min-w-0 border-l border-[color:var(--surface-border)] pl-4"
+                >
+                  <div
+                    className="text-[0.52rem] uppercase tracking-[0.28em] text-muted"
+                    style={{ fontFamily: "var(--font-mono)" }}
+                  >
+                    {["Exp", "Spec", "Core", "Infra", "Ops"][index] ?? "Info"}
+                  </div>
+                  <div
+                    className="mt-1 text-[0.98rem] uppercase leading-tight text-foreground"
+                    style={{ fontFamily: "var(--font-serif)" }}
+                  >
+                    {item}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           

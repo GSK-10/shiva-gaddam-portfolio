@@ -18,7 +18,7 @@ export function InfoPanel({ title, items = [], className = "", children }: InfoP
     <GlassSurface className={cn("p-5", className)}>
       <div>
         <p
-          className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-muted"
+          className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           {title}
@@ -32,7 +32,7 @@ export function InfoPanel({ title, items = [], className = "", children }: InfoP
                 className="grid gap-1 border-t border-[color:var(--surface-border)] pt-3 first:border-t-0 first:pt-0 sm:grid-cols-[6rem_minmax(0,1fr)] sm:items-start sm:gap-3"
               >
                 <dt
-                  className="text-xs uppercase tracking-[0.08em] text-muted"
+                  className="text-xs uppercase tracking-[0.16em] text-muted"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   {item.label}

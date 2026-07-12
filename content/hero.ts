@@ -37,7 +37,7 @@ export const heroContent: HeroContent = {
   },
   // status: "Available",
   displayName: {
-    lines: ["Shiva Kumar Reddy", "Gaddam"],
+    lines: ["Shiva Kumar", "Reddy Gaddam"],
     accentLineIndex: 1,
   },
   statement: {

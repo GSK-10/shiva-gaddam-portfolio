@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk, JetBrains_Mono, Newsreader } from "next/font/google";
+import { Hanken_Grotesk, JetBrains_Mono, Oxanium } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -71,9 +71,9 @@ const mono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
-const serif = Newsreader({
+const serif = Oxanium({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["500", "600", "700"],
   display: "swap",
   variable: "--font-serif",
 });

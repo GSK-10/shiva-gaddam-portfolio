@@ -1,113 +1,148 @@
 :root {
   /* Typography is injected by next/font in app/layout.tsx. */
-  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+  --font-serif: "Oxanium", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --font-brand: var(--font-serif);
   --font-accent: var(--font-serif);
 
   --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-pill: 999px;
+  --radius-md: 0.35rem;
+  --radius-lg: 0.55rem;
+  --radius-pill: 0.15rem;
 
-  --transition: 200ms ease;
-  --shadow-soft: 0 10px 24px rgb(55 36 24 / 0.08);
+  --transition: 180ms ease;
+  --shadow-soft: 0 12px 34px rgb(0 0 0 / 0.22);
+  --grid-size: 44px;
+  --grid-major-size: 176px;
+  --grid-line: rgb(255 255 255 / 0.08);
+  --grid-major-line: rgb(255 255 255 / 0.15);
+  --grid-diagonal: transparent;
+  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.72), transparent 92%);
+  --signal: rgb(var(--color-primary));
+  --signal-soft: rgb(var(--color-primary) / 0.14);
+  --hero-cta-bg: rgb(var(--color-primary));
+  --hero-cta-text: rgb(var(--color-primary-foreground));
+  --hero-cta-border: rgb(var(--color-primary) / 0.45);
+  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14);
+  --hero-panel-glow: rgb(var(--color-primary) / 0.12);
 }
 
 :root,
 [data-theme="light"] {
   /* Core app tokens. Tailwind utilities should map to these first. */
-  --color-background: 247 251 255;
-  --color-foreground: 23 32 51;
-  --color-muted: 97 112 140;
-  --color-border: 179 196 223;
-  --color-card: 255 255 255;
-  --color-card-foreground: 23 32 51;
-  --color-primary: 93 125 226;
+  --color-background: 242 244 247;
+  --color-foreground: 17 29 48;
+  --color-muted: 106 116 132;
+  --color-border: 197 204 216;
+  --color-card: 246 248 252;
+  --color-card-foreground: 17 29 48;
+  --color-primary: 18 97 242;
   --color-primary-foreground: 255 255 255;
 
   /* Surface tokens for cards, pills, and any future advanced components. */
-  --surface-card: rgba(255, 255, 255, 0.94);
-  --surface-card-muted: rgba(242, 246, 255, 0.96);
-  --surface-border: rgba(179, 196, 223, 0.42);
-  --shadow-card: 0 14px 34px rgba(79, 112, 176, 0.08);
-  --shadow-card-hover: 0 18px 40px rgba(79, 112, 176, 0.12);
+  --surface-card: rgba(246, 248, 252, 0.94);
+  --surface-card-muted: rgba(238, 242, 247, 0.96);
+  --surface-border: rgba(165, 178, 198, 0.34);
+  --shadow-card: 0 16px 30px rgba(28, 42, 69, 0.08);
+  --shadow-card-hover: 0 20px 42px rgba(28, 42, 69, 0.14);
   --surface-hover-translate: -2px;
 
-  --accent: #5d7de2;
-  --accent-soft: rgba(93, 125, 226, 0.12);
-  --accent-2: #86a8ff;
-  --accent-2-soft: rgba(134, 168, 255, 0.14);
+  --accent: #1261f2;
+  --accent-soft: rgba(18, 97, 242, 0.08);
+  --accent-2: #85b2ff;
+  --accent-2-soft: rgba(133, 178, 255, 0.12);
 
   --selection-bg: var(--accent);
   --selection-text: #ffffff;
   --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
-  --scrollbar-track: rgba(232, 241, 255, 0.7);
-  --scrollbar-thumb-border: rgba(247, 251, 255, 0.9);
+  --scrollbar-track: rgba(230, 236, 245, 0.8);
+  --scrollbar-thumb-border: rgba(242, 244, 247, 0.92);
 
   /* Component-specific tokens. Edit these when you want a themed variant,
      not when you are changing semantic colors globally. */
-  --nav-shell-bg: rgb(255 255 255 / 0.94);
-  --nav-shell-border: rgb(179 196 223 / 0.52);
-  --nav-shell-shadow: 0 10px 24px rgb(79 112 176 / 0.08);
-  --nav-link-hover-text: rgb(23 32 51);
-  --nav-brand-bg: rgb(93 125 226 / 0.08);
-  --nav-brand-text: rgb(93 125 226);
-  --nav-logo-gradient: linear-gradient(135deg, #5d7de2 0%, #86a8ff 100%);
-  --nav-link-underline: linear-gradient(90deg, #5d7de2, #86a8ff);
-  --theme-toggle-shadow: 0 0 0 1px rgb(93 125 226 / 0.12);
+  --nav-shell-bg: rgb(244 246 250 / 0.92);
+  --nav-shell-border: rgb(180 190 207 / 0.44);
+  --nav-shell-shadow: 0 12px 24px rgb(28 42 69 / 0.06);
+  --nav-link-hover-text: rgb(17 29 48);
+  --nav-brand-bg: rgb(18 97 242 / 0.06);
+  --nav-brand-text: rgb(17 29 48);
+  --nav-logo-gradient: linear-gradient(135deg, #0b1730 0%, #1261f2 100%);
+  --nav-link-underline: linear-gradient(90deg, #1261f2, #85b2ff);
+  --theme-toggle-shadow: 0 0 0 1px rgb(18 97 242 / 0.1);
   --theme-toggle-icon-rotate: 0deg;
+  --grid-size: 40px;
+  --grid-major-size: 160px;
+  --grid-line: rgb(18 97 242 / 0.09);
+  --grid-major-line: rgb(18 97 242 / 0.17);
+  --grid-diagonal: linear-gradient(135deg, transparent 0 46%, rgb(18 97 242 / 0.055) 46.5%, transparent 47%);
+  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.34), transparent 92%);
+  --signal: rgb(var(--color-primary));
+  --signal-soft: rgb(var(--color-primary) / 0.12);
+  --hero-cta-bg: rgb(var(--color-primary));
+  --hero-cta-text: rgb(var(--color-primary-foreground));
+  --hero-cta-border: rgb(var(--color-primary) / 0.5);
+  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.28);
+  --hero-panel-glow: rgb(18 97 242 / 0.1);
 
   --page-background:
-    radial-gradient(circle at 10% 0%, rgb(216 229 255 / 0.5), transparent 26%),
-    radial-gradient(circle at 100% 8%, rgb(232 238 255 / 0.42), transparent 22%),
-    linear-gradient(180deg, rgb(247 251 255) 0%, rgb(238 244 255) 56%, rgb(232 241 255) 100%);
+    linear-gradient(180deg, rgb(244 246 250) 0%, rgb(240 243 248) 100%);
 }
 
 [data-theme="dark"] {
-  --color-background: 17 23 38;
-  --color-foreground: 237 243 255;
-  --color-muted: 154 169 200;
-  --color-border: 139 162 209;
-  --color-card: 17 23 38;
-  --color-card-foreground: 237 243 255;
-  --color-primary: 142 168 255;
-  --color-primary-foreground: 10 16 24;
+  --color-background: 8 12 18;
+  --color-foreground: 236 241 246;
+  --color-muted: 131 146 168;
+  --color-border: 61 78 104;
+  --color-card: 10 17 26;
+  --color-card-foreground: 236 241 246;
+  --color-primary: 0 194 255;
+  --color-primary-foreground: 6 10 16;
 
-  --surface-card: rgba(17, 23, 38, 0.94);
-  --surface-card-muted: rgba(24, 31, 49, 0.94);
-  --surface-border: rgba(139, 162, 209, 0.18);
-  --shadow-card: 0 16px 34px rgba(0, 0, 0, 0.28);
-  --shadow-card-hover: 0 20px 42px rgba(0, 0, 0, 0.34);
+  --surface-card: rgba(10, 17, 26, 0.9);
+  --surface-card-muted: rgba(15, 24, 36, 0.94);
+  --surface-border: rgba(74, 95, 122, 0.34);
+  --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.32);
+  --shadow-card-hover: 0 24px 52px rgba(0, 0, 0, 0.38);
   --surface-hover-translate: -2px;
 
-  --accent: #8ea8ff;
-  --accent-soft: rgba(142, 168, 255, 0.16);
-  --accent-2: #c1d1ff;
-  --accent-2-soft: rgba(193, 209, 255, 0.14);
+  --accent: #00c2ff;
+  --accent-soft: rgba(0, 194, 255, 0.1);
+  --accent-2: #0a6fff;
+  --accent-2-soft: rgba(10, 111, 255, 0.12);
 
   --selection-bg: var(--accent);
   --selection-text: #0a1018;
   --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
-  --scrollbar-track: rgba(13, 20, 32, 0.72);
-  --scrollbar-thumb-border: rgba(17, 23, 38, 0.94);
+  --scrollbar-track: rgba(8, 12, 18, 0.82);
+  --scrollbar-thumb-border: rgba(8, 12, 18, 0.9);
 
-  --nav-shell-bg: rgb(17 23 38 / 0.94);
-  --nav-shell-border: rgb(139 162 209 / 0.18);
-  --nav-shell-shadow: 0 10px 24px rgb(0 0 0 / 0.22);
-  --nav-link-hover-text: rgb(237 243 255);
-  --nav-brand-bg: rgb(142 168 255 / 0.12);
-  --nav-brand-text: rgb(237 243 255);
-  --nav-logo-gradient: linear-gradient(135deg, #edf3ff 0%, #8ea8ff 100%);
-  --nav-link-underline: linear-gradient(90deg, #8ea8ff, #c1d1ff);
-  --theme-toggle-shadow: 0 0 0 1px rgb(142 168 255 / 0.12);
+  --nav-shell-bg: rgb(9 15 24 / 0.88);
+  --nav-shell-border: rgb(48 68 94 / 0.42);
+  --nav-shell-shadow: 0 12px 32px rgb(0 0 0 / 0.28);
+  --nav-link-hover-text: rgb(236 241 246);
+  --nav-brand-bg: rgb(0 194 255 / 0.08);
+  --nav-brand-text: rgb(236 241 246);
+  --nav-logo-gradient: linear-gradient(135deg, #ffffff 0%, #00c2ff 100%);
+  --nav-link-underline: linear-gradient(90deg, #00c2ff, #0a6fff);
+  --theme-toggle-shadow: 0 0 0 1px rgb(0 194 255 / 0.14);
   --theme-toggle-icon-rotate: 12deg;
+  --grid-size: 40px;
+  --grid-major-size: 160px;
+  --grid-line: rgb(0 194 255 / 0.08);
+  --grid-major-line: rgb(0 194 255 / 0.15);
+  --grid-diagonal: linear-gradient(135deg, transparent 0 46%, rgb(0 194 255 / 0.045) 46.5%, transparent 47%);
+  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.74), transparent 92%);
+  --signal: rgb(var(--color-primary));
+  --signal-soft: rgb(var(--color-primary) / 0.16);
+  --hero-cta-bg: rgb(var(--color-primary));
+  --hero-cta-text: rgb(var(--color-primary-foreground));
+  --hero-cta-border: rgb(var(--color-primary) / 0.62);
+  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18);
+  --hero-panel-glow: rgb(0 194 255 / 0.16);
 
   --page-background:
-    radial-gradient(circle at 12% 0%, rgb(82 113 187 / 0.14), transparent 26%),
-    radial-gradient(circle at 100% 10%, rgb(120 142 210 / 0.1), transparent 20%),
-    linear-gradient(180deg, rgb(17 23 38) 0%, rgb(13 20 32) 54%, rgb(10 16 24) 100%);
+    linear-gradient(180deg, rgb(8 12 18) 0%, rgb(6 10 16) 100%);
 }
 
 [data-theme="ember"] {
@@ -137,9 +172,9 @@
   --scrollbar-track: rgba(26, 18, 15, 0.72);
   --scrollbar-thumb-border: rgba(36, 23, 20, 0.94);
 
-  --nav-shell-bg: rgb(36 23 20 / 0.94);
-  --nav-shell-border: rgb(215 161 122 / 0.16);
-  --nav-shell-shadow: 0 10px 24px rgb(0 0 0 / 0.22);
+  --nav-shell-bg: rgb(36 23 20 / 0.9);
+  --nav-shell-border: rgb(215 161 122 / 0.24);
+  --nav-shell-shadow: 0 12px 28px rgb(0 0 0 / 0.24);
   --nav-link-hover-text: rgb(247 237 229);
   --nav-brand-bg: rgb(210 137 87 / 0.12);
   --nav-brand-text: rgb(247 237 229);
@@ -147,6 +182,19 @@
   --nav-link-underline: linear-gradient(90deg, #d28957, #f0b58f);
   --theme-toggle-shadow: 0 0 0 1px rgb(210 137 87 / 0.16);
   --theme-toggle-icon-rotate: -12deg;
+  --grid-size: 42px;
+  --grid-major-size: 168px;
+  --grid-line: rgb(210 137 87 / 0.08);
+  --grid-major-line: rgb(210 137 87 / 0.13);
+  --grid-diagonal: linear-gradient(135deg, transparent 0 46%, rgb(210 137 87 / 0.045) 46.5%, transparent 47%);
+  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.72), transparent 92%);
+  --signal: rgb(var(--color-primary));
+  --signal-soft: rgb(var(--color-primary) / 0.12);
+  --hero-cta-bg: rgb(var(--color-primary));
+  --hero-cta-text: rgb(var(--color-primary-foreground));
+  --hero-cta-border: rgb(var(--color-primary) / 0.45);
+  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14);
+  --hero-panel-glow: rgb(210 137 87 / 0.16);
 
   --page-background:
     radial-gradient(circle at 12% 0%, rgb(210 137 87 / 0.14), transparent 24%),

@@ -46,7 +46,7 @@ export function ThemeToggle() {
         aria-label={`Switch theme, currently ${activeTheme}`}
         title={`Switch theme, currently ${activeTheme}`}
         onClick={handleCycleTheme}
-        className="inline-flex h-[var(--layout-toggle-button-size)] w-[var(--layout-toggle-button-size)] items-center justify-center rounded-[var(--layout-pill-radius)] border border-transparent text-muted transition-colors duration-200 hover:border-border hover:[background-color:var(--nav-link-hover-bg)] hover:[color:var(--nav-link-hover-text)]"
+        className="inline-flex h-[var(--layout-toggle-button-size)] w-[var(--layout-toggle-button-size)] items-center justify-center rounded-[var(--layout-pill-radius)] border border-transparent text-muted transition-colors duration-200 hover:border-border hover:[color:var(--nav-link-hover-text)]"
         style={{
           boxShadow: "var(--theme-toggle-shadow)",
         }}
