@@ -25,7 +25,6 @@ export function HeroOrbitReveal({
   delay = "0ms",
   defaultImage,
   defaultAlt,
-  hintLabel,
   revealAriaLabel,
   resetAriaLabel,
   revealQuote,
@@ -41,7 +40,7 @@ export function HeroOrbitReveal({
       aria-pressed={revealed}
       aria-label={revealed ? resetAriaLabel : revealAriaLabel}
       onClick={() => setRevealed((value) => !value)}
-      className={`motion-scale-in tech-corners group relative border border-[color:var(--surface-border)] bg-[color:rgb(var(--color-primary)/0.03)] ${className}`}
+      className={`motion-scale-in group relative border border-[color:var(--surface-border)] bg-[color:rgb(var(--color-primary)/0.03)] ${className}`}
       style={
         {
           "--motion-delay": delay,
@@ -55,7 +54,7 @@ export function HeroOrbitReveal({
         } as CSSProperties
       }
     >
-      <span className="absolute inset-[1rem] overflow-hidden border border-[color:rgb(var(--color-primary)/0.12)]">
+      <span className="absolute inset-[0.25rem] overflow-hidden border border-[color:rgb(var(--color-primary)/0.18)] sm:inset-[0.35rem] lg:inset-[0.55rem]">
         <span
           className={`absolute inset-0 transition-[opacity,filter,transform] duration-500 ease-out ${
             revealed ? "opacity-0 blur-md scale-[1.03]" : "opacity-100 blur-0 scale-100"
@@ -66,7 +65,7 @@ export function HeroOrbitReveal({
             alt={defaultAlt}
             fill
             className="object-cover"
-            sizes="(min-width: 1024px) 384px, 168px"
+            sizes="(min-width: 1024px) 300px, 144px"
             priority
           />
           <span className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,8,14,0.34))]" />
@@ -90,7 +89,7 @@ export function HeroOrbitReveal({
             className="absolute inset-0 grid place-content-center justify-items-center gap-[clamp(0.35rem,2vw,0.85rem)] px-[14%] py-[16%] text-center"
             style={{
               background:
-                "linear-gradient(180deg, rgb(var(--color-primary) / 0.07), transparent 42%), radial-gradient(circle at 50% 38%, var(--surface-card-muted), rgb(var(--color-background)) 78%)",
+                "linear-gradient(180deg, rgb(var(--color-primary) / 0.07), transparent 42%), linear-gradient(135deg, var(--surface-card-muted), rgb(var(--color-background)))",
             }}
           >
             <span
@@ -148,31 +147,6 @@ export function HeroOrbitReveal({
         className="pointer-events-none absolute inset-x-0 top-0 h-px"
         style={{ background: "linear-gradient(90deg, transparent, rgb(var(--color-primary) / 0.7), transparent)" }}
       />
-
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[1.35rem] left-[1.35rem] inline-flex items-center border px-3 py-1 text-[0.62rem] uppercase tracking-[0.22em]"
-        style={{
-          fontFamily: "var(--font-mono)",
-          borderColor: "rgb(var(--color-primary) / 0.24)",
-          background: "rgb(var(--color-background) / 0.68)",
-          color: "rgb(var(--color-primary) / 0.72)",
-          boxShadow: "0 0 0 1px rgb(var(--color-primary) / 0.08)",
-        }}
-      >
-        GSK
-      </span>
-
-      <span
-        className={`pointer-events-none absolute bottom-[1.5rem] left-1/2 -translate-x-1/2 border border-[color:var(--surface-border)] bg-[color:var(--surface-card)]/84 px-3 py-1 text-[0.64rem] uppercase tracking-[0.22em] text-foreground transition-all duration-300 ease-out ${
-          revealed
-            ? "translate-y-1 opacity-0"
-            : "translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
-        }`}
-        style={{ fontFamily: "var(--font-mono)" }}
-      >
-        {hintLabel}
-      </span>
 
     </button>
   );

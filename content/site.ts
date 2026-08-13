@@ -31,26 +31,26 @@ export const siteConfig = {
   name: "Shiva Kumar Reddy Gaddam",
   role: "Software Engineer",
   headline:
-    "Software Engineer experienced in backend systems, distributed systems, APIs, automation, and cloud-native platform work.",
+    "Software Engineer building dependable automation, distributed platform environments, and cloud-native infrastructure.",
 
   /* About/contact content */
   about:
-    "I spent about one and a half years at Oracle working across automation, distributed platform environments, and Kubernetes-heavy release workflows. That work pushed me from testing systems at scale to understanding how backend and platform systems should be built, debugged, and made dependable.",
+    "At Oracle, I worked where automation, infrastructure, and distributed systems meet. I turned repetitive release validation into 100+ automated workflows, helped move container-native stacks across private Kubernetes clusters, and debugged the failures between services, certificates, databases, and environments. I like engineering work that makes complex systems easier to trust.",
   aboutPanels: [
     {
-      title: "Open to",
+      title: "Driver profile",
       items: [
         { label: "Location", value: "Hyderabad, India" },
-        { label: "Previously", value: "Oracle - SWE" },
-        { label: "Focus", value: "Backend / Platform / SRE" },
+        { label: "Experience", value: "Oracle - Software Engineer" },
+        { label: "Focus", value: "Backend / Platform / Infrastructure" },
       ] satisfies DetailItem[],
     },
     {
-      title: "Currently",
+      title: "Performance record",
       items: [
-        { label: "Building", value: "Spring Boot APIs" },
-        { label: "Learning", value: "System design and AWS" },
-        { label: "Practicing", value: "DSA and problem solving" },
+        { label: "Automation", value: "100+ end-to-end workflows" },
+        { label: "Release time", value: "Reduced by 80%" },
+        { label: "Clusters", value: "3 private Kubernetes clusters" },
       ] satisfies DetailItem[],
     },
   ] satisfies Array<{
@@ -60,7 +60,8 @@ export const siteConfig = {
   location: "Hyderabad, India",
   email: "shiva.kumar.reddy.gaddam19@gmail.com",
   resumeUrl: "/resume/shiva-kumar-reddy-gaddam-resume.pdf",
-  contactIntro: "Open to software engineering roles across backend, platform, and automation teams.",
+  contactIntro:
+    "Open to software engineering roles across backend, platform, infrastructure, and automation teams.",
   profileLinks: [
     { label: "Email", href: "mailto:shiva.kumar.reddy.gaddam19@gmail.com" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/shivakumar19/" },

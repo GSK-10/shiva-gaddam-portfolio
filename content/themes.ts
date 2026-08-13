@@ -1,4 +1,4 @@
-export type ThemeKey = "light" | "dark" | "ember";
+export type ThemeKey = "light" | "dark" | "steel";
 
 export type ThemePreview = {
   key: ThemeKey;
@@ -22,7 +22,7 @@ export type ThemePreview = {
    - the available theme keys
    - the toggle cycle order
    - the first/default theme */
-export const themeKeys = ["dark", "light", "ember"] as const;
+export const themeKeys = ["dark", "light", "steel"] as const;
 
 export const themes: ThemePreview[] = [
   {
@@ -60,22 +60,39 @@ export const themes: ThemePreview[] = [
     },
   },
   {
-    key: "ember",
-    name: "Ember",
-    label: "Featured",
-    description: "A warm dark theme with ember tones and subtle glow accents.",
-    chips: ["Warm dark", "Amber glow", "Moody contrast"],
+    key: "steel",
+    name: "Charcoal",
+    label: "Off-white",
+    description: "A dark charcoal theme with off-white surfaces and restrained blue-grey accents.",
+    chips: ["Charcoal", "Off-white", "Blue grey"],
     preview: {
-      background: "rgb(36 23 20)",
-      foreground: "rgb(247 237 229)",
-      muted: "rgb(199 171 151)",
-      border: "rgb(215 161 122)",
-      card: "rgb(36 23 20)",
-      primary: "rgb(210 137 87)",
-      primaryForeground: "rgb(19 13 11)",
-      glow: "0 12px 30px rgb(210 137 87 / 0.16)",
+      background: "rgb(23 24 26)",
+      foreground: "rgb(244 241 234)",
+      muted: "rgb(176 177 174)",
+      border: "rgb(122 128 136)",
+      card: "rgb(34 36 39)",
+      primary: "rgb(190 199 211)",
+      primaryForeground: "rgb(20 21 23)",
+      glow: "0 12px 32px rgb(0 0 0 / 0.24)",
     },
   },
+  // {
+  //   key: "ember",
+  //   name: "Ember",
+  //   label: "Featured",
+  //   description: "A warm dark theme with ember tones and subtle glow accents.",
+  //   chips: ["Warm dark", "Amber glow", "Moody contrast"],
+  //   preview: {
+  //     background: "rgb(36 23 20)",
+  //     foreground: "rgb(247 237 229)",
+  //     muted: "rgb(199 171 151)",
+  //     border: "rgb(215 161 122)",
+  //     card: "rgb(36 23 20)",
+  //     primary: "rgb(210 137 87)",
+  //     primaryForeground: "rgb(19 13 11)",
+  //     glow: "0 12px 30px rgb(210 137 87 / 0.16)",
+  //   },
+  // },
 ];
 
 export const defaultTheme: ThemeKey = themeKeys[0];

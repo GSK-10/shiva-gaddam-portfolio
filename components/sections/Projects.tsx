@@ -5,10 +5,10 @@ import { projects } from "@/content/projects";
 
 export function Projects() {
   return (
-    <Section id="projects" title="Projects">
+    <Section id="projects" index="04" eyebrow="Selected builds" title="Projects">
       <SectionCollection variant="stack">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard key={project.title} project={project} rank={index + 1} />
         ))}
       </SectionCollection>
     </Section>

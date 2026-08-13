@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative mt-[var(--layout-hero-start-offset)] flex min-h-[var(--layout-hero-min-height)] items-center overflow-hidden py-[var(--layout-hero-padding-y)]"
+      className="relative mt-[var(--layout-hero-start-offset)] flex min-h-[var(--layout-hero-min-height)] items-start overflow-hidden py-[var(--layout-hero-padding-y)] lg:items-center"
       style={{
         borderBottom: "1px solid var(--surface-border)",
       }}
@@ -37,14 +37,23 @@ export function Hero() {
             preserveAspectRatio="none"
           >
             <path
-              d="M 1 50.5 L 1 5.2 A 3.2 3.2 0 0 1 4.2 2 L 94.8 2 A 3.2 3.2 0 0 1 98 5.2 L 98 95.8 A 3.2 3.2 0 0 1 94.8 99 L 4.2 99 A 3.2 3.2 0 0 1 1 95.8 L 1 50.5"
+              d="M 5 96 L 95 96"
               pathLength="100"
               fill="none"
-              stroke="url(#hero-trace-gradient-top)"
-              strokeWidth="0.5"
+              stroke="url(#hero-trace-gradient-bottom)"
+              strokeWidth="0.35"
               strokeLinecap="round"
-              strokeDasharray="3 97"
-              className="motion-trace-loop"
+              opacity="0.32"
+            />
+            <path
+              d="M 5 96 L 95 96"
+              pathLength="100"
+              fill="none"
+              stroke="url(#hero-trace-gradient-bottom)"
+              strokeWidth="0.95"
+              strokeLinecap="round"
+              strokeDasharray="22 78"
+              className="motion-trace-oscillate"
             />
             {/* <rect
               x="2"
@@ -74,8 +83,8 @@ export function Hero() {
           </svg>
 
           <div className="grid items-start gap-[var(--layout-hero-grid-gap)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-            <div className="max-w-3xl pt-1 sm:pt-4">
-              <div className="mb-6 flex justify-center lg:hidden">
+            <div className="hero-copy-column max-w-3xl">
+              <div className="hero-mobile-photo flex justify-center lg:hidden">
                 <HeroOrbitReveal
                   size="var(--layout-hero-orbit-size-mobile)"
                   delay="180ms"
@@ -116,7 +125,7 @@ export function Hero() {
                     </span>
                   </span>
                   <span
-                    className="inline-flex items-center gap-3 border px-4 py-2 font-medium uppercase tracking-[0.22em] text-foreground"
+                    className="inline-flex max-w-[calc(100vw-6.5rem)] flex-wrap items-center gap-x-3 gap-y-1 border px-3 py-2 font-medium uppercase tracking-[0.2em] text-foreground sm:max-w-none sm:px-4 sm:tracking-[0.22em]"
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: "var(--layout-hero-eyebrow-size)",
@@ -134,13 +143,14 @@ export function Hero() {
               </div>
 
               <h1
-                className="motion-fade-up mt-6 max-w-4xl uppercase tracking-[0.04em]"
+                className="motion-fade-up mt-[var(--layout-hero-block-gap)] max-w-4xl uppercase"
                 style={{
                   "--motion-delay": "220ms",
-                  fontFamily: "var(--font-serif)",
+                  fontFamily: "var(--font-display)",
                   fontSize: "var(--layout-hero-name-size)",
                   fontWeight: "var(--layout-hero-name-weight)",
-                  lineHeight: 0.9,
+                  letterSpacing: "var(--layout-hero-name-letter-spacing)",
+                  lineHeight: 1,
                 } as CSSProperties}
               >
                 {heroContent.displayName.lines.map((line, index) => {
@@ -161,7 +171,7 @@ export function Hero() {
               </h1>
               
               <p
-                className="motion-fade-up mt-5 max-w-2xl border-l-2 border-[color:rgb(var(--color-primary)/0.48)] pl-4 text-pretty leading-[1.65] text-foreground"
+                className="motion-fade-up mt-[var(--layout-hero-small-gap)] max-w-2xl border-l-2 border-[color:rgb(var(--color-primary)/0.48)] pl-4 text-pretty leading-[1.65] text-foreground"
                 style={{
                   "--motion-delay": "320ms",
                   fontFamily: "var(--font-mono)",
@@ -173,11 +183,11 @@ export function Hero() {
               </p>
 
               <div
-                className="motion-fade-up mt-5 flex flex-wrap items-center gap-2.5"
+                className="motion-fade-up mt-[var(--layout-hero-small-gap)] flex flex-wrap items-center gap-2.5"
                 style={{ "--motion-delay": "420ms" } as CSSProperties}
               >
                 <Button
-                  href="#projects"
+                  href="#work"
                   style={{
                     borderRadius: "var(--layout-hero-button-radius)",
                     paddingInline: "1.12rem",
@@ -234,7 +244,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="relative hidden min-h-[25rem] items-start justify-center lg:flex">
+            <div className="hero-photo-column relative hidden min-h-[18rem] items-center justify-center lg:flex">
               <HeroOrbitReveal
                 size="var(--layout-hero-orbit-size)"
                 delay="240ms"
@@ -252,26 +262,26 @@ export function Hero() {
           </div>
 
           <div
-            className="motion-fade-up mt-6 border-t border-[color:var(--surface-border)] pt-3"
+            className="hero-stats motion-fade-up border-t border-[color:var(--surface-border)]"
             style={{ "--motion-delay": "580ms" } as CSSProperties}
           >
             <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 lg:grid-cols-5">
-              {heroHighlights.map((item, index) => (
+              {heroHighlights.map((item) => (
                 <div
-                  key={item}
+                  key={item.label}
                   className="min-w-0 border-l border-[color:var(--surface-border)] pl-4"
                 >
                   <div
                     className="text-[0.52rem] uppercase tracking-[0.28em] text-muted"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
-                    {["Exp", "Spec", "Core", "Infra", "Ops"][index] ?? "Info"}
+                    {item.label}
                   </div>
                   <div
                     className="mt-1 text-[0.98rem] uppercase leading-tight text-foreground"
                     style={{ fontFamily: "var(--font-serif)" }}
                   >
-                    {item}
+                    {item.value}
                   </div>
                 </div>
               ))}

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Flame, MoonStar, SunMedium } from "lucide-react";
+import { Gem, MoonStar, SunMedium } from "lucide-react";
 import { defaultTheme, themeKeys } from "@/content/themes";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +10,7 @@ export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [initialTheme, setInitialTheme] = useState(defaultTheme);
+  const themeOrder = [...themeKeys];
 
   useEffect(() => {
     const rootTheme = document.documentElement.getAttribute("data-theme");
@@ -19,16 +20,18 @@ export function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  const activeTheme = mounted ? theme ?? resolvedTheme ?? initialTheme : initialTheme;
-  const themeOrder = [...themeKeys];
+  const currentTheme = mounted ? theme ?? resolvedTheme ?? initialTheme : initialTheme;
+  const activeTheme = themeOrder.includes(currentTheme as (typeof themeOrder)[number])
+    ? currentTheme
+    : defaultTheme;
 
   const iconMap = {
     light: SunMedium,
     dark: MoonStar,
-    ember: Flame,
+    steel: Gem,
   } as const;
 
-  const ActiveIcon = iconMap[activeTheme as keyof typeof iconMap];
+  const ActiveIcon = iconMap[activeTheme as keyof typeof iconMap] ?? MoonStar;
 
   const handleCycleTheme = () => {
     const currentIndex = themeOrder.indexOf(activeTheme as (typeof themeOrder)[number]);
@@ -38,7 +41,7 @@ export function ThemeToggle() {
 
   return (
     <div
-      className="theme-shell inline-flex items-center gap-0.5 rounded-[var(--layout-pill-radius)] border p-[var(--layout-toggle-shell-padding)]"
+      className="theme-shell inline-flex shrink-0 items-center gap-0.5 rounded-[var(--layout-pill-radius)] border p-[var(--layout-toggle-shell-padding)]"
       aria-label="Theme toggle"
     >
       <button
@@ -56,7 +59,7 @@ export function ThemeToggle() {
             "h-[var(--layout-toggle-icon-size)] w-[var(--layout-toggle-icon-size)] transition-transform duration-200 ease-out",
           )}
           style={{
-            opacity: mounted ? 1 : 0,
+            opacity: 1,
             transform: "rotate(var(--theme-toggle-icon-rotate))",
           }}
         />

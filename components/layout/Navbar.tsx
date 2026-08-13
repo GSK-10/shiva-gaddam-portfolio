@@ -7,20 +7,28 @@ import { navigationItems } from "@/content/navigation";
 export function Navbar() {
   return (
     <header
-      className="motion-fade-up sticky top-0 z-50 px-3 pt-3 sm:px-4"
+      className="motion-fade-up sticky top-4 z-50 px-3 sm:px-4"
       style={{ "--motion-delay": "80ms" } as CSSProperties}
     >
       <Container className="max-w-[var(--layout-navbar-container-width)]">
         <nav
           aria-label="Primary"
-          className="theme-shell mx-auto grid h-[var(--layout-navbar-height)] w-[var(--layout-navbar-width)] grid-cols-[minmax(0,1fr)_auto] items-center gap-[var(--layout-navbar-gap)] overflow-hidden rounded-[var(--layout-navbar-radius)] border px-[var(--layout-navbar-padding-x)] py-[var(--layout-navbar-padding-y)] md:flex md:justify-between"
+          className="theme-shell mx-auto flex min-h-[var(--layout-navbar-height)] w-[var(--layout-navbar-width)] items-center justify-between gap-[var(--layout-navbar-gap)] overflow-visible rounded-[var(--layout-navbar-radius)] border px-[var(--layout-navbar-padding-x)] py-[var(--layout-navbar-padding-y)]"
         >
-          <a href="#hero" className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <a
+            href="/#hero"
+            className="inline-flex min-w-0 shrink-0 items-center gap-1 rounded-[var(--layout-navbar-inner-radius)] px-[var(--layout-navbar-brand-padding-x)] py-[var(--layout-navbar-brand-padding-y)] pt-2 transition-colors duration-200 sm:gap-1.5"
+            style={{
+              // borderColor: "var(--nav-shell-border)",
+              // backgroundColor: "var(--nav-brand-bg)",
+              color: "var(--nav-brand-text)",
+              fontFamily: "var(--font-brand)",
+              fontSize: "var(--layout-navbar-brand-size)",
+            }}
+          >
             <span
-              className="shrink-0 bg-clip-text text-transparent"
+              className="shrink-0 bg-clip-text font-bold text-transparent"
               style={{
-                fontFamily: "var(--font-brand)",
-                fontSize: "var(--layout-navbar-brand-size)",
                 letterSpacing: "0.08em",
                 backgroundImage: "var(--nav-logo-gradient)",
               }}
@@ -29,16 +37,20 @@ export function Navbar() {
             </span>
             <span
               aria-hidden="true"
-              className="hidden shrink-0 text-primary sm:inline-block"
-              style={{ fontFamily: "var(--font-serif)", fontSize: "1.02rem" }}
+              className="shrink-0 text-primary"
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "calc(var(--layout-navbar-brand-size) * 1.35)",
+                lineHeight: 1,
+              }}
             >
               /
             </span>
             <span
-              className="hidden min-w-0 truncate text-[0.66rem] uppercase tracking-[0.28em] text-muted sm:inline-block"
+              className="min-w-0 truncate text-[0.6rem] uppercase tracking-[0.22em] text-muted sm:text-[0.66rem]"
               style={{ fontFamily: "var(--font-mono)" }}
             >
-              Portfolio
+              ADAPT
             </span>
           </a>
 
@@ -47,9 +59,9 @@ export function Navbar() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="group relative px-[var(--layout-navbar-link-padding-x)] py-2 font-semibold uppercase tracking-[0.22em] transition-colors duration-300 hover:[color:var(--nav-link-hover-text)]"
+                  className="group relative px-[var(--layout-navbar-link-padding-x)] font-semibold uppercase tracking-[0.08em] transition-colors duration-300 hover:[color:var(--nav-link-hover-text)]"
                   style={{
-                    fontFamily: "var(--font-serif)",
+                    fontFamily: "var(--font-sans)",
                     color: "var(--color-muted)",
                     fontSize: "var(--layout-navbar-link-compact-size)",
                   }}
@@ -70,16 +82,10 @@ export function Navbar() {
           </ul>
 
           <div className="hidden shrink-0 items-center gap-1 md:flex">
-            <div className="mr-2 hidden items-center gap-2 border px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.24em] text-muted lg:inline-flex">
-              <span className="h-2 w-2 bg-primary shadow-[0_0_10px_rgb(var(--color-primary)/0.75)]" />
-              Online
-            </div>
             <ThemeToggle />
           </div>
 
-          <div className="justify-self-end">
-            <MobileNav items={navigationItems} />
-          </div>
+          <MobileNav items={navigationItems} />
         </nav>
       </Container>
     </header>

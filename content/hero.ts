@@ -28,7 +28,13 @@ export type HeroContent = {
 
 /* Hero copy lives here so section-level edits stay separate
    from global site metadata and SEO. */
-export const heroHighlights = ["1.5+ yrs", "Distributed Systems", "Backend", "Cloud", "Automation"];
+export const heroHighlights = [
+  { label: "Exp", value: "1.5+ yrs" },
+  { label: "Spec", value: "Distributed Systems" },
+  { label: "Core", value: "Backend" },
+  { label: "Infra", value: "Cloud" },
+  { label: "Ops", value: "Automation" },
+];
 
 export const heroContent: HeroContent = {
   eyebrow: {

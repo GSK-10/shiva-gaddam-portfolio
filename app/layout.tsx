@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk, JetBrains_Mono, Oxanium } from "next/font/google";
+import { Hanken_Grotesk, JetBrains_Mono, Orbitron, Oxanium } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -78,6 +78,13 @@ const serif = Oxanium({
   variable: "--font-serif",
 });
 
+const display = Orbitron({
+  subsets: ["latin"],
+  weight: ["800"],
+  display: "swap",
+  variable: "--font-display",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteSeo.url),
   title: siteSeo.title,
@@ -139,7 +146,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
+      <body className={`${sans.variable} ${mono.variable} ${serif.variable} ${display.variable}`}>
         <Providers>
           <Navbar />
           {children}

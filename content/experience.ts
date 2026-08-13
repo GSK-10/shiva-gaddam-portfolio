@@ -18,11 +18,11 @@ export const experiences: Experience[] = [
     bullets: [
       "Built and automated 100+ end-to-end workflows across 4 platform components including web services, messaging, directory services, and dynamic routing.",
       "Reduced release regression cycle time by 80%, from 5 days to 1 day, across on-premises and Cloud Native environments.",
-      "Worked with Kubernetes, Podman, Helm, Linux VMs, WebLogic, Oracle DB clients, and internal release environments.",
-      "Debugged SSL, database connectivity, service configuration, and distributed component integration issues.",
-      "Coordinated upgrade and rollout validation across 3 private Kubernetes clusters.",
+      "Upgraded Kubernetes, Podman, and Helm stacks across 3 clusters while preserving backward compatibility and coordinating rollouts with development teams.",
+      "Provisioned distributed platform environments across Linux VMs, installing middleware and database clients and applying quarterly security patches across 3 release cycles.",
+      "Resolved SSL configuration, database connectivity, and service parameter failures across distributed components, and mentored junior engineers on platform operations.",
     ],
-    tech: ["Kubernetes", "Podman", "Helm", "Linux", "Oracle DB", "LISA"],
+    tech: ["LISA", "Kubernetes", "Podman", "Helm", "Linux", "Oracle DB"],
   },
   {
     company: "Oracle",
@@ -31,10 +31,10 @@ export const experiences: Experience[] = [
     start: "Jan 2024",
     end: "Jul 2024",
     bullets: [
-      "Automated workflows for core components of a distributed service activation platform using LISA.",
-      "Worked on web services, JMS/XML messaging, LDAP flows, dynamic routing, environment setup, and deployment workflows.",
+      "Automated end-to-end workflows for 4 core components of a distributed service activation platform using LISA.",
+      "Covered web services, JMS/XML messaging, LDAP directory services, and dynamic routing across Linux-based and containerized environments.",
+      "Collaborated with development teams on environment setup, infrastructure debugging, and deployment workflows.",
     ],
     tech: ["LISA", "JMS", "XML", "LDAP", "Linux"],
   },
 ];
-
