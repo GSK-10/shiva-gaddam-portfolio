@@ -32,7 +32,7 @@ export const heroHighlights = [
   { label: "Exp", value: "1.5+ yrs" },
   { label: "Spec", value: "Distributed Systems" },
   { label: "Core", value: "Backend" },
-  { label: "Infra", value: "Cloud" },
+  { label: "Infra", value: "Cloud-Native" },
   { label: "Ops", value: "Automation" },
 ];
 
@@ -57,7 +57,7 @@ export const heroContent: HeroContent = {
     hintLabel: "Click Me",
     revealAriaLabel: "Reveal ADAPT message",
     resetAriaLabel: "Show portrait again",
-    revealQuote: "Changes happen.",
+    revealQuote: "Systems evolve.",
     revealMarker: "I",
     revealWord: "ADAPT",
     revealAccentIndex: 3,

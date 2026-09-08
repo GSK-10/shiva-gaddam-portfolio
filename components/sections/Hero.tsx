@@ -272,13 +272,13 @@ export function Hero() {
                   className="min-w-0 border-l border-[color:var(--surface-border)] pl-4"
                 >
                   <div
-                    className="text-[0.52rem] uppercase tracking-[0.28em] text-muted"
+                    className="text-[0.65rem] uppercase tracking-[0.28em] text-muted"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
                     {item.label}
                   </div>
                   <div
-                    className="mt-1 text-[0.98rem] uppercase leading-tight text-foreground"
+                    className="mt-1 text-[1.1rem] uppercase leading-tight text-foreground"
                     style={{ fontFamily: "var(--font-serif)" }}
                   >
                     {item.value}

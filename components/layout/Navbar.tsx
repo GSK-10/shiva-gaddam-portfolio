@@ -50,7 +50,7 @@ export function Navbar() {
               className="min-w-0 truncate text-[0.6rem] uppercase tracking-[0.22em] text-muted sm:text-[0.66rem]"
               style={{ fontFamily: "var(--font-mono)" }}
             >
-              ADAPT
+              ADAPTIVE ENGINEERING 
             </span>
           </a>
 
