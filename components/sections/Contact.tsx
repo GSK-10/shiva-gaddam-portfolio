@@ -1,8 +1,102 @@
-import { Section } from "@/components/layout/Section";
-import { SectionCollection } from "@/components/layout/SectionCollection";
-import { sectionCopy } from "@/content/sections";
-import { siteConfig } from "@/content/site";
-import { ArrowUpRight, FileText } from "lucide-react";
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { FileText } from "lucide-react";
+import { Button, Section, Surface } from "@/components/ui";
+import { sectionCopy, siteConfig } from "@/content/portfolio";
+
+const fieldClasses =
+  "w-full border border-[color:var(--surface-border)] bg-[color:var(--surface-card-muted)] px-3 py-2.5 text-sm text-foreground placeholder:text-muted focus-visible:border-[color:rgb(var(--color-primary)/0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+
+const labelClasses =
+  "font-mono text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted";
+
+function ContactForm() {
+  const { title, fields, submit, note } = siteConfig.contactForm;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  /* Static hosting has no server to POST to, so compose a draft instead. */
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const subject = `Portfolio enquiry from ${name}`;
+    const body = `${message}\n\n--\n${name}\n${email}`;
+    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
+  return (
+    <Surface className="p-5 sm:p-6">
+      <div className="flex items-center gap-2.5 border-b border-[color:var(--surface-border)] pb-2.5">
+        <span aria-hidden="true" className="h-3.5 w-[3px] shrink-0 bg-primary" />
+        <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-foreground">
+          {title}
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="mt-5 grid gap-4">
+        <div className="grid gap-2">
+          <label htmlFor="contact-name" className={labelClasses}>
+            {fields.name.label}
+          </label>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            placeholder={fields.name.placeholder}
+            className={fieldClasses}
+          />
+        </div>
+
+        <div className="grid gap-2">
+          <label htmlFor="contact-email" className={labelClasses}>
+            {fields.email.label}
+          </label>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder={fields.email.placeholder}
+            className={fieldClasses}
+          />
+        </div>
+
+        <div className="grid gap-2">
+          <label htmlFor="contact-message" className={labelClasses}>
+            {fields.message.label}
+          </label>
+          <textarea
+            id="contact-message"
+            name="message"
+            required
+            rows={5}
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+            placeholder={fields.message.placeholder}
+            className={`${fieldClasses} resize-y`}
+          />
+        </div>
+
+        <Button type="submit" className="mt-1 w-full">
+          {submit}
+        </Button>
+        <p className="text-center font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted">
+          {note}
+        </p>
+      </form>
+    </Surface>
+  );
+}
 
 export function Contact() {
   const copy = sectionCopy.contact;
@@ -20,36 +114,26 @@ export function Contact() {
       }
       tagline={copy.tagline}
     >
-      <p className="max-w-2xl text-lg leading-8 text-foreground">{siteConfig.contactIntro}</p>
-      <SectionCollection variant="wrap" className="mt-7">
-        {siteConfig.profileLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.9fr)] lg:gap-8">
+        <div>
+          <p className="max-w-[52ch] text-base leading-7 text-foreground sm:text-[1.05rem] sm:leading-[1.8]">
+            {siteConfig.contactIntro}
+          </p>
+
+          <Button
+            href={siteConfig.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 border-b border-[color:var(--surface-border)] py-2 text-sm text-muted transition-colors hover:border-primary hover:text-foreground"
+            variant="secondary"
+            className="mt-7 gap-2"
           >
-            <span className={link.label === "Email" ? "break-all" : undefined}>
-              {link.label === "Email" ? siteConfig.email : link.label}
-            </span>
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
-        ))}
-      </SectionCollection>
-      <a
-        href={siteConfig.resumeUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-8 inline-flex items-center gap-2 bg-primary px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground"
-        style={{
-          clipPath: "polygon(0.75rem 0, 100% 0, calc(100% - 0.75rem) 100%, 0 100%)",
-          fontFamily: "var(--font-serif)",
-        }}
-      >
-        <FileText className="h-4 w-4" />
-        Resume dossier
-      </a>
+            <FileText className="h-4 w-4" />
+            Resume dossier
+          </Button>
+        </div>
+
+        <ContactForm />
+      </div>
     </Section>
   );
 }

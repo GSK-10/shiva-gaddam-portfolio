@@ -1,8 +1,6 @@
-import { Section } from "@/components/layout/Section";
-import { SectionCollection } from "@/components/layout/SectionCollection";
-import { GlassSurface } from "@/components/ui/GlassSurface";
-import { principles } from "@/content/principles";
-import { sectionCopy } from "@/content/sections";
+import { Lightbulb } from "lucide-react";
+import { Section, Surface } from "@/components/ui";
+import { principles, sectionCopy } from "@/content/portfolio";
 
 export function Principles() {
   const copy = sectionCopy.principles;
@@ -13,6 +11,7 @@ export function Principles() {
       index={copy.index}
       eyebrow={copy.eyebrow}
       title={copy.title}
+      icon={Lightbulb}
       displayTitle={
         <>
           {copy.heading} <span className="text-primary">{copy.accent}</span>
@@ -20,27 +19,25 @@ export function Principles() {
       }
       tagline={copy.tagline}
     >
-      <SectionCollection variant="grid">
+      <div className="grid gap-4 md:grid-cols-2">
         {principles.map((principle, index) => (
-          <GlassSurface key={principle.title} className="h-full p-5 sm:p-6">
+          <Surface key={principle.title} className="h-full p-5 sm:p-6">
             <article>
               <p
-                className="text-[0.62rem] uppercase tracking-[0.2em] text-primary"
-                style={{ fontFamily: "var(--font-mono)" }}
+                className="font-mono text-xs uppercase tracking-[0.2em] text-primary"
               >
                 Principle {String(index + 1).padStart(2, "0")}
               </p>
               <h3
-                className="mt-4 text-lg font-bold uppercase leading-tight text-foreground"
-                style={{ fontFamily: "var(--font-serif)" }}
+                className="mt-4 font-serif text-lg font-bold uppercase leading-tight text-foreground"
               >
                 {principle.title}
               </h3>
-              <p className="mt-3 text-sm leading-6 text-muted">{principle.detail}</p>
+              <p className="mt-3 text-base leading-7 text-muted">{principle.detail}</p>
             </article>
-          </GlassSurface>
+          </Surface>
         ))}
-      </SectionCollection>
+      </div>
     </Section>
   );
 }

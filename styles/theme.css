@@ -1,258 +1,102 @@
 :root {
-  /* Typography is injected by next/font in app/layout.tsx. */
+  /* next/font redeclares these on <body> with its self-hosted faces; the stacks
+     here are the fallback if that className is ever absent. --font-brand is
+     re-aliased on <body> in globals.css so it resolves against the loaded
+     --font-serif rather than being frozen to this stack at :root. */
   --font-serif: "Oxanium", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
   --font-brand: var(--font-serif);
-  --font-accent: var(--font-serif);
 
-  --radius-sm: 0.16rem;
-  --radius-md: 0.16rem;
-  --radius-lg: 0.22rem;
-  --radius-pill: 0.08rem;
-
+  --radius-surface: 0.16rem;
   --transition: 180ms ease;
-  --shadow-soft: 0 12px 34px rgb(0 0 0 / 0.22);
-  --grid-size: 44px;
-  --grid-major-size: 176px;
-  --grid-line: rgb(255 255 255 / 0.08);
-  --grid-major-line: rgb(255 255 255 / 0.15);
-  --grid-diagonal: transparent;
-  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.72), transparent 92%);
-  --signal: rgb(var(--color-primary));
-  --signal-soft: rgb(var(--color-primary) / 0.14);
-  --hero-cta-bg: rgb(var(--color-primary));
+
+  /* Derived semantic tokens: components consume these, never theme names. */
+  --surface-card: rgb(var(--color-card) / 0.92);
+  --surface-card-muted: rgb(var(--color-card-muted) / 0.94);
+  --surface-border: rgb(var(--color-border) / 0.34);
+  --shadow-card: 0 16px 34px rgb(var(--shadow-color) / var(--shadow-opacity));
+  --shadow-card-hover: 0 22px 46px rgb(var(--shadow-color) / calc(var(--shadow-opacity) + 0.06));
+  --surface-hover-translate: -2px;
+
+  --accent: rgb(var(--color-primary));
+  --accent-soft: rgb(var(--color-primary) / 0.11);
+  --accent-2: rgb(var(--color-secondary));
+  --selection-bg: var(--accent);
+  --selection-text: rgb(var(--color-primary-foreground));
+
+  --nav-shell-bg: rgb(var(--color-card) / 0.9);
+  --nav-shell-border: rgb(var(--color-border) / 0.36);
+  --nav-shell-shadow: 0 12px 30px rgb(var(--shadow-color) / var(--shadow-opacity));
+  --nav-logo-gradient: linear-gradient(135deg, rgb(var(--color-foreground)), var(--accent));
+  --nav-link-underline: linear-gradient(90deg, var(--accent), var(--accent-2));
+
+  --hero-cta-bg: var(--accent);
   --hero-cta-text: rgb(var(--color-primary-foreground));
-  --hero-cta-border: rgb(var(--color-primary) / 0.45);
-  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14);
-  --hero-panel-glow: rgb(var(--color-primary) / 0.12);
+  --hero-cta-border: rgb(var(--color-primary) / 0.55);
+  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18);
+  --hero-panel-glow: rgb(var(--color-primary) / 0.14);
+
+  --grid-size: 40px;
+  --grid-major-size: 160px;
+  --grid-line: rgb(var(--color-primary) / 0.08);
+  --grid-major-line: rgb(var(--color-primary) / 0.15);
+  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.72), transparent 92%);
+  --page-background:
+    linear-gradient(180deg, rgb(var(--color-primary) / 0.025), transparent 42%),
+    rgb(var(--color-background));
+
+  --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
+  --scrollbar-track: rgb(var(--color-background) / 0.86);
+  --scrollbar-thumb-border: rgb(var(--color-background) / 0.92);
 }
 
 :root,
 [data-theme="light"] {
-  /* Core app tokens. Tailwind utilities should map to these first. */
+  color-scheme: light;
   --color-background: 242 244 247;
   --color-foreground: 17 29 48;
   --color-muted: 106 116 132;
-  --color-border: 197 204 216;
+  --color-border: 165 178 198;
   --color-card: 246 248 252;
+  --color-card-muted: 238 242 247;
   --color-card-foreground: 17 29 48;
   --color-primary: 18 97 242;
   --color-primary-foreground: 255 255 255;
-
-  /* Surface tokens for cards, pills, and any future advanced components. */
-  --surface-card: rgba(246, 248, 252, 0.94);
-  --surface-card-muted: rgba(238, 242, 247, 0.96);
-  --surface-border: rgba(165, 178, 198, 0.34);
-  --shadow-card: 0 16px 30px rgba(28, 42, 69, 0.08);
-  --shadow-card-hover: 0 20px 42px rgba(28, 42, 69, 0.14);
-  --surface-hover-translate: -2px;
-
-  --accent: #1261f2;
-  --accent-soft: rgba(18, 97, 242, 0.08);
-  --accent-2: #85b2ff;
-  --accent-2-soft: rgba(133, 178, 255, 0.12);
-
-  --selection-bg: var(--accent);
-  --selection-text: #ffffff;
-  --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
-  --scrollbar-track: rgba(230, 236, 245, 0.8);
-  --scrollbar-thumb-border: rgba(242, 244, 247, 0.92);
-
-  /* Component-specific tokens. Edit these when you want a themed variant,
-     not when you are changing semantic colors globally. */
-  --nav-shell-bg: rgb(244 246 250 / 0.92);
-  --nav-shell-border: rgb(180 190 207 / 0.44);
-  --nav-shell-shadow: 0 12px 24px rgb(28 42 69 / 0.06);
-  --nav-link-hover-text: rgb(17 29 48);
-  --nav-brand-bg: rgb(18 97 242 / 0.06);
-  --nav-brand-text: rgb(17 29 48);
-  --nav-logo-gradient: linear-gradient(135deg, #0b1730 0%, #1261f2 100%);
-  --nav-link-underline: linear-gradient(90deg, #1261f2, #85b2ff);
-  --theme-toggle-shadow: 0 0 0 1px rgb(18 97 242 / 0.1);
-  --theme-toggle-icon-rotate: 0deg;
-  --grid-size: 40px;
-  --grid-major-size: 160px;
-  --grid-line: rgb(18 97 242 / 0.09);
-  --grid-major-line: rgb(18 97 242 / 0.17);
-  --grid-diagonal: linear-gradient(135deg, transparent 0 46%, rgb(18 97 242 / 0.055) 46.5%, transparent 47%);
-  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.34), transparent 92%);
-  --signal: rgb(var(--color-primary));
-  --signal-soft: rgb(var(--color-primary) / 0.12);
-  --hero-cta-bg: rgb(var(--color-primary));
-  --hero-cta-text: rgb(var(--color-primary-foreground));
-  --hero-cta-border: rgb(var(--color-primary) / 0.5);
-  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.28);
-  --hero-panel-glow: rgb(18 97 242 / 0.1);
-
-  --page-background:
-    linear-gradient(180deg, rgb(244 246 250) 0%, rgb(240 243 248) 100%);
+  --color-secondary: 133 178 255;
+  --shadow-color: 28 42 69;
+  --shadow-opacity: 0.08;
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --color-background: 8 12 18;
   --color-foreground: 236 241 246;
   --color-muted: 131 146 168;
-  --color-border: 61 78 104;
+  --color-border: 74 95 122;
   --color-card: 10 17 26;
+  --color-card-muted: 15 24 36;
   --color-card-foreground: 236 241 246;
   --color-primary: 0 194 255;
   --color-primary-foreground: 6 10 16;
-
-  --surface-card: rgba(10, 17, 26, 0.9);
-  --surface-card-muted: rgba(15, 24, 36, 0.94);
-  --surface-border: rgba(74, 95, 122, 0.34);
-  --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.32);
-  --shadow-card-hover: 0 24px 52px rgba(0, 0, 0, 0.38);
-  --surface-hover-translate: -2px;
-
-  --accent: #00c2ff;
-  --accent-soft: rgba(0, 194, 255, 0.1);
-  --accent-2: #0a6fff;
-  --accent-2-soft: rgba(10, 111, 255, 0.12);
-
-  --selection-bg: var(--accent);
-  --selection-text: #0a1018;
-  --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
-  --scrollbar-track: rgba(8, 12, 18, 0.82);
-  --scrollbar-thumb-border: rgba(8, 12, 18, 0.9);
-
-  --nav-shell-bg: rgb(9 15 24 / 0.88);
-  --nav-shell-border: rgb(48 68 94 / 0.42);
-  --nav-shell-shadow: 0 12px 32px rgb(0 0 0 / 0.28);
-  --nav-link-hover-text: rgb(236 241 246);
-  --nav-brand-bg: rgb(0 194 255 / 0.08);
-  --nav-brand-text: rgb(236 241 246);
-  --nav-logo-gradient: linear-gradient(135deg, #ffffff 0%, #00c2ff 100%);
-  --nav-link-underline: linear-gradient(90deg, #00c2ff, #0a6fff);
-  --theme-toggle-shadow: 0 0 0 1px rgb(0 194 255 / 0.14);
-  --theme-toggle-icon-rotate: 12deg;
-  --grid-size: 40px;
-  --grid-major-size: 160px;
-  --grid-line: rgb(0 194 255 / 0.08);
-  --grid-major-line: rgb(0 194 255 / 0.15);
-  --grid-diagonal: linear-gradient(135deg, transparent 0 46%, rgb(0 194 255 / 0.045) 46.5%, transparent 47%);
-  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.74), transparent 92%);
-  --signal: rgb(var(--color-primary));
-  --signal-soft: rgb(var(--color-primary) / 0.16);
-  --hero-cta-bg: rgb(var(--color-primary));
-  --hero-cta-text: rgb(var(--color-primary-foreground));
-  --hero-cta-border: rgb(var(--color-primary) / 0.62);
-  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18);
-  --hero-panel-glow: rgb(0 194 255 / 0.16);
-
-  --page-background:
-    linear-gradient(180deg, rgb(8 12 18) 0%, rgb(6 10 16) 100%);
+  --color-secondary: 10 111 255;
+  --shadow-color: 0 0 0;
+  --shadow-opacity: 0.3;
 }
 
 [data-theme="steel"] {
+  color-scheme: dark;
   --color-background: 23 24 26;
   --color-foreground: 244 241 234;
   --color-muted: 176 177 174;
-  --color-border: 122 128 136;
+  --color-border: 190 199 211;
   --color-card: 34 36 39;
+  --color-card-muted: 42 45 49;
   --color-card-foreground: 244 241 234;
   --color-primary: 190 199 211;
   --color-primary-foreground: 20 21 23;
-
-  --surface-card: rgba(34, 36, 39, 0.94);
-  --surface-card-muted: rgba(42, 45, 49, 0.94);
-  --surface-border: rgba(190, 199, 211, 0.18);
-  --shadow-card: 0 16px 34px rgba(0, 0, 0, 0.28);
-  --shadow-card-hover: 0 22px 46px rgba(0, 0, 0, 0.34);
-  --surface-hover-translate: -2px;
-
-  --accent: #bec7d3;
-  --accent-soft: rgba(190, 199, 211, 0.12);
-  --accent-2: #8d99aa;
-  --accent-2-soft: rgba(141, 153, 170, 0.14);
-  --selection-bg: var(--accent);
-  --selection-text: #141517;
-  --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
-  --scrollbar-track: rgba(18, 19, 21, 0.82);
-  --scrollbar-thumb-border: rgba(23, 24, 26, 0.94);
-
-  --nav-shell-bg: rgb(27 29 32 / 0.9);
-  --nav-shell-border: rgb(190 199 211 / 0.22);
-  --nav-shell-shadow: 0 12px 30px rgb(0 0 0 / 0.26);
-  --nav-link-hover-text: rgb(244 241 234);
-  --nav-brand-bg: rgb(190 199 211 / 0.1);
-  --nav-brand-text: rgb(244 241 234);
-  --nav-logo-gradient: linear-gradient(135deg, #f4f1ea 0%, #bec7d3 100%);
-  --nav-link-underline: linear-gradient(90deg, #bec7d3, #8d99aa);
-  --theme-toggle-shadow: 0 0 0 1px rgb(190 199 211 / 0.14);
-  --theme-toggle-icon-rotate: -8deg;
-  --grid-size: 42px;
-  --grid-major-size: 168px;
-  --grid-line: rgb(190 199 211 / 0.07);
-  --grid-major-line: rgb(190 199 211 / 0.12);
-  --grid-diagonal: linear-gradient(135deg, transparent 0 46%, rgb(190 199 211 / 0.035) 46.5%, transparent 47%);
-  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.72), transparent 92%);
-  --signal: rgb(var(--color-primary));
-  --signal-soft: rgb(var(--color-primary) / 0.12);
-  --hero-cta-bg: rgb(var(--color-primary));
-  --hero-cta-text: rgb(var(--color-primary-foreground));
-  --hero-cta-border: rgb(var(--color-primary) / 0.44);
-  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18);
-  --hero-panel-glow: rgb(190 199 211 / 0.14);
-
-  --page-background:
-    linear-gradient(180deg, rgb(23 24 26) 0%, rgb(18 19 21) 58%, rgb(14 15 17) 100%);
+  --color-secondary: 141 153 170;
+  --shadow-color: 0 0 0;
+  --shadow-opacity: 0.26;
 }
-
-/* Amber theme parked for later reuse.
-[data-theme="ember"] {
-  --color-background: 36 23 20;
-  --color-foreground: 247 237 229;
-  --color-muted: 199 171 151;
-  --color-border: 215 161 122;
-  --color-card: 36 23 20;
-  --color-card-foreground: 247 237 229;
-  --color-primary: 210 137 87;
-  --color-primary-foreground: 19 13 11;
-
-  --surface-card: rgba(36, 23, 20, 0.94);
-  --surface-card-muted: rgba(48, 32, 28, 0.94);
-  --surface-border: rgba(215, 161, 122, 0.16);
-  --shadow-card: 0 16px 34px rgba(0, 0, 0, 0.28);
-  --shadow-card-hover: 0 20px 42px rgba(0, 0, 0, 0.34);
-  --surface-hover-translate: -2px;
-
-  --accent: #d28957;
-  --accent-soft: rgba(210, 137, 87, 0.16);
-  --accent-2: #f0b58f;
-  --accent-2-soft: rgba(240, 181, 143, 0.14);
-  --selection-bg: var(--accent);
-  --selection-text: #130d0b;
-  --scrollbar-thumb: linear-gradient(180deg, var(--accent), var(--accent-2));
-  --scrollbar-track: rgba(26, 18, 15, 0.72);
-  --scrollbar-thumb-border: rgba(36, 23, 20, 0.94);
-
-  --nav-shell-bg: rgb(36 23 20 / 0.9);
-  --nav-shell-border: rgb(215 161 122 / 0.24);
-  --nav-shell-shadow: 0 12px 28px rgb(0 0 0 / 0.24);
-  --nav-link-hover-text: rgb(247 237 229);
-  --nav-brand-bg: rgb(210 137 87 / 0.12);
-  --nav-brand-text: rgb(247 237 229);
-  --nav-logo-gradient: linear-gradient(135deg, #f7ede5 0%, #d28957 100%);
-  --nav-link-underline: linear-gradient(90deg, #d28957, #f0b58f);
-  --theme-toggle-shadow: 0 0 0 1px rgb(210 137 87 / 0.16);
-  --theme-toggle-icon-rotate: -12deg;
-  --grid-size: 42px;
-  --grid-major-size: 168px;
-  --grid-line: rgb(210 137 87 / 0.08);
-  --grid-major-line: rgb(210 137 87 / 0.13);
-  --grid-diagonal: linear-gradient(135deg, transparent 0 46%, rgb(210 137 87 / 0.045) 46.5%, transparent 47%);
-  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.72), transparent 92%);
-  --signal: rgb(var(--color-primary));
-  --signal-soft: rgb(var(--color-primary) / 0.12);
-  --hero-cta-bg: rgb(var(--color-primary));
-  --hero-cta-text: rgb(var(--color-primary-foreground));
-  --hero-cta-border: rgb(var(--color-primary) / 0.45);
-  --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14);
-  --hero-panel-glow: rgb(210 137 87 / 0.16);
-
-  --page-background:
-    linear-gradient(180deg, rgb(36 23 20) 0%, rgb(26 18 15) 54%, rgb(19 13 11) 100%);
-}
-*/

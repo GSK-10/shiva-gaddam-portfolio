@@ -13,10 +13,10 @@ export type WorkCaseStudy = {
 export const workCaseStudies: WorkCaseStudy[] = [
   {
     title: "Release Automation Across Distributed Services",
-    focus: "SDE / Test Infrastructure",
+    focus: "Test Infrastructure",
     period: "2024-2025",
     summary:
-      "Sanitized automation work for web services, messaging, directory, telnet/socket, and routing flows in a distributed activation platform.",
+      "Automation work for web services, messaging, directory, telnet/socket, and routing flows in a distributed activation platform.",
     challenge:
       "Regression coverage depended on manual setup, environment-specific data, and suites that could fail because of SSL, LDAP, database, or service-state drift.",
     contribution: [
@@ -30,7 +30,7 @@ export const workCaseStudies: WorkCaseStudy[] = [
       "Expanded coverage around component-level and end-to-end service behavior without exposing implementation details.",
     ],
     evidence: "Status reports reference 30/33, 32/33, 26/26, and 27-case suite executions after debugging and data updates.",
-    tech: ["LISA", "JMS", "XML", "LDAP", "SSL", "Linux"],
+    tech: ["Java", "LISA", "JMS", "XML", "LDAP", "SSL", "Linux"],
   },
   {
     title: "Platform Environment Provisioning And Patching",
@@ -72,19 +72,20 @@ export const workCaseStudies: WorkCaseStudy[] = [
       "Built stronger operational fluency across containers, operators, and deployment flows.",
     ],
     evidence: "Status reports describe multiple cloud-native tech stack upgrades, issue debugging, and deployment guide review.",
-    tech: ["Kubernetes", "Podman", "Helm", "WebLogic Operator", "WDT", "WIT"],
+    tech: ["Java", "Kubernetes", "Podman", "Helm", "WebLogic Operator", "WDT", "WIT"],
   },
   {
     title: "API, Security, And Routing Test Modernization",
-    focus: "SDE / Reliability Testing",
+    focus: "AI-Assisted Testing",
     period: "2025",
     summary:
-      "Modernized sanitized API and routing validation paths by updating data, specs, assertions, and execution flows.",
+      "Modernized API and routing validation through refreshed test data, stronger assertions, and AI-assisted test development with Cline.",
     challenge:
       "Routing and API cases needed refreshed test data, correct assertions, SSL-aware configuration, and repeatable execution in new environments.",
     contribution: [
       "Updated dynamic routing and ID routing cases, test steps, assertions, and environment-specific properties for the latest release branch.",
       "Created and exercised an API spec for REST fuzzing and also worked through SOAP fuzz execution flows.",
+      "Used Cline to accelerate test-case development, then reviewed, corrected, and validated the tests against expected application behavior.",
       "Used Postman and Cypress reference code to understand API behavior and translate it into validation workflows.",
     ],
     outcome: [
@@ -93,6 +94,6 @@ export const workCaseStudies: WorkCaseStudy[] = [
       "Clarified failure causes around routing parameters, cartridge data, SSL setup, and environment configuration.",
     ],
     evidence: "Source docs mention 24 dynamic routing plus 3 ID routing cases, REST fuzz spec work, SOAP fuzz execution, and API validation.",
-    tech: ["REST", "SOAP", "Postman", "Cypress", "SSL", "Dynamic Routing"],
+    tech: ["Cline", "REST", "SOAP", "Postman", "Cypress", "SSL", "Dynamic Routing"],
   },
 ];

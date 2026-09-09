@@ -1,9 +1,6 @@
 export type SkillGroup = {
   title: string;
-  items: {
-    label: string;
-    featured?: boolean;
-  }[];
+  items: { label: string; featured?: boolean }[];
 };
 
 export const skillGroups: SkillGroup[] = [
@@ -83,169 +80,23 @@ export const skillGroups: SkillGroup[] = [
 ];
 
 export const skillsMarquee = [
-  // Languages
   "C/C++",
   "Python",
   "Java",
   "JavaScript",
   "SQL",
-
-  // Infrastructure & DevOps
   "Linux",
   "Docker",
   "Kubernetes",
   "Git",
   "GitLab",
-
-  // Frameworks & Databases
   "Node.js",
   "React",
   "Oracle DB",
   "MySQL",
-
-  // Backend / Spring Boot Learning
   "Spring Boot",
   "REST APIs",
-
-  // AWS Learning
-  "AWS",,
-  "Distributed Systems",
-  
-  // Work Strengths
-  "Automation",
-];
-
-/*
-
-// Final Version
-export const skillsMarquee = [
-  // Languages
-  "C/C++",
-  "Python",
-  "Java",
-  "JavaScript",
-  "SQL",
-  // "Bash/Shell",
-
-  // Infrastructure & DevOps
-  "Linux",
-  "Docker",
-  // "Podman",
-  "Kubernetes",
-  "Git",
-  "GitLab",
-
-  // Frameworks & Databases
-  "Node.js",
-  "React",
-  // "Flask",
-  "Oracle DB",
-  "MySQL",
-  // "MongoDB",
-
-  // Backend / Spring Boot Learning
-  "Spring Boot",
-  "Spring MVC",
-  "REST APIs",
-  "Spring Data JPA",
-  "Hibernate",
-  // "JUnit",
-  // "Mockito",
-
-  // AWS Learning
   "AWS",
-  // "AWS Fundamentals",
-  // "IAM",
-  // "EC2",
-  // "S3",
-  // "CloudWatch",
-
-  // Core Concepts
-  // "DSA",
-  // "OOP",
-  // "DBMS",
-  // "Computer Networks",
   "Distributed Systems",
-  // "Microservices",
-  // "Agile/Scrum",
-
-  // Work Strengths
   "Automation",
-  // "Debugging",
-  "API Testing",
-  // "Regression Testing",
-  // "Backend Systems",
-  // "Cloud-Native Basics",
 ];
-
-// Mini Version
-export const skillsMarquee = [
-  "Java",
-  "Spring Boot",
-  "REST APIs",
-  "Spring MVC",
-  "Spring Data JPA",
-  "Hibernate",
-  "JUnit",
-  "Mockito",
-  "SQL",
-  "MySQL",
-  "Python",
-  "Linux",
-  "Git",
-  "Docker",
-  "Kubernetes",
-  "AWS Fundamentals",
-  "EC2",
-  "S3",
-  "IAM",
-  "CloudWatch",
-  "Automation",
-  "Backend Systems",
-  "Debugging",
-  "API Testing",
-];
-
-// V1 
-export const skillsMarquee = [
-  "Java",
-  "Spring Boot",
-  "Spring MVC",
-  "REST APIs",
-  "Spring Data JPA",
-  "Hibernate",
-  "Spring Security",
-  "JWT",
-  "OAuth2 / OIDC",
-  "JUnit",
-  "Mockito",
-  "Redis",
-  "Kafka",
-  "Microservices",
-  "Resilience4j",
-  "Spring Cloud",
-  "API Gateway",
-  "Actuator",
-  "OpenAPI",
-  "Docker",
-  "Kubernetes",
-  "AWS",
-  "IAM",
-  "EC2",
-  "S3",
-  "Lambda",
-  "RDS",
-  "VPC",
-  "CloudWatch",
-  "Linux",
-  "Git",
-  "GitLab CI",
-  "Jenkins",
-  "Python",
-  "SQL",
-];
-
-
-
-*/
-

@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { siteConfig } from "@/content/site";
+import { Container } from "@/components/ui";
+import { siteConfig } from "@/content/portfolio";
 import { cn } from "@/lib/utils";
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="py-8">
       <Container>
-        <div className="theme-shell mx-auto max-w-[var(--layout-content-width)] rounded-[var(--layout-surface-radius)] border px-5 py-4">
+        <div className="theme-shell mx-auto max-w-7xl border px-5 py-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-2 text-sm text-muted">
               <span>
@@ -38,8 +38,8 @@ export function Footer() {
                     aria-hidden="true"
                     className="absolute inset-x-0 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
                     style={{
-                      bottom: "var(--layout-navbar-link-underline-offset)",
-                      height: "var(--layout-navbar-link-underline-height)",
+                      bottom: "-0.3rem",
+                      height: "1px",
                       backgroundImage: "var(--nav-link-underline)",
                     }}
                   />

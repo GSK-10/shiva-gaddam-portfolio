@@ -1,17 +1,18 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./content/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+        serif: ["var(--font-serif)"],
+        display: ["var(--font-display)"],
+        brand: ["var(--font-brand)"],
       },
       colors: {
         background: "rgb(var(--color-background) / <alpha-value>)",
@@ -23,18 +24,9 @@ const config: Config = {
         primary: "rgb(var(--color-primary) / <alpha-value>)",
         "primary-foreground": "rgb(var(--color-primary-foreground) / <alpha-value>)",
       },
-      borderRadius: {
-        sm: "var(--radius-sm)",
-        md: "var(--radius-md)",
-        lg: "var(--radius-lg)",
-      },
-      boxShadow: {
-        soft: "var(--shadow-soft)",
-      },
     },
   },
   plugins: [],
 };
 
 export default config;
-

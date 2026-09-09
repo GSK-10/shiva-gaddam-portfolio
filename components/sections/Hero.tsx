@@ -1,8 +1,6 @@
 import type { CSSProperties } from "react";
-import { heroContent, heroHighlights } from "@/content/hero";
-import { siteConfig } from "@/content/site";
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/layout/Container";
+import { heroContent, heroHighlights, siteConfig } from "@/content/portfolio";
+import { Button, Container } from "@/components/ui";
 import { HeroOrbitReveal } from "@/components/ui/HeroOrbitReveal";
 import { Github, Globe, Linkedin, Mail } from "lucide-react";
 
@@ -14,10 +12,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative mt-[var(--layout-hero-start-offset)] flex min-h-[var(--layout-hero-min-height)] items-start overflow-hidden py-[var(--layout-hero-padding-y)] lg:items-center"
-      style={{
-        borderBottom: "1px solid var(--surface-border)",
-      }}
+      className="relative mt-2 flex items-start overflow-hidden border-b border-[color:var(--surface-border)] py-8 sm:mt-4 sm:py-12 lg:mt-6 lg:min-h-[min(52rem,calc(100svh-8rem))] lg:items-center"
     >
       <span
         aria-hidden="true"
@@ -29,7 +24,7 @@ export function Hero() {
         }}
       />
       <Container>
-        <div className="relative mx-auto max-w-[var(--layout-content-width)] px-[var(--layout-hero-shell-padding)] py-[calc(var(--layout-hero-shell-padding)*0.85)]">
+        <div className="relative mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-5 lg:px-7 lg:py-6">
           <svg
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 h-full w-full opacity-40"
@@ -55,26 +50,7 @@ export function Hero() {
               strokeDasharray="22 78"
               className="motion-trace-oscillate"
             />
-            {/* <rect
-              x="2"
-              y="2"
-              width="96"
-              height="96"
-              rx="8.2"
-              pathLength="100"
-              fill="none"
-              stroke="url(#hero-trace-gradient-bottom)"
-              strokeWidth="0.5"
-              strokeLinecap="round"
-              strokeDasharray="30 70"
-              className="motion-trace-loop"
-              style={{ animationDelay: "-6s" } as CSSProperties}
-            /> */}
             <defs>
-              <linearGradient id="hero-trace-gradient-top" x1="50%" y1="0%" x2="100%" y2="50%">
-                <stop offset="0%" stopColor="var(--accent)" />
-                <stop offset="100%" stopColor="var(--accent-2)" />
-              </linearGradient>
               <linearGradient id="hero-trace-gradient-bottom" x1="50%" y1="100%" x2="0%" y2="50%">
                 <stop offset="0%" stopColor="var(--accent)" />
                 <stop offset="100%" stopColor="var(--accent-2)" />
@@ -82,15 +58,14 @@ export function Hero() {
             </defs>
           </svg>
 
-          <div className="grid items-start gap-[var(--layout-hero-grid-gap)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-            <div className="hero-copy-column max-w-3xl">
-              <div className="hero-mobile-photo flex justify-center lg:hidden">
+          <div className="grid items-start gap-4 sm:gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-6">
+            <div className="max-w-3xl pt-1 sm:pt-3 lg:pl-3 lg:pt-4">
+              <div className="mb-5 flex justify-center sm:mb-6 lg:hidden">
                 <HeroOrbitReveal
-                  size="var(--layout-hero-orbit-size-mobile)"
+                  className="w-24 sm:w-28 md:w-32"
                   delay="180ms"
                   defaultImage={heroContent.orbitReveal.defaultImage}
                   defaultAlt={heroContent.orbitReveal.defaultAlt}
-                  hintLabel={heroContent.orbitReveal.hintLabel}
                   revealAriaLabel={heroContent.orbitReveal.revealAriaLabel}
                   resetAriaLabel={heroContent.orbitReveal.resetAriaLabel}
                   revealQuote={heroContent.orbitReveal.revealQuote}
@@ -115,22 +90,15 @@ export function Hero() {
                     }}
                   >
                     <span
-                      className="-rotate-45 font-semibold"
-                      style={{
-                        fontFamily: "var(--font-serif)",
-                        fontSize: "var(--layout-hero-eyebrow-size)",
-                      }}
+                      className="-rotate-45 font-serif text-xs font-semibold sm:text-sm lg:text-base"
                     >
                       #1
                     </span>
                   </span>
                   <span
-                    className="inline-flex max-w-[calc(100vw-6.5rem)] flex-wrap items-center gap-x-3 gap-y-1 border px-3 py-2 font-medium uppercase tracking-[0.2em] text-foreground sm:max-w-none sm:px-4 sm:tracking-[0.22em]"
+                    className="inline-flex max-w-[calc(100vw-6.5rem)] flex-wrap items-center gap-x-3 gap-y-1 border px-3 py-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-primary sm:max-w-none sm:px-4 sm:text-sm sm:tracking-[0.22em] lg:text-base"
                     style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "var(--layout-hero-eyebrow-size)",
                       borderColor: "var(--surface-border)",
-                      color: "rgb(var(--color-primary))",
                     }}
                   >
                     <span>{heroContent.eyebrow.primary}</span>
@@ -143,14 +111,9 @@ export function Hero() {
               </div>
 
               <h1
-                className="motion-fade-up mt-[var(--layout-hero-block-gap)] max-w-4xl uppercase"
+                className="motion-fade-up mt-5 max-w-4xl font-display text-[2rem] font-extrabold uppercase leading-none tracking-[0.075rem] sm:mt-6 sm:text-[2.5rem] sm:tracking-[0.1rem] md:text-5xl lg:mt-7 lg:text-[3.6rem] lg:tracking-[0.125rem]"
                 style={{
                   "--motion-delay": "220ms",
-                  fontFamily: "var(--font-display)",
-                  fontSize: "var(--layout-hero-name-size)",
-                  fontWeight: "var(--layout-hero-name-weight)",
-                  letterSpacing: "var(--layout-hero-name-letter-spacing)",
-                  lineHeight: 1,
                 } as CSSProperties}
               >
                 {heroContent.displayName.lines.map((line, index) => {
@@ -171,11 +134,9 @@ export function Hero() {
               </h1>
               
               <p
-                className="motion-fade-up mt-[var(--layout-hero-small-gap)] max-w-2xl border-l-2 border-[color:rgb(var(--color-primary)/0.48)] pl-4 text-pretty leading-[1.65] text-foreground"
+                className="motion-fade-up mt-5 max-w-2xl border-l-2 border-[color:rgb(var(--color-primary)/0.48)] pl-4 font-mono text-base leading-7 text-foreground sm:mt-6 sm:text-lg lg:mt-8 lg:text-xl"
                 style={{
                   "--motion-delay": "320ms",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "var(--layout-hero-copy-size)",
                 } as CSSProperties}
               >
                 {heroContent.statement.prefix} <em className="text-primary italic">{heroContent.statement.accent}</em>{" "}
@@ -183,17 +144,10 @@ export function Hero() {
               </p>
 
               <div
-                className="motion-fade-up mt-[var(--layout-hero-small-gap)] flex flex-wrap items-center gap-2.5"
+                className="motion-fade-up mt-5 flex flex-wrap items-center gap-2.5 sm:mt-6 lg:mt-8"
                 style={{ "--motion-delay": "420ms" } as CSSProperties}
               >
-                <Button
-                  href="#work"
-                  style={{
-                    borderRadius: "var(--layout-hero-button-radius)",
-                    paddingInline: "1.12rem",
-                    paddingBlock: "0.72rem",
-                  }}
-                >
+                <Button href="#work">
                   View My Work
                 </Button>
                 <Button
@@ -201,11 +155,6 @@ export function Hero() {
                   variant="secondary"
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    borderRadius: "var(--layout-hero-button-radius)",
-                    paddingInline: "1.12rem",
-                    paddingBlock: "0.72rem",
-                  }}
                 >
                   View Resume
                 </Button>
@@ -244,13 +193,12 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="hero-photo-column relative hidden min-h-[18rem] items-center justify-center lg:flex">
+            <div className="relative hidden min-h-[18rem] items-center justify-center pt-8 lg:flex">
               <HeroOrbitReveal
-                size="var(--layout-hero-orbit-size)"
+                className="w-60"
                 delay="240ms"
                 defaultImage={heroContent.orbitReveal.defaultImage}
                 defaultAlt={heroContent.orbitReveal.defaultAlt}
-                hintLabel={heroContent.orbitReveal.hintLabel}
                 revealAriaLabel={heroContent.orbitReveal.revealAriaLabel}
                 resetAriaLabel={heroContent.orbitReveal.resetAriaLabel}
                 revealQuote={heroContent.orbitReveal.revealQuote}
@@ -262,7 +210,7 @@ export function Hero() {
           </div>
 
           <div
-            className="hero-stats motion-fade-up border-t border-[color:var(--surface-border)]"
+            className="motion-fade-up mt-6 border-t border-[color:var(--surface-border)] pt-3 sm:mt-7 sm:pt-4 lg:mt-16"
             style={{ "--motion-delay": "580ms" } as CSSProperties}
           >
             <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 lg:grid-cols-5">
@@ -272,14 +220,12 @@ export function Hero() {
                   className="min-w-0 border-l border-[color:var(--surface-border)] pl-4"
                 >
                   <div
-                    className="text-[0.65rem] uppercase tracking-[0.28em] text-muted"
-                    style={{ fontFamily: "var(--font-mono)" }}
+                    className="font-mono text-xs uppercase tracking-[0.2em] text-muted"
                   >
                     {item.label}
                   </div>
                   <div
-                    className="mt-1 text-[1.1rem] uppercase leading-tight text-foreground"
-                    style={{ fontFamily: "var(--font-serif)" }}
+                    className="mt-1 font-serif text-[1.1rem] uppercase leading-tight text-foreground"
                   >
                     {item.value}
                   </div>

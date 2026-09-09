@@ -6,11 +6,9 @@ import Image from "next/image";
 
 type HeroOrbitRevealProps = {
   className?: string;
-  size: string;
   delay?: string;
   defaultImage: string;
   defaultAlt: string;
-  hintLabel: string;
   revealAriaLabel: string;
   resetAriaLabel: string;
   revealQuote: string;
@@ -21,7 +19,6 @@ type HeroOrbitRevealProps = {
 
 export function HeroOrbitReveal({
   className = "",
-  size,
   delay = "0ms",
   defaultImage,
   defaultAlt,
@@ -40,12 +37,10 @@ export function HeroOrbitReveal({
       aria-pressed={revealed}
       aria-label={revealed ? resetAriaLabel : revealAriaLabel}
       onClick={() => setRevealed((value) => !value)}
-      className={`motion-scale-in group relative border border-[color:var(--surface-border)] bg-[color:rgb(var(--color-primary)/0.03)] ${className}`}
+      className={`motion-scale-in group relative aspect-[1/1.22] border border-[color:var(--surface-border)] bg-[color:rgb(var(--color-primary)/0.03)] ${className}`}
       style={
         {
           "--motion-delay": delay,
-          width: `min(${size}, 100%)`,
-          height: `calc(${size} * 1.22)`,
           opacity: 0.94,
           clipPath: "polygon(0 0, calc(100% - 1.2rem) 0, 100% 1.2rem, 100% 100%, 0 100%)",
           boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.05), 0 0 0 1px var(--hero-panel-glow)",
@@ -93,9 +88,8 @@ export function HeroOrbitReveal({
             }}
           >
             <span
+              className="font-serif text-xs sm:text-sm lg:text-base"
               style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "var(--layout-hero-orbit-quote-size)",
                 lineHeight: 1.18,
                 color: "rgb(var(--color-foreground))",
                 maxWidth: "11ch",
@@ -104,9 +98,8 @@ export function HeroOrbitReveal({
               {revealQuote}
             </span>
             <span
+              className="font-mono text-[0.6rem] sm:text-xs"
               style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--layout-hero-orbit-marker-size)",
                 letterSpacing: "0.32em",
                 textTransform: "uppercase",
                 color: "rgb(var(--color-muted))",
@@ -116,10 +109,8 @@ export function HeroOrbitReveal({
             </span>
             <span
               aria-label={revealWord}
+              className="font-serif text-sm font-bold sm:text-lg lg:text-2xl"
               style={{
-                fontFamily: "var(--font-serif)",
-                fontWeight: 700,
-                fontSize: "var(--layout-hero-orbit-word-size)",
                 letterSpacing: "0.08em",
                 lineHeight: 1,
                 color: "rgb(var(--color-foreground))",
