@@ -39,7 +39,7 @@ export function Skills() {
                   className={
                     item.featured
                       ? "border border-[color:rgb(var(--color-primary)/0.28)] bg-[color:var(--accent-soft)] px-2.5 py-1.5 text-sm font-semibold text-foreground"
-                      : "py-1.5 text-sm text-muted"
+                      : "border border-transparent px-2.5 py-1.5 text-sm text-muted transition duration-200 hover:-translate-y-px hover:border-[color:rgb(var(--color-primary)/0.3)] hover:bg-[color:var(--accent-soft)] hover:text-foreground hover:shadow-[0_0_18px_rgb(var(--color-primary)/0.12)] motion-reduce:transform-none"
                   }
                 >
                   {item.label}

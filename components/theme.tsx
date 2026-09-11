@@ -22,9 +22,21 @@ export function Providers({ children }: PropsWithChildren) {
       storageKey="portfolio-theme"
       themes={themeKeys}
     >
+      <ThemeStorageMigration />
       {children}
     </ThemeProvider>
   );
+}
+
+function ThemeStorageMigration() {
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (theme === "dark") setTheme("dark-medium");
+    if (theme === "royal") setTheme("dusk");
+  }, [setTheme, theme]);
+
+  return null;
 }
 
 export function ThemeToggle() {

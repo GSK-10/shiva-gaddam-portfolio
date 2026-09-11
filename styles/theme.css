@@ -69,7 +69,8 @@
   --shadow-opacity: 0.08;
 }
 
-[data-theme="dark"] {
+/* Stored light-accent dark palette — not registered in content/themes.ts. */
+[data-theme="dark-light"] {
   color-scheme: dark;
   --color-background: 8 12 18;
   --color-foreground: 236 241 246;
@@ -85,6 +86,41 @@
   --shadow-opacity: 0.3;
 }
 
+/* Active medium-contrast dark palette. */
+[data-theme="dark-medium"] {
+  color-scheme: dark;
+  --color-background: 8 12 18;
+  --color-foreground: 238 242 248;
+  --color-muted: 145 158 179;
+  --color-border: 76 91 115;
+  --color-card: 11 17 27;
+  --color-card-muted: 16 24 37;
+  --color-card-foreground: 238 242 248;
+  --color-primary: 48 111 210;
+  --color-primary-foreground: 255 255 255;
+  --color-secondary: 91 145 218;
+  --shadow-color: 0 0 0;
+  --shadow-opacity: 0.3;
+}
+
+/* Stored very-high-contrast dark palette — not registered in content/themes.ts. */
+[data-theme="dark-veryHigh"] {
+  color-scheme: dark;
+  --color-background: 8 12 18;
+  --color-foreground: 238 242 248;
+  --color-muted: 145 158 179;
+  --color-border: 69 84 108;
+  --color-card: 11 17 27;
+  --color-card-muted: 16 24 37;
+  --color-card-foreground: 238 242 248;
+  --color-primary: 18 97 242;
+  --color-primary-foreground: 255 255 255;
+  --color-secondary: 103 164 255;
+  --shadow-color: 0 0 0;
+  --shadow-opacity: 0.3;
+}
+
+/* Stored steel palette — not registered in content/themes.ts. */
 [data-theme="steel"] {
   color-scheme: dark;
   --color-background: 23 24 26;
@@ -99,4 +135,21 @@
   --color-secondary: 141 153 170;
   --shadow-color: 0 0 0;
   --shadow-opacity: 0.26;
+}
+
+/* Smoky blue-grey surfaces with a quiet periwinkle accent. */
+[data-theme="dusk"] {
+  color-scheme: dark;
+  --color-background: 27 30 40;
+  --color-foreground: 231 233 240;
+  --color-muted: 159 164 179;
+  --color-border: 102 108 128;
+  --color-card: 35 39 51;
+  --color-card-muted: 42 46 60;
+  --color-card-foreground: 231 233 240;
+  --color-primary: 157 146 211;
+  --color-primary-foreground: 20 20 29;
+  --color-secondary: 120 157 194;
+  --shadow-color: 5 7 13;
+  --shadow-opacity: 0.25;
 }

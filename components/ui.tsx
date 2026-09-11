@@ -44,14 +44,13 @@ type NativeButtonProps = {
 export function Button(props: LinkButtonProps | NativeButtonProps) {
   const variant = props.variant ?? "primary";
   const classes = cn(
-    "inline-flex items-center justify-center border px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] transition duration-200",
+    "theme-button-glow inline-flex items-center justify-center border px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] transition duration-200",
     variant === "secondary"
       ? "border-[color:var(--surface-border)] bg-transparent text-foreground hover:border-[color:rgb(var(--color-primary)/0.5)] hover:bg-[color:var(--accent-soft)]"
       : "border-[color:var(--hero-cta-border)] bg-[color:var(--hero-cta-bg)] text-[color:var(--hero-cta-text)] hover:-translate-y-px hover:brightness-105",
   );
   const shape = {
     clipPath: "polygon(0.9rem 0, 100% 0, calc(100% - 0.9rem) 100%, 0 100%)",
-    boxShadow: "var(--hero-cta-shadow)",
   };
 
   if ("href" in props) {
@@ -96,7 +95,7 @@ export function Section({
   children,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("relative py-14 sm:py-16 lg:py-20", className)}>
+    <section id={id} className={cn("relative py-14 sm:py-16 lg:py-[4.5rem]", className)}>
       <Container>
         <div
           className={cn(

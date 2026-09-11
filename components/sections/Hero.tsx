@@ -177,12 +177,11 @@ export function Hero() {
                     rel="noreferrer"
                     aria-label={link.label}
                     title={link.label}
-                    className="inline-flex h-10 w-10 items-center justify-center border text-muted transition-colors duration-200 hover:border-[color:rgb(var(--color-primary)/0.5)] hover:text-primary"
+                    className="theme-button-glow inline-flex h-10 w-10 items-center justify-center border text-muted transition duration-200 hover:-translate-y-px hover:border-[color:rgb(var(--color-primary)/0.5)] hover:bg-[color:var(--accent-soft)] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     style={{
                       clipPath: "polygon(0.55rem 0, 100% 0, calc(100% - 0.55rem) 100%, 0 100%)",
                       borderColor: "var(--surface-border)",
                       backgroundColor: "rgb(var(--color-background) / 0.3)",
-                      boxShadow: "var(--hero-cta-shadow)",
                     }}
                   >
                     <Icon className="h-4 w-4" />

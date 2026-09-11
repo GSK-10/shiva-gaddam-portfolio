@@ -4,10 +4,14 @@
  * semantic CSS variables.
  */
 export const themes = [
-  { key: "dark", label: "Dark", icon: "moon" },
+  { key: "dark-medium", label: "Dark", icon: "moon" },
   { key: "light", label: "Light", icon: "sun" },
-  { key: "steel", label: "Steel", icon: "gem" },
+  { key: "dusk", label: "Dusk", icon: "gem" },
 ] as const;
+
+/* Additional stored palettes live in theme.css as `dark-light`,
+   `dark-veryHigh`, and `steel`. They are intentionally absent here, so the
+   visible theme cycle remains Dark -> Light -> Dusk. */
 
 export type ThemeKey = (typeof themes)[number]["key"];
 

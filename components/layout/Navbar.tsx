@@ -82,12 +82,12 @@ export function Navbar() {
               GSK
             </span>
             <span className="shrink-0 font-serif text-xl text-primary">/</span>
-            <span className="hidden truncate font-mono text-xs uppercase tracking-[0.2em] text-muted sm:inline">
+            <span className="min-w-0 truncate font-mono text-xs uppercase tracking-[0.2em] text-muted">
               DEV
             </span>
           </a>
 
-          <ul className="ml-auto hidden items-center whitespace-nowrap md:flex">
+          <ul className="ml-auto hidden items-center whitespace-nowrap lg:flex">
             {navigationItems.map((item) => {
               const active = activeHref === item.href;
               return (
@@ -100,26 +100,28 @@ export function Navbar() {
                     active ? "text-primary" : "text-muted hover:text-foreground",
                   )}
                 >
-                  {item.label}
-                  <span
-                    aria-hidden="true"
-                    className={cn(
-                      "absolute inset-x-2 bottom-1 h-px origin-left transition-transform group-hover:scale-x-100 group-focus-visible:scale-x-100",
-                      active ? "scale-x-100" : "scale-x-0",
-                    )}
-                    style={{ backgroundImage: "var(--nav-link-underline)" }}
-                  />
+                  <span className="relative inline-block">
+                    {item.label}
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "absolute -bottom-0.5 left-0 right-[0.06em] h-0.5 origin-left transition-transform group-hover:scale-x-100 group-focus-visible:scale-x-100",
+                        active ? "scale-x-100" : "scale-x-0",
+                      )}
+                      style={{ backgroundImage: "var(--nav-link-underline)" }}
+                    />
+                  </span>
                 </a>
               </li>
               );
             })}
           </ul>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <ThemeToggle />
           </div>
 
-          <div ref={menuRef} className="relative flex items-center gap-1 md:hidden">
+          <div ref={menuRef} className="relative flex items-center gap-1 lg:hidden">
             <ThemeToggle />
             <button
               type="button"

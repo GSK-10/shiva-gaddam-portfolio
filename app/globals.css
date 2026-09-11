@@ -161,10 +161,7 @@ body::before {
   animation: app-trace-oscillate 5.6s ease-in-out infinite;
 }
 
-/* Shared design-system surfaces:
-   - use Tailwind for structure/layout
-   - use these classes for richer themed shells/cards
-   - keep effects subtle so future timeline/carousel sections stay fast */
+/* Shared themed surfaces. Tailwind handles their structure and layout. */
 .theme-shell {
   background-color: var(--nav-shell-bg);
   border-color: var(--nav-shell-border);
@@ -206,6 +203,30 @@ body::before {
   clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 0 100%);
   border: 1px solid rgb(var(--color-primary) / 0.08);
   opacity: 0.9;
+}
+
+.theme-button-glow {
+  box-shadow:
+    var(--hero-cta-shadow),
+    0 0 0 1px rgb(var(--color-primary) / 0.1),
+    0 0 18px rgb(var(--color-primary) / 0.1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-button-glow:hover {
+    box-shadow:
+      var(--hero-cta-shadow),
+      0 0 0 1px rgb(var(--color-primary) / 0.24),
+      0 0 26px rgb(var(--color-primary) / 0.2);
+  }
+}
+
+.theme-button-glow:focus-visible {
+  box-shadow:
+    var(--hero-cta-shadow),
+    0 0 0 2px rgb(var(--color-background)),
+    0 0 0 4px rgb(var(--color-primary) / 0.68),
+    0 0 28px rgb(var(--color-primary) / 0.22);
 }
 
 .theme-surface-interactive {

@@ -6,6 +6,7 @@ export type SiteLink = {
 export type Experience = {
   company: string;
   role: string;
+  summary: string;
   location: string;
   start: string;
   end: string;
@@ -75,8 +76,7 @@ export const siteConfig = {
       note: "Release cycle: 80% (5 days to 1 day)",
     },
   ] as const,
-  /* Copy for the contact form card. Submission composes a mailto: draft — swap
-     handleSubmit in Contact.tsx for a POST if a form endpoint is added later. */
+  /* Contact form copy. Submission currently opens a pre-filled email draft. */
   contactForm: {
     title: "Send a message",
     fields: {
@@ -112,16 +112,18 @@ export const siteSeo = {
 };
 
 export const navigationItems = [
+  { label: "About", href: "/#about" },
   { label: "Work", href: "/#work" },
   { label: "Experience", href: "/#experience" },
   { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "/#projects" },
   { label: "Principles", href: "/#principles" },
   { label: "Notes", href: "/notes" },
   { label: "Contact", href: "/#contact" },
 ];
 
 export const sectionCopy: Record<
-  "about" | "work" | "experience" | "principles" | "skills" | "contact" | "notes",
+  "about" | "work" | "projects" | "experience" | "principles" | "skills" | "contact" | "notes",
   SectionCopy
 > = {
   about: {
@@ -140,6 +142,14 @@ export const sectionCopy: Record<
     accent: "Engineering Work.",
     tagline: "Sanitized explanations of my contribution. Internal names, architecture details, and business information have been omitted or generalized.",
   },
+  projects: {
+    index: "05",
+    title: "Projects",
+    eyebrow: "Selected builds",
+    heading: "Engineering",
+    accent: "projects.",
+    tagline: "Academic and independent work translated into practical, end-to-end systems.",
+  },
   experience: {
     index: "03",
     title: "Experience",
@@ -149,7 +159,7 @@ export const sectionCopy: Record<
     tagline: "Shortened for scanning. Full details on the resume.",
   },
   principles: {
-    index: "05",
+    index: "06",
     title: "Principles",
     eyebrow: "How I think",
     heading: "Engineering",
@@ -165,12 +175,12 @@ export const sectionCopy: Record<
     tagline: "A recruiter-readable inventory, with SDE/SRE-relevant strengths brought forward.",
   },
   contact: {
-    index: "06",
+    index: "07",
     title: "Contact",
     eyebrow: "Open channel",
-    heading: "Contact",
-    accent: "signal.",
-    tagline: "Open to SDE and SRE roles where automation, reliability, and careful debugging matter.",
+    heading: "Let's",
+    accent: "connect.",
+    tagline: "Have a role, project, or engineering problem in mind? Let's start a conversation.",
   },
   notes: {
     index: "01",
@@ -178,7 +188,7 @@ export const sectionCopy: Record<
     eyebrow: "Future work",
     heading: "Engineering",
     accent: "notes.",
-    tagline: "A future space for short writeups on debugging, automation, release validation, and reliability thinking.",
+    tagline: "A future space for short write-ups on Engineering Learnings & Resources.",
   },
 };
 
@@ -210,32 +220,33 @@ export const heroContent = {
   },
 };
 
+/* Experiences are newest-first; the first entry receives the latest-event dot. */
 export const experiences: Experience[] = [
   {
     company: "Oracle",
     role: "Software Engineer - QA Automation & Infrastructure",
+    summary:
+      "Software engineering, automation, and infrastructure responsibilities for an enterprise service activation platform.",
     location: "Hyderabad, India",
     start: "Aug 2024",
     end: "Oct 2025",
     bullets: [
-      "Built and automated 100+ end-to-end workflows across 4 platform components including web services, messaging, directory services, and dynamic routing.",
-      "Reduced release regression cycle time by 80%, from 5 days to 1 day, across on-premises and Cloud Native environments.",
-      "Upgraded Kubernetes, Podman, and Helm stacks across 3 clusters while preserving backward compatibility and coordinating rollouts with development teams.",
-      "Provisioned distributed platform environments across Linux VMs, installing middleware and database clients and applying quarterly security patches across 3 release cycles.",
-      "Resolved SSL configuration, database connectivity, and service parameter failures across distributed components, and mentored junior engineers on platform operations.",
+      "Built and automated 100+ end-to-end workflows across 4 platform components, reducing regression time by 80% from 5 days to 1 day.",
+      "Upgraded and supported Linux and cloud-native environments across 3 clusters, covering provisioning, security patches, and distributed-system debugging.",
     ],
     tech: ["Java", "LISA", "Kubernetes", "Podman", "Helm", "Linux", "Oracle DB"],
   },
   {
     company: "Oracle",
     role: "Project Intern",
+    summary:
+      "Test automation and environment support for distributed service workflows across Linux and containerized platforms.",
     location: "Hyderabad, India",
     start: "Jan 2024",
     end: "Jul 2024",
     bullets: [
-      "Automated end-to-end workflows for 4 core components of a distributed service activation platform using LISA.",
-      "Covered web services, JMS/XML messaging, LDAP directory services, and dynamic routing across Linux-based and containerized environments.",
-      "Collaborated with development teams on environment setup, infrastructure debugging, and deployment workflows.",
+      "Automated end-to-end workflows across 4 core components covering web services, JMS/XML messaging, LDAP, and dynamic routing.",
+      "Collaborated with development teams on environment setup, infrastructure troubleshooting, and containerized deployment workflows.",
     ],
     tech: ["Java", "LISA", "JMS", "XML", "LDAP", "Linux"],
   },
@@ -243,39 +254,77 @@ export const experiences: Experience[] = [
 
 export const principles = [
   {
-    title: "Prefer proof over noise",
+    title: "Keep it simple",
     detail:
-      "I trust small reproducible checks, logs, and failure patterns more than broad claims. A fix feels real only when it survives the next run.",
+      "Just because we can, doesn't mean we should. I like to understand what we're solving and what we're giving up before writing the first line.",
   },
   {
-    title: "Build for operators too",
+    title: "Build it reliable",
     detail:
-      "Good software is not just code that works once. It should be diagnosable, repeatable, and friendly to the person who has to debug it later.",
+      "Things will break — that's expected. I try to build systems where when something fails, it's easy to find out why and get it back on track.",
   },
   {
-    title: "Keep learning close to delivery",
+    title: "Adapt, don't defend",
     detail:
-      "I learn fastest by wiring concepts into working systems: automation suites, Linux environments, cloud-native upgrades, and API validation flows.",
+      "Requirements change, assumptions turn out wrong. I'd rather adjust the approach early than hold on to something just because I already built it.",
+  },
+  {
+    title: "Automate & build software others can maintain",
+    detail:
+      "I value automating repetitive tasks, reusable components, clear failure behavior & code other engineers can understand & maintain.",
   },
 ];
 
 export const notes = [
   {
-    title: "Debugging Distributed Test Failures",
+    title: "Distributed Systems",
     theme: "Reliability",
     summary:
-      "Notes on reading logs, isolating SSL/configuration drift, and turning repeated failures into reusable troubleshooting steps.",
+      "Practical observations on how distributed services communicate, fail, and recover.",
+    points: [
+      "Follow a request across service boundaries before diagnosing an isolated component.",
+      "Treat timeouts, retries, partial failures, and duplicate delivery as expected system behavior.",
+      "Use logs, traces, and correlation identifiers to reconstruct what happened across services.",
+    ],
+    resources: [
+      "Designing Data-Intensive Applications",
+      "Google Site Reliability Engineering",
+      "Distributed Systems course notes and architecture exercises",
+    ],
+    skills: ["Distributed Systems", "REST APIs", "Kafka", "Observability", "Reliability"],
   },
   {
-    title: "Cloud Native Upgrade Checklist",
-    theme: "SRE",
+    title: "Cloud-Native Learning Curve",
+    theme: "Platform Learning",
     summary:
-      "A practical checklist mindset for Kubernetes, Podman, Helm, operators, image tooling, and environment sanity validation.",
+      "A growing map of the concepts behind containers, orchestration, and dependable deployments.",
+    points: [
+      "Learn the container lifecycle before adding orchestration and managed cloud services.",
+      "Connect Kubernetes objects to the operational problem each one is designed to solve.",
+      "Validate configuration, networking, storage, and observability as part of every deployment flow.",
+    ],
+    resources: [
+      "Kubernetes documentation",
+      "AWS Skill Builder learning paths",
+      "Helm and cloud-native deployment exercises",
+    ],
+    skills: ["Kubernetes", "Docker", "Helm", "Linux", "AWS"],
   },
   {
-    title: "Automation Data Hygiene",
-    theme: "SDE",
+    title: "Automation",
+    theme: "Engineering Efficiency",
     summary:
-      "How I think about keeping test data, assertions, environment properties, and suite execution aligned across releases.",
+      "Notes on turning repetitive engineering work into understandable and maintainable workflows.",
+    points: [
+      "Automate repeatable decisions, while keeping inputs and failure states visible.",
+      "Build reusable components instead of copying environment-specific execution logic.",
+      "Treat useful logs, clean test data, and actionable failures as part of the automation itself.",
+    ],
+    resources: [
+      "Java and Python automation references",
+      "CI/CD pipeline documentation",
+      "Reusable testing and troubleshooting checklists",
+    ],
+    skills: ["Java", "Python", "CI/CD", "Test Automation", "Troubleshooting"],
   },
 ];
