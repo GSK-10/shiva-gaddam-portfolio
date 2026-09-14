@@ -96,7 +96,7 @@ export function Navbar() {
                   href={item.href}
                   aria-current={active ? "location" : undefined}
                   className={cn(
-                    "group relative px-2 py-2 text-xs font-semibold uppercase tracking-[0.06em] transition-colors focus-visible:outline-none focus-visible:text-primary lg:px-3 lg:text-sm",
+                    "group relative px-2 py-2 text-xs font-semibold tracking-[0.02em] transition-colors focus-visible:outline-none focus-visible:text-primary lg:px-3 lg:text-sm",
                     active ? "text-primary" : "text-muted hover:text-foreground",
                   )}
                 >
@@ -156,7 +156,7 @@ export function Navbar() {
                     aria-current={active ? "location" : undefined}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      "px-3 py-3 text-sm font-semibold uppercase tracking-[0.08em] transition-colors hover:bg-[color:var(--accent-soft)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary",
+                      "px-3 py-3 text-sm font-semibold tracking-[0.02em] transition-colors hover:bg-[color:var(--accent-soft)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary",
                       active
                         ? "bg-[color:var(--accent-soft)] text-primary"
                         : "text-muted",

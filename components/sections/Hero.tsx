@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { heroContent, heroHighlights, siteConfig } from "@/content/portfolio";
 import { Button, Container } from "@/components/ui";
-import { HeroOrbitReveal } from "@/components/ui/HeroOrbitReveal";
+import { HeroProfileCard } from "@/components/ui/HeroProfileCard";
 import { Github, Globe, Linkedin, Mail } from "lucide-react";
 
 export function Hero() {
@@ -61,7 +61,7 @@ export function Hero() {
           <div className="grid items-start gap-4 sm:gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-6">
             <div className="max-w-3xl pt-1 sm:pt-3 lg:pl-3 lg:pt-4">
               <div className="mb-5 flex justify-center sm:mb-6 lg:hidden">
-                <HeroOrbitReveal
+                <HeroProfileCard
                   className="w-24 sm:w-28 md:w-32"
                   delay="180ms"
                   defaultImage={heroContent.orbitReveal.defaultImage}
@@ -134,12 +134,15 @@ export function Hero() {
               </h1>
               
               <p
-                className="motion-fade-up mt-5 max-w-2xl border-l-2 border-[color:rgb(var(--color-primary)/0.48)] pl-4 font-mono text-base leading-7 text-foreground sm:mt-6 sm:text-lg lg:mt-8 lg:text-xl"
+                className="motion-fade-up mt-5 max-w-2xl border-l-2 border-[color:rgb(var(--color-primary)/0.48)] pl-4 font-mono text-sm leading-6 text-foreground sm:mt-6 sm:text-base sm:leading-7 lg:mt-8 lg:text-lg"
                 style={{
                   "--motion-delay": "320ms",
                 } as CSSProperties}
               >
-                {heroContent.statement.prefix} <em className="text-primary italic">{heroContent.statement.accent}</em>{" "}
+                {heroContent.statement.prefix}{" "}
+                <span className="text-primary">{heroContent.statement.reliabilityAccent}</span>{" "}
+                {heroContent.statement.bridge}{" "}
+                <span className="text-primary">{heroContent.statement.experienceAccent}</span>{" "}
                 {heroContent.statement.suffix}
               </p>
 
@@ -193,7 +196,7 @@ export function Hero() {
             </div>
 
             <div className="relative hidden min-h-[18rem] items-center justify-center pt-8 lg:flex">
-              <HeroOrbitReveal
+              <HeroProfileCard
                 className="w-60"
                 delay="240ms"
                 defaultImage={heroContent.orbitReveal.defaultImage}
@@ -224,7 +227,7 @@ export function Hero() {
                     {item.label}
                   </div>
                   <div
-                    className="mt-1 font-serif text-[1.1rem] uppercase leading-tight text-foreground"
+                    className="mt-1 font-serif text-[1.1rem] leading-tight text-foreground"
                   >
                     {item.value}
                   </div>

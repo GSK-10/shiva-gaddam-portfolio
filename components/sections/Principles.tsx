@@ -9,7 +9,6 @@ export function Principles() {
     <Section
       id="principles"
       index={copy.index}
-      eyebrow={copy.eyebrow}
       title={copy.title}
       icon={Lightbulb}
       displayTitle={
@@ -29,7 +28,7 @@ export function Principles() {
                 Principle {String(index + 1).padStart(2, "0")}
               </p>
               <h3
-                className="mt-4 font-serif text-lg font-bold uppercase leading-tight text-foreground"
+                className="mt-4 font-serif text-lg font-bold leading-tight text-foreground"
               >
                 {principle.title}
               </h3>

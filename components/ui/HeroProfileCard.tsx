@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 import { useState } from "react";
 import Image from "next/image";
 
-type HeroOrbitRevealProps = {
+type HeroProfileCardProps = {
   className?: string;
   delay?: string;
   defaultImage: string;
@@ -17,7 +17,7 @@ type HeroOrbitRevealProps = {
   revealAccentIndex: number;
 };
 
-export function HeroOrbitReveal({
+export function HeroProfileCard({
   className = "",
   delay = "0ms",
   defaultImage,
@@ -28,7 +28,7 @@ export function HeroOrbitReveal({
   revealMarker,
   revealWord,
   revealAccentIndex,
-}: HeroOrbitRevealProps) {
+}: HeroProfileCardProps) {
   const [revealed, setRevealed] = useState(false);
 
   return (

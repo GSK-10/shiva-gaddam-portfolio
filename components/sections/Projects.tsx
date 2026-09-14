@@ -28,7 +28,7 @@ function ProjectAction({
   icon: typeof Github;
 }) {
   const classes =
-    "inline-flex items-center justify-center gap-2 border px-3 py-2 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.12em]";
+    "inline-flex items-center justify-center gap-2 border px-3 py-2 font-mono text-[0.68rem] font-semibold tracking-[0.04em]";
 
   return (
     <a
@@ -64,7 +64,7 @@ function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
 
-      <div className="relative grid aspect-[5/2] place-items-center overflow-hidden border-b border-t border-[color:var(--surface-border)] bg-[color:var(--surface-card-muted)]">
+      <div className="relative grid aspect-video place-items-center overflow-hidden border-b border-t border-[color:var(--surface-border)] bg-[color:var(--surface-card-muted)]">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-70"
@@ -80,7 +80,7 @@ function ProjectCard({ project }: { project: Project }) {
             alt={project.imageAlt ?? `${project.title} preview`}
             fill
             sizes="(min-width: 1024px) 28vw, (min-width: 768px) 45vw, 92vw"
-            className="relative object-contain p-2"
+            className="relative object-cover"
           />
         ) : (
           <div className="relative flex flex-col items-center text-center">
@@ -95,7 +95,7 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        <h3 className="font-serif text-base font-bold uppercase leading-tight text-foreground sm:text-lg">
+        <h3 className="font-serif text-base font-bold leading-tight text-foreground sm:text-lg">
           {project.title}
         </h3>
         <p className="mt-2.5 text-sm leading-6 text-muted">{project.description}</p>
@@ -104,7 +104,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tech.map((technology) => (
             <li
               key={technology}
-              className="border border-[color:rgb(var(--color-primary)/0.32)] bg-[color:var(--accent-soft)] px-2 py-0.5 font-mono text-[0.6rem] font-medium uppercase tracking-[0.08em] text-foreground"
+              className="border border-[color:rgb(var(--color-primary)/0.32)] bg-[color:var(--accent-soft)] px-2 py-0.5 font-mono text-[0.6rem] font-medium tracking-[0.03em] text-foreground"
             >
               {technology}
             </li>
@@ -137,7 +137,6 @@ export function Projects() {
     <Section
       id="projects"
       index={copy.index}
-      eyebrow={copy.eyebrow}
       title={copy.title}
       icon={Images}
       displayTitle={

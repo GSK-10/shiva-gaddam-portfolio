@@ -18,11 +18,16 @@ export function Container({ children, className }: ClassNameProps) {
   );
 }
 
-export function Surface({ children, className }: ClassNameProps) {
+type SurfaceProps = ClassNameProps & {
+  interactive?: boolean;
+};
+
+export function Surface({ children, className, interactive = true }: SurfaceProps) {
   return (
     <div
       className={cn(
-        "theme-surface theme-surface-interactive theme-surface-glow rounded-[var(--radius-surface)] border text-card-foreground",
+        "theme-surface rounded-[var(--radius-surface)] border text-card-foreground",
+        interactive && "theme-surface-interactive theme-surface-glow",
         className,
       )}
     >
@@ -44,7 +49,7 @@ type NativeButtonProps = {
 export function Button(props: LinkButtonProps | NativeButtonProps) {
   const variant = props.variant ?? "primary";
   const classes = cn(
-    "theme-button-glow inline-flex items-center justify-center border px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] transition duration-200",
+    "theme-button-glow inline-flex items-center justify-center border px-4 py-2.5 text-xs font-semibold tracking-[0.04em] transition duration-200",
     variant === "secondary"
       ? "border-[color:var(--surface-border)] bg-transparent text-foreground hover:border-[color:rgb(var(--color-primary)/0.5)] hover:bg-[color:var(--accent-soft)]"
       : "border-[color:var(--hero-cta-border)] bg-[color:var(--hero-cta-bg)] text-[color:var(--hero-cta-text)] hover:-translate-y-px hover:brightness-105",
@@ -73,29 +78,35 @@ export function Button(props: LinkButtonProps | NativeButtonProps) {
 type SectionProps = PropsWithChildren<{
   id: string;
   index?: string;
-  eyebrow?: string;
   title: string;
   icon?: LucideIcon;
   displayTitle?: ReactNode;
   tagline?: string;
   className?: string;
   contentClassName?: string;
+  fullWidthContent?: ReactNode;
 }>;
 
 export function Section({
   id,
   index,
-  eyebrow,
   title,
   icon: Icon,
   displayTitle,
   tagline,
   className,
   contentClassName,
+  fullWidthContent,
   children,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("relative py-14 sm:py-16 lg:py-[4.5rem]", className)}>
+    <section
+      id={id}
+      className={cn(
+        "relative pb-10 pt-14 sm:pb-12 sm:pt-16 lg:pb-14 lg:pt-[4.5rem]",
+        className,
+      )}
+    >
       <Container>
         <div
           className={cn(
@@ -111,12 +122,7 @@ export function Section({
               <span className="text-muted">{title}</span>
             </p>
             <div className="mt-5">
-              {eyebrow && (
-                <p className="mb-3 font-mono text-xs uppercase tracking-[0.28em] text-muted sm:text-sm">
-                  {eyebrow}
-                </p>
-              )}
-              <h2 className="font-serif text-xl font-bold uppercase tracking-[0.08em] sm:text-2xl">
+              <h2 className="font-serif text-xl font-bold tracking-[0.03em] sm:text-2xl">
                 {Icon && (
                   <Icon
                     aria-hidden="true"
@@ -135,6 +141,11 @@ export function Section({
           <div className="min-w-0">
             <Reveal delay="120ms">{children}</Reveal>
           </div>
+          {fullWidthContent && (
+            <div className="min-w-0 pt-2 lg:col-span-2">
+              <Reveal delay="180ms">{fullWidthContent}</Reveal>
+            </div>
+          )}
         </div>
       </Container>
     </section>

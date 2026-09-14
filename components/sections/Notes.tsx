@@ -57,7 +57,7 @@ function NoteDialog({ note, onClose }: { note: Note | null; onClose: () => void 
               </p>
               <h3
                 id="note-dialog-title"
-                className="mt-3 font-serif text-xl font-bold uppercase leading-tight text-foreground sm:text-2xl"
+                className="mt-3 font-serif text-xl font-bold leading-tight text-foreground sm:text-2xl"
               >
                 {note.title}
               </h3>
@@ -108,7 +108,7 @@ function NoteDialog({ note, onClose }: { note: Note | null; onClose: () => void 
               {note.skills.map((skill) => (
                 <li
                   key={skill}
-                  className="border border-[color:rgb(var(--color-primary)/0.32)] bg-[color:var(--accent-soft)] px-2.5 py-1 font-mono text-xs font-medium uppercase tracking-[0.1em] text-foreground"
+                  className="border border-[color:rgb(var(--color-primary)/0.32)] bg-[color:var(--accent-soft)] px-2.5 py-1 font-mono text-xs font-medium tracking-[0.03em] text-foreground"
                 >
                   {skill}
                 </li>
@@ -130,7 +130,6 @@ export function Notes() {
     <Section
       id="notes"
       index={copy.index}
-      eyebrow={copy.eyebrow}
       title={copy.title}
       icon={BookOpenText}
       displayTitle={
@@ -154,11 +153,11 @@ export function Notes() {
                 </p>
                 <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-primary" />
               </div>
-              <h3 className="mt-5 font-serif text-lg font-bold uppercase leading-tight text-foreground">
+              <h3 className="mt-5 font-serif text-lg font-bold leading-tight text-foreground">
                 {note.title}
               </h3>
               <p className="mt-3 text-sm leading-6 text-muted">{note.summary}</p>
-              <span className="mt-auto pt-5 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-primary">
+              <span className="mt-auto pt-5 font-mono text-[0.68rem] tracking-[0.04em] text-primary">
                 Open note
               </span>
             </button>

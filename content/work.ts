@@ -6,7 +6,6 @@ export type WorkCaseStudy = {
   challenge: string;
   contribution: string[];
   outcome: string[];
-  evidence: string;
   tech: string[];
 };
 
@@ -16,84 +15,83 @@ export const workCaseStudies: WorkCaseStudy[] = [
     focus: "Test Infrastructure",
     period: "2024-2025",
     summary:
-      "Automation work for web services, messaging, directory, telnet/socket, and routing flows in a distributed activation platform.",
+      "Built repeatable end-to-end regression coverage for web services, messaging, directory services, socket-based integrations, and routing flows in a distributed activation platform.",
     challenge:
-      "Regression coverage depended on manual setup, environment-specific data, and suites that could fail because of SSL, LDAP, database, or service-state drift.",
+      "Release validation spanned four connected platform components, but environment-specific test data, certificates, service state, and integration dependencies made manual regression slow and inconsistent.",
     contribution: [
-      "Updated and executed LISA-based workflows across WS, JMS, JSRP, JNEP, LDAP, telnet/socket, dynamic routing, and ID routing areas.",
-      "Debugged failing steps, assertions, certificates, test data, and environment properties before promoting stable suites.",
-      "Documented setup notes, recurring automation issues, execution steps, and fixes in internal knowledge pages for reuse.",
+      "Built and maintained more than 100 LISA-based end-to-end workflows across four platform components covering web services, JMS/XML messaging, LDAP, socket-based integrations, and dynamic routing.",
+      "Converted manual validation paths into reusable suites with environment-aware test data, assertions, service parameters, and repeatable execution steps.",
+      "Diagnosed failures across SSL configuration, database connectivity, directory services, routing parameters, and changing service state before promoting stable workflows.",
+      "Documented setup, execution, and troubleshooting guidance so later regression runs could reuse the same operational knowledge.",
     ],
     outcome: [
-      "Helped move release regression from a multi-day manual cycle toward repeatable suite execution.",
-      "Produced cleaner suite logs and reusable troubleshooting notes for future runs.",
-      "Expanded coverage around component-level and end-to-end service behavior without exposing implementation details.",
+      "Reduced the release regression cycle by 80%, from approximately five days of manual effort to one day of automated execution.",
+      "Established repeatable coverage across four core platform components in both on-premises and cloud-native test environments.",
+      "Improved failure diagnosis through clearer suite logs, reusable test data, and documented recovery steps.",
     ],
-    evidence: "Status reports reference 30/33, 32/33, 26/26, and 27-case suite executions after debugging and data updates.",
     tech: ["Java", "LISA", "JMS", "XML", "LDAP", "SSL", "Linux"],
   },
   {
-    title: "Platform Environment Provisioning And Patching",
-    focus: "SRE / Platform Operations",
-    period: "2024-2025",
-    summary:
-      "Provisioned Linux-based test environments, middleware, database clients, and quarterly patch updates for release validation.",
-    challenge:
-      "Fresh and upgraded environments needed consistent middleware, database client, Java, and WebLogic patch levels before reliable testing could begin.",
-    contribution: [
-      "Installed middleware and 19c database clients on Linux VMs and applied quarterly CPU patches across Java, WebLogic, and database client layers.",
-      "Prepared additional environments for upgrade and regression testing while resolving setup blockers such as permissions, configuration, and resource constraints.",
-      "Supported another engineer's VM setup and shared operational context for launching and validating platform components.",
-    ],
-    outcome: [
-      "Improved readiness of test environments for on-premises release validation.",
-      "Reduced avoidable test noise caused by patch/configuration mismatch.",
-      "Converted setup experience into practical support and knowledge transfer for newer contributors.",
-    ],
-    evidence: "Source docs repeatedly mention middleware, DB client, Java/WLS patching, VM setup, and sanity validation work.",
-    tech: ["Linux", "WebLogic", "Oracle DB", "Java", "Shell", "Patch Management"],
-  },
-  {
-    title: "Cloud Native Stack Upgrade Validation",
-    focus: "SRE / Cloud Native Reliability",
+    title: "Cloud Native Upgrades & Deployments",
+    focus: "SRE / Cloud-native reliability",
     period: "2025",
     summary:
-      "Validated cloud-native stack upgrades and component behavior across Kubernetes-oriented release environments.",
+      "Upgraded and validated container-native platform stacks across Kubernetes environments while preserving existing deployment behavior.",
     challenge:
-      "Cloud-native environments required coordinated upgrades across container runtime, orchestration, deployment tooling, and operator layers while preserving existing instance behavior.",
+      "Cloud-native releases required coordinated changes across orchestration, container runtime, packaging, operator, and image tooling without breaking existing platform instances.",
     contribution: [
-      "Performed tech stack upgrades covering Kubernetes, Podman, Helm, WebLogic Operator, WebLogic Deploy Tooling, and image tooling.",
-      "Investigated upgrade issues with collaborators and compared behavior between development and product-like environments.",
-      "Reviewed deployment documentation and used the work to deepen understanding of Kubernetes-hosted product components.",
+      "Upgraded Kubernetes, Podman, Helm, operator, deployment-model, and image-building tooling across three private Kubernetes clusters.",
+      "Validated existing instances after each change, investigated upgrade failures, and coordinated findings and rollout sequencing with development teams.",
+      "Used Git and GitLab for change tracking and collaboration, gaining practical exposure to CI/CD fundamentals and the flow from versioned changes to deployment validation.",
+      "Reviewed deployment guidance and compared behavior across development and product-like environments to isolate configuration and tooling boundaries.",
     ],
     outcome: [
-      "Supported release confidence for cloud-native deployments.",
-      "Identified tooling dependencies and upgrade boundaries that mattered for existing instances.",
-      "Built stronger operational fluency across containers, operators, and deployment flows.",
+      "Completed coordinated technology-stack upgrades across three private Kubernetes clusters while validating backward compatibility for existing instances.",
+      "Improved release confidence by identifying dependency boundaries and resolving environment-specific upgrade issues before wider rollout.",
+      "Built hands-on understanding of containerized delivery, Git-based collaboration, and foundational CI/CD practices around deployment validation.",
     ],
-    evidence: "Status reports describe multiple cloud-native tech stack upgrades, issue debugging, and deployment guide review.",
-    tech: ["Java", "Kubernetes", "Podman", "Helm", "WebLogic Operator", "WDT", "WIT"],
+    tech: ["Java", "Kubernetes", "Podman", "Helm", "Git", "GitLab", "CI/CD", "WebLogic Operator", "WDT", "WIT"],
   },
   {
     title: "API, Security, And Routing Test Modernization",
-    focus: "AI-Assisted Testing",
+    focus: "AI-assisted testing",
     period: "2025",
     summary:
-      "Modernized API and routing validation through refreshed test data, stronger assertions, and AI-assisted test development with Cline.",
+      "Modernized routing and API validation through refreshed test data, stronger assertions, security-aware configuration, and reviewed AI-assisted development.",
     challenge:
-      "Routing and API cases needed refreshed test data, correct assertions, SSL-aware configuration, and repeatable execution in new environments.",
+      "Routing and API suites had to be adapted for newer environments where test data, assertions, service parameters, and SSL configuration no longer matched current behavior.",
     contribution: [
-      "Updated dynamic routing and ID routing cases, test steps, assertions, and environment-specific properties for the latest release branch.",
-      "Created and exercised an API spec for REST fuzzing and also worked through SOAP fuzz execution flows.",
-      "Used Cline to accelerate test-case development, then reviewed, corrected, and validated the tests against expected application behavior.",
-      "Used Postman and Cypress reference code to understand API behavior and translate it into validation workflows.",
+      "Updated 24 dynamic-routing and three ID-routing cases, including their test data, execution steps, assertions, and environment-specific properties.",
+      "Created and exercised an API specification for REST fuzz testing and worked through SOAP fuzz-testing flows with SSL-aware configuration.",
+      "Used Postman and Cypress reference implementations to understand expected API behavior and translate it into repeatable validation workflows.",
+      "Used Cline to accelerate test-case development, then manually reviewed, corrected, and validated the generated work against application behavior.",
     ],
     outcome: [
-      "Brought 27 routing cases into executable suite form after data and assertion updates.",
-      "Added practical API/security-testing exposure alongside service workflow automation.",
-      "Clarified failure causes around routing parameters, cartridge data, SSL setup, and environment configuration.",
+      "Returned all 27 routing cases to executable suite form after updating data, assertions, and environment configuration.",
+      "Expanded repeatable validation beyond service workflows into REST, SOAP, fuzz-testing, and SSL-related scenarios.",
+      "Reduced investigation time by separating product behavior from failures caused by routing parameters, test data, certificates, and environment setup.",
     ],
-    evidence: "Source docs mention 24 dynamic routing plus 3 ID routing cases, REST fuzz spec work, SOAP fuzz execution, and API validation.",
     tech: ["Cline", "REST", "SOAP", "Postman", "Cypress", "SSL", "Dynamic Routing"],
+  },
+  {
+    title: "Platform Environment Provisioning And Patching",
+    focus: "SRE / Platform operations",
+    period: "2024-2025",
+    summary:
+      "Provisioned and maintained Linux-based platform environments used for upgrade, integration, and release validation.",
+    challenge:
+      "Reliable release testing required multiple Linux environments to stay aligned across middleware, Java, database clients, permissions, configuration, and quarterly security patch levels.",
+    contribution: [
+      "Provisioned distributed platform environments on Linux VMs, installing middleware and database clients required by the product stack.",
+      "Applied quarterly security updates across Java, application-server, and database-client layers while checking compatibility before regression began.",
+      "Resolved setup blockers involving permissions, configuration, resources, database connectivity, and component startup across fresh and upgraded environments.",
+      "Shared environment setup and operational troubleshooting practices with junior engineers supporting similar validation work.",
+    ],
+    outcome: [
+      "Delivered release-ready environments across three quarterly patch cycles for on-premises validation.",
+      "Reduced avoidable regression failures caused by mismatched patch levels, incomplete configuration, and unavailable dependencies.",
+      "Improved team readiness by turning repeated setup and recovery work into reusable operational guidance.",
+    ],
+    tech: ["Linux", "WebLogic", "Oracle DB", "Java", "Shell", "Patch Management"],
   },
 ];

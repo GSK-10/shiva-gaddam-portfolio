@@ -132,7 +132,7 @@ function ProfileCard({ label, href }: { label: keyof typeof profileCardDetails; 
         strokeWidth={1.4}
       />
       <div className="mt-4 sm:mt-5">
-        <span className="font-serif text-base font-bold uppercase leading-tight tracking-[0.06em] text-primary sm:text-lg">
+        <span className="font-serif text-base font-bold leading-tight tracking-[0.02em] text-primary sm:text-lg">
           {label}
         </span>
         <p className="mt-1.5 text-sm font-medium leading-5 text-foreground sm:text-[0.95rem] sm:leading-6">
@@ -154,7 +154,6 @@ export function Contact() {
     <Section
       id="contact"
       index={copy.index}
-      eyebrow={copy.eyebrow}
       title={copy.title}
       icon={PhoneCall}
       displayTitle={
@@ -180,12 +179,6 @@ export function Contact() {
         </div>
       </div>
 
-      <div className="mt-10 border-t border-[color:var(--surface-border)] pt-8 text-center sm:mt-12 sm:pt-10">
-        <p className="whitespace-nowrap font-serif text-[clamp(0.58rem,2.65vw,1.35rem)] font-bold leading-tight tracking-[-0.01em] text-foreground">
-          Thanks for visiting <span aria-hidden="true">💖</span>.{" "}
-          <span className="text-primary">Have a great day <span aria-hidden="true">🚀</span></span>
-        </p>
-      </div>
     </Section>
   );
 }

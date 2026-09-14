@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui";
 import { siteConfig } from "@/content/portfolio";
-import { cn } from "@/lib/utils";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -27,10 +26,7 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className={cn("group relative inline-flex items-center gap-1 text-muted transition-colors duration-200")}
-                  style={{
-                    color: "var(--color-muted)",
-                  }}
+                  className="group relative inline-flex items-center gap-1 text-muted transition-colors duration-200"
                 >
                   <span>{link.label}</span>
                   <ArrowUpRight className="h-3.5 w-3.5 translate-y-[-1px] transition-transform duration-200 ease-out group-hover:translate-x-[1px] group-hover:translate-y-[-2px]" />

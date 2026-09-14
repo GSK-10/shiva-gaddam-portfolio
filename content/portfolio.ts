@@ -6,21 +6,20 @@ export type SiteLink = {
 export type Experience = {
   company: string;
   role: string;
+  functionalFocus?: string;
   summary: string;
   location: string;
   start: string;
   end: string;
-  bullets: string[];
   tech: string[];
 };
 
 export type SectionCopy = {
   index: string;
   title: string;
-  eyebrow: string;
   heading: string;
   accent: string;
-  tagline: string;
+  tagline?: string;
 };
 
 export const siteConfig = {
@@ -33,8 +32,8 @@ export const siteConfig = {
   resumeUrl: "/resume/shiva-kumar-reddy-gaddam-resume.pdf",
   /* Rendered as separate <p> blocks in the About section: one idea per paragraph. */
   about: [
-    "Hi, I’m Shiva Kumar Reddy Gaddam, a software engineer who worked for a year and a half in Oracle’s Communications division on an enterprise service activation platform, gaining hands-on experience with backend workflows, automation, Linux environments, cloud-native deployments, and production-like debugging. Working across these layers taught me to look beyond isolated code and understand how complete systems behave, fail, and recover.",
-    "My interests lie in backend and platform engineering, particularly in building dependable systems with Java, Spring Boot, SQL, REST APIs, and cloud technologies such as AWS. I bring an enterprise systems perspective to development, valuing software that is observable, maintainable, and designed for real-world operation.",
+    "Hi, I’m Shiva Kumar Reddy Gaddam, a software engineer who worked for a year and a half in Oracle’s Communications division on an enterprise service activation platform, gaining experience with backend workflows, automation, Linux environments, cloud-native deployments, and debugging failures across services, databases, messaging systems, and deployment tooling.",
+    "That experience taught me how distributed systems behave, fail, and recover. I’m now applying that operational perspective while developing deeper expertise in Java, Spring Boot, SQL, REST APIs, AWS, and backend and platform engineering.",
   ],
   aboutPanels: [
     {
@@ -55,25 +54,19 @@ export const siteConfig = {
       ],
     },
   ],
-  /* Mini stat cards under the About grid: value is the headline, note is the detail. */
+  /* Evidence points displayed beneath the About copy. */
   aboutStats: [
     {
-      icon: "graduation",
-      value: "9.52 CGPA",
-      label: "B.Tech CSE - Gold Medalist",
-      note: "VNR VJIET, 2024",
+      title: "B.Tech CSE Gold Medalist",
+      detail: "VNR VJIET · 2024",
     },
     {
-      icon: "swords",
-      value: "Knight",
-      label: "LeetCode",
-      note: "Max Rating: 2035",
+      title: "Knight LeetCode",
+      detail: "Max rating: 2036",
     },
     {
-      icon: "target",
-      value: "100+",
-      label: "Automated Workflows",
-      note: "Release cycle: 80% (5 days to 1 day)",
+      title: "100+ Automated Workflows",
+      detail: "80% reduced release cycles · 5 days to 1 day",
     },
   ] as const,
   /* Contact form copy. Submission currently opens a pre-filled email draft. */
@@ -117,8 +110,9 @@ export const navigationItems = [
   { label: "Experience", href: "/#experience" },
   { label: "Skills", href: "/#skills" },
   { label: "Projects", href: "/#projects" },
-  { label: "Principles", href: "/#principles" },
-  { label: "Notes", href: "/notes" },
+  // Temporarily hidden while these sections are being refined.
+  // { label: "Principles", href: "/#principles" },
+  // { label: "Notes", href: "/notes" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -129,7 +123,6 @@ export const sectionCopy: Record<
   about: {
     index: "01",
     title: "About",
-    eyebrow: "Player profile",
     heading: "About",
     accent: "me.",
     tagline: "Build it. Break it. Understand it. Make it dependable.",
@@ -137,57 +130,50 @@ export const sectionCopy: Record<
   work: {
     index: "02",
     title: "Work",
-    eyebrow: "Sanitized case studies",
-    heading: "Featured",
-    accent: "Engineering Work.",
+    heading: "Featured Engineering",
+    accent: "Work.",
     tagline: "Sanitized explanations of my contribution. Internal names, architecture details, and business information have been omitted or generalized.",
-  },
-  projects: {
-    index: "05",
-    title: "Projects",
-    eyebrow: "Selected builds",
-    heading: "Engineering",
-    accent: "projects.",
-    tagline: "Academic and independent work translated into practical, end-to-end systems.",
   },
   experience: {
     index: "03",
     title: "Experience",
-    eyebrow: "Career history",
     heading: "Career",
-    accent: "timeline.",
+    accent: "Timeline.",
     tagline: "Shortened for scanning. Full details on the resume.",
-  },
-  principles: {
-    index: "06",
-    title: "Principles",
-    eyebrow: "How I think",
-    heading: "Engineering",
-    accent: "principles.",
-    tagline: "Short version: I like systems that are observable, repeatable, and calm under pressure.",
   },
   skills: {
     index: "04",
     title: "Skills",
-    eyebrow: "Technical toolkit",
     heading: "Technical",
-    accent: "capabilities.",
-    tagline: "A recruiter-readable inventory, with SDE/SRE-relevant strengths brought forward.",
+    accent: "Capabilities.",
+    // tagline: "A recruiter-readable inventory, with SDE/SRE-relevant strengths brought forward.",
+  },
+  projects: {
+    index: "05",
+    title: "Projects",
+    heading: "Engineering",
+    accent: "Projects.",
+    tagline: "Academic and independent work translated into practical, end-to-end systems.",
+  },
+  principles: {
+    index: "07",
+    title: "Principles",
+    heading: "Engineering",
+    accent: "Principles.",
+    tagline: "Short version: I like systems that are observable, repeatable, and calm under pressure.",
   },
   contact: {
-    index: "07",
+    index: "06",
     title: "Contact",
-    eyebrow: "Open channel",
     heading: "Let's",
-    accent: "connect.",
+    accent: "Connect.",
     tagline: "Have a role, project, or engineering problem in mind? Let's start a conversation.",
   },
   notes: {
     index: "01",
     title: "Notes",
-    eyebrow: "Future work",
     heading: "Engineering",
-    accent: "notes.",
+    accent: "Notes.",
     tagline: "A future space for short write-ups on Engineering Learnings & Resources.",
   },
 };
@@ -205,8 +191,10 @@ export const heroContent = {
   displayName: { lines: ["Shiva Kumar", "Reddy Gaddam"], accentLineIndex: 1 },
   statement: {
     prefix: "I build",
-    accent: "reliable",
-    suffix: "software systems that scale.",
+    reliabilityAccent: "reliable",
+    bridge: "backend and platform systems, backed by enterprise",
+    experienceAccent: "automation and infrastructure",
+    suffix: "experience.",
   },
   orbitReveal: {
     defaultImage: "/images/hero-orbit-reveal.png",
@@ -224,31 +212,25 @@ export const heroContent = {
 export const experiences: Experience[] = [
   {
     company: "Oracle",
-    role: "Software Engineer - QA Automation & Infrastructure",
+    role: "Software Engineer",
+    functionalFocus: "QA Automation & Infrastructure",
     summary:
-      "Software engineering, automation, and infrastructure responsibilities for an enterprise service activation platform.",
+      "Worked in Oracle Communications on an enterprise service activation platform spanning distributed service workflows, Linux environments, and cloud-native deployments.",
     location: "Hyderabad, India",
     start: "Aug 2024",
     end: "Oct 2025",
-    bullets: [
-      "Built and automated 100+ end-to-end workflows across 4 platform components, reducing regression time by 80% from 5 days to 1 day.",
-      "Upgraded and supported Linux and cloud-native environments across 3 clusters, covering provisioning, security patches, and distributed-system debugging.",
-    ],
-    tech: ["Java", "LISA", "Kubernetes", "Podman", "Helm", "Linux", "Oracle DB"],
+    tech: ["Java", "Linux", "Kubernetes", "Podman", "Helm", "LISA", "Oracle DB"],
   },
   {
     company: "Oracle",
     role: "Project Intern",
+    // functionalFocus: "Test Automation & Platform Environments",
     summary:
-      "Test automation and environment support for distributed service workflows across Linux and containerized platforms.",
+      "Built automation coverage for service workflows involving web services, JMS/XML messaging, LDAP, and dynamic routing while supporting Linux environment setup and deployment troubleshooting.",
     location: "Hyderabad, India",
     start: "Jan 2024",
     end: "Jul 2024",
-    bullets: [
-      "Automated end-to-end workflows across 4 core components covering web services, JMS/XML messaging, LDAP, and dynamic routing.",
-      "Collaborated with development teams on environment setup, infrastructure troubleshooting, and containerized deployment workflows.",
-    ],
-    tech: ["Java", "LISA", "JMS", "XML", "LDAP", "Linux"],
+    tech: ["Java", "Linux", "JMS", "XML", "LDAP", "LISA"],
   },
 ];
 

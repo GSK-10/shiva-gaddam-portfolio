@@ -1,12 +1,6 @@
-import { FileText, GraduationCap, Swords, Target } from "lucide-react";
+import { FileText } from "lucide-react";
 import { Section, Surface } from "@/components/ui";
 import { sectionCopy, siteConfig } from "@/content/portfolio";
-
-const statIcons = {
-  graduation: GraduationCap,
-  swords: Swords,
-  target: Target,
-};
 
 function InfoPanel({
   title,
@@ -48,33 +42,22 @@ function InfoPanel({
   );
 }
 
-function StatCard({
-  icon,
-  value,
-  label,
-  note,
+function EvidencePoint({
+  title,
+  detail,
 }: {
-  icon: keyof typeof statIcons;
-  value: string;
-  label: string;
-  note: string;
+  title: string;
+  detail: string;
 }) {
-  const Icon = statIcons[icon];
-
   return (
-    <Surface className="p-5">
-      <div className="flex items-center gap-3">
-        <span aria-hidden="true" className="h-5 w-[3px] shrink-0 bg-primary" />
-        <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" strokeWidth={1.75} />
-        <p className="font-serif text-base font-bold uppercase leading-none tracking-[0.04em] text-primary sm:text-lg">
-          {value}
-        </p>
-      </div>
-      <p className="mt-2.5 text-sm font-semibold leading-6 text-foreground">{label}</p>
-      <p className="mt-1 font-mono text-[0.7rem] uppercase leading-5 tracking-[0.14em] text-muted">
-        {note}
+    <div className="flex items-start gap-3">
+      <span aria-hidden="true" className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rotate-45 bg-primary" />
+      <p className="text-sm leading-6 sm:text-base sm:leading-7">
+        <span className="font-serif font-bold text-foreground">{title}</span>{" "}
+        <span aria-hidden="true" className="px-1 text-primary">·</span>{" "}
+        <span className="text-muted">{detail}</span>
       </p>
-    </Surface>
+    </div>
   );
 }
 
@@ -85,7 +68,6 @@ export function About() {
     <Section
       id="about"
       index={copy.index}
-      eyebrow={copy.eyebrow}
       title={copy.title}
       icon={FileText}
       displayTitle={
@@ -108,14 +90,12 @@ export function About() {
             ))}
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3 lg:mt-auto">
+          <div className="grid gap-2 border-t border-[color:var(--surface-border)] pt-6 lg:mt-auto">
             {siteConfig.aboutStats.map((stat) => (
-              <StatCard
-                key={stat.label}
-                icon={stat.icon}
-                value={stat.value}
-                label={stat.label}
-                note={stat.note}
+              <EvidencePoint
+                key={stat.title}
+                title={stat.title}
+                detail={stat.detail}
               />
             ))}
           </div>

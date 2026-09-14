@@ -85,7 +85,7 @@ function WorkDialog({
               </p>
               <h3
                 id="work-dialog-title"
-                className="mt-3 font-serif text-xl font-bold uppercase leading-tight text-foreground sm:text-2xl"
+                className="mt-3 font-serif text-xl font-bold leading-tight text-foreground sm:text-2xl"
               >
                 {item.title}
               </h3>
@@ -106,11 +106,11 @@ function WorkDialog({
         </header>
 
         <div className="grid gap-6 p-5 sm:p-6">
-          <div className="grid gap-6 lg:grid-cols-3 lg:gap-8 lg:[&>section+section]:border-l lg:[&>section+section]:border-[color:var(--surface-border)] lg:[&>section+section]:pl-8">
-            <DetailBlock label="Challenge or issue">
-              <p>{item.challenge}</p>
-            </DetailBlock>
+          <DetailBlock label="Challenge or issue">
+            <p className="max-w-4xl text-foreground">{item.challenge}</p>
+          </DetailBlock>
 
+          <div className="grid gap-6 border-t border-[color:var(--surface-border)] pt-6 md:grid-cols-2 md:gap-8 md:[&>section+section]:border-l md:[&>section+section]:border-[color:var(--surface-border)] md:[&>section+section]:pl-8">
             <DetailBlock label="My contribution">
               <ul className="space-y-3">
                 {item.contribution.map((point) => (
@@ -138,7 +138,7 @@ function WorkDialog({
             {item.tech.map((tech) => (
               <li
                 key={tech}
-                className="border border-[color:rgb(var(--color-primary)/0.32)] bg-[color:var(--accent-soft)] px-2.5 py-1 font-mono text-xs font-medium uppercase tracking-[0.1em] text-foreground"
+                className="border border-[color:rgb(var(--color-primary)/0.32)] bg-[color:var(--accent-soft)] px-2.5 py-1 font-mono text-xs font-medium tracking-[0.03em] text-foreground"
               >
                 {tech}
               </li>
@@ -159,7 +159,6 @@ export function Work() {
     <Section
       id="work"
       index={copy.index}
-      eyebrow={copy.eyebrow}
       title={copy.title}
       icon={Laptop}
       displayTitle={
@@ -175,40 +174,40 @@ export function Work() {
             <button
               type="button"
               onClick={() => setSelected(item)}
-              className="group grid h-full w-full gap-5 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:p-6"
+              className="group grid h-full w-full gap-3 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:p-6"
             >
               <div className="flex items-start justify-between gap-4">
                 <p
                   className="font-mono text-xs uppercase tracking-[0.2em] text-primary"
                 >
-                  Case {String(index + 1).padStart(2, "0")}
+                  Case {index + 1}
                 </p>
                 <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-primary" />
               </div>
               <div>
                 <h3
-                  className="font-serif text-lg font-bold uppercase leading-tight text-foreground sm:text-xl"
+                  className="font-serif text-lg font-bold leading-tight text-foreground sm:text-xl"
                 >
                   {item.title}
                 </h3>
-                <p className="mt-3 text-base leading-7 text-muted">{item.summary}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <p className="mt-2 text-base leading-7 text-muted">{item.summary}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
                   {item.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="border border-[color:rgb(var(--color-primary)/0.32)] bg-[color:var(--accent-soft)] px-2 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.1em] text-foreground"
+                      className="border border-[color:rgb(var(--color-primary)/0.32)] bg-[color:var(--accent-soft)] px-2 py-1 font-mono text-[0.65rem] font-medium tracking-[0.03em] text-foreground"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="mt-auto flex flex-wrap gap-2 border-t border-[color:var(--surface-border)] pt-4">
-                <span className="font-mono text-xs uppercase tracking-[0.12em] text-primary">
+              <div className="flex flex-wrap gap-2 border-t border-[color:var(--surface-border)] pt-3">
+                <span className="font-mono text-xs tracking-[0.06em] text-primary">
                   {item.focus}
                 </span>
                 <span className="text-xs text-primary">/</span>
-                <span className="font-mono text-xs uppercase tracking-[0.12em] text-primary">
+                <span className="font-mono text-xs tracking-[0.06em] text-primary">
                   {item.period}
                 </span>
               </div>

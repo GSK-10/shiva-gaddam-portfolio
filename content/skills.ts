@@ -3,6 +3,19 @@ export type SkillGroup = {
   items: { label: string; featured?: boolean }[];
 };
 
+export const recruiterFocusedSkills = [
+  "C++",
+  "Java",
+  "Python",
+  "SQL",
+  "Linux",
+  "Docker",
+  "Kubernetes",
+  "REST APIs",
+  "Spring Boot",
+  "AWS",
+];
+
 export const skillGroups: SkillGroup[] = [
   {
     title: "Software development & fundamentals",
@@ -10,8 +23,8 @@ export const skillGroups: SkillGroup[] = [
       { label: "Java", featured: true },
       { label: "Python", featured: true },
       { label: "JavaScript" },
-      { label: "C / C++" },
-      { label: "SQL" },
+      { label: "C / C++", featured: true },
+      { label: "SQL", featured: true },
       { label: "Bash / Shell" },
       { label: "OOP" },
       { label: "DSA" },
@@ -22,7 +35,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Frameworks, backend & APIs",
     items: [
-      { label: "Spring Boot" },
+      { label: "Spring Boot", featured: true },
       { label: "Spring Data JPA" },
       { label: "Node.js" },
       { label: "Flask" },
@@ -30,19 +43,19 @@ export const skillGroups: SkillGroup[] = [
       { label: "REST APIs", featured: true },
       { label: "Microservices" },
       { label: "Service integration" },
-      { label: "Distributed Systems", featured: true },
+      { label: "Distributed Systems" },
     ],
   },
   {
     title: "Cloud & containers",
     items: [
-      { label: "AWS - IAM, EC2, S3, CloudWatch" },
+      { label: "AWS - IAM, EC2, S3, CloudWatch", featured: true },
       { label: "OCI" },
       { label: "Linux", featured: true },
       { label: "Kubernetes", featured: true },
-      { label: "Docker" },
-      { label: "Podman", featured: true },
-      { label: "Helm", featured: true },
+      { label: "Docker", featured: true },
+      { label: "Podman" },
+      { label: "Helm" },
       { label: "WebLogic Operator" },
     ],
   },
@@ -54,9 +67,9 @@ export const skillGroups: SkillGroup[] = [
       { label: "IntelliJ IDEA" },
       { label: "Cline" },
       { label: "AI-Assisted Development Workflows" },
-      { label: "Environment provisioning", featured: true },
+      { label: "Environment provisioning" },
       { label: "Patch validation" },
-      { label: "Deployment debugging", featured: true },
+      { label: "Deployment debugging" },
       { label: "Troubleshooting" },
       { label: "Agile / Scrum" },
     ],
@@ -64,21 +77,21 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Data & messaging",
     items: [
-      { label: "Oracle DB", featured: true },
+      { label: "Oracle DB" },
       { label: "MySQL" },
       { label: "MongoDB" },
-      { label: "JMS", featured: true },
+      { label: "JMS" },
       { label: "XML" },
-      { label: "LDAP", featured: true },
+      { label: "LDAP" },
       { label: "Database connectivity" },
     ],
   },
   {
     title: "Automation & reliability",
     items: [
-      { label: "LISA", featured: true },
-      { label: "Regression automation", featured: true },
-      { label: "SSL debugging", featured: true },
+      { label: "LISA" },
+      { label: "Regression automation" },
+      { label: "SSL debugging" },
       { label: "Suite execution" },
       { label: "Log analysis" },
       { label: "Test data updates" },
