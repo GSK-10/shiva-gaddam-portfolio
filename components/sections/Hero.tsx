@@ -1,58 +1,56 @@
 import type { CSSProperties } from "react";
-import { heroContent, heroHighlights } from "@/content/hero";
-import { siteConfig } from "@/content/site";
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/layout/Container";
-import { HeroOrbitReveal } from "@/components/ui/HeroOrbitReveal";
-import { ArrowUpRight } from "lucide-react";
+import { heroContent, heroHighlights, siteConfig } from "@/content/portfolio";
+import { Button, Container } from "@/components/ui";
+import { HeroProfileCard } from "@/components/ui/HeroProfileCard";
+import { BriefcaseBusiness, FileText, Github, Globe, Linkedin, Mail } from "lucide-react";
 
 export function Hero() {
+  const heroLinks = siteConfig.profileLinks.filter((link) =>
+    ["Email", "LinkedIn", "GitHub"].includes(link.label),
+  );
+
   return (
     <section
       id="hero"
-      className="relative mt-[var(--layout-hero-start-offset)] flex min-h-[var(--layout-hero-min-height)] items-center overflow-hidden py-[var(--layout-hero-padding-y)]"
-      style={{
-        borderBottom: "1px solid var(--surface-border)",
-      }}
+      className="section-tone-alternate relative mt-2 flex items-start overflow-hidden border-b border-[color:var(--surface-border)] py-8 sm:mt-4 sm:py-12 lg:mt-6 lg:min-h-[min(52rem,calc(100svh-8rem))] lg:items-center"
     >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-[58%] hidden w-[12%] lg:block"
+        style={{
+          background: "linear-gradient(180deg, rgb(var(--color-primary) / 0.08), transparent 88%)",
+          transform: "skewX(-12deg)",
+          transformOrigin: "top",
+        }}
+      />
       <Container>
-        <div className="theme-shell relative mx-auto max-w-[var(--layout-content-width)] rounded-[var(--layout-surface-radius)] border px-[var(--layout-hero-shell-padding)] py-[calc(var(--layout-hero-shell-padding)*1.2)] lg:rounded-none lg:border-transparent lg:bg-transparent lg:shadow-none">
+        <div className="relative mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-5 lg:px-7 lg:py-6">
           <svg
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 h-full w-full opacity-55"
+            className="pointer-events-none absolute inset-0 h-full w-full opacity-40"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
             <path
-              d="M 1 50.5 L 1 5.2 A 3.2 3.2 0 0 1 4.2 2 L 94.8 2 A 3.2 3.2 0 0 1 98 5.2 L 98 95.8 A 3.2 3.2 0 0 1 94.8 99 L 4.2 99 A 3.2 3.2 0 0 1 1 95.8 L 1 50.5"
-              pathLength="100"
-              fill="none"
-              stroke="url(#hero-trace-gradient-top)"
-              strokeWidth="0.5"
-              strokeLinecap="round"
-              strokeDasharray="3 97"
-              className="motion-trace-loop"
-            />
-            {/* <rect
-              x="2"
-              y="2"
-              width="96"
-              height="96"
-              rx="8.2"
+              d="M 5 96 L 95 96"
               pathLength="100"
               fill="none"
               stroke="url(#hero-trace-gradient-bottom)"
-              strokeWidth="0.5"
+              strokeWidth="0.35"
               strokeLinecap="round"
-              strokeDasharray="30 70"
-              className="motion-trace-loop"
-              style={{ animationDelay: "-6s" } as CSSProperties}
-            /> */}
+              opacity="0.32"
+            />
+            <path
+              d="M 5 96 L 95 96"
+              pathLength="100"
+              fill="none"
+              stroke="url(#hero-trace-gradient-bottom)"
+              strokeWidth="0.95"
+              strokeLinecap="round"
+              strokeDasharray="22 78"
+              className="motion-trace-oscillate"
+            />
             <defs>
-              <linearGradient id="hero-trace-gradient-top" x1="50%" y1="0%" x2="100%" y2="50%">
-                <stop offset="0%" stopColor="var(--accent)" />
-                <stop offset="100%" stopColor="var(--accent-2)" />
-              </linearGradient>
               <linearGradient id="hero-trace-gradient-bottom" x1="50%" y1="100%" x2="0%" y2="50%">
                 <stop offset="0%" stopColor="var(--accent)" />
                 <stop offset="100%" stopColor="var(--accent-2)" />
@@ -60,15 +58,14 @@ export function Hero() {
             </defs>
           </svg>
 
-          <div className="grid items-center gap-[var(--layout-hero-grid-gap)] lg:grid-cols-[minmax(0,1.28fr)_minmax(16rem,0.72fr)]">
-            <div className="max-w-3xl">
-              <div className="mb-6 flex justify-center lg:hidden">
-                <HeroOrbitReveal
-                  size="var(--layout-hero-orbit-size-mobile)"
+          <div className="grid items-start gap-4 sm:gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-6">
+            <div className="max-w-3xl pt-1 sm:pt-3 lg:pl-3 lg:pt-4">
+              <div className="mb-5 flex justify-center sm:mb-6 lg:hidden">
+                <HeroProfileCard
+                  className="w-24 sm:w-28 md:w-32"
                   delay="180ms"
                   defaultImage={heroContent.orbitReveal.defaultImage}
                   defaultAlt={heroContent.orbitReveal.defaultAlt}
-                  hintLabel={heroContent.orbitReveal.hintLabel}
                   revealAriaLabel={heroContent.orbitReveal.revealAriaLabel}
                   resetAriaLabel={heroContent.orbitReveal.resetAriaLabel}
                   revealQuote={heroContent.orbitReveal.revealQuote}
@@ -82,39 +79,41 @@ export function Hero() {
                 className="motion-fade-up flex flex-wrap items-center gap-2"
                 style={{ "--motion-delay": "140ms" } as CSSProperties}
               >
-                <span
-                  className="inline-flex items-center gap-3 rounded-[var(--layout-pill-radius)] border px-4 py-2 font-medium uppercase tracking-[0.12em] text-foreground"
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "var(--layout-hero-eyebrow-size)",
-                    borderColor: "var(--surface-border)",
-                    backgroundColor: "var(--accent-soft)",
-                    color: "rgb(var(--color-primary))",
-                  }}
-                >
+                <div className="inline-flex items-center gap-3">
                   <span
                     aria-hidden="true"
-                    className="rounded-full bg-current"
+                    className="inline-flex h-7 w-7 shrink-0 rotate-45 items-center justify-center"
                     style={{
-                      width: "var(--layout-hero-eyebrow-dot-size)",
-                      height: "var(--layout-hero-eyebrow-dot-size)",
+                      backgroundColor: "var(--hero-cta-bg)",
+                      color: "var(--hero-cta-text)",
+                      transformOrigin: "center",
                     }}
-                  />
-                  <span>{heroContent.eyebrow.primary}</span>
-                  <span aria-hidden="true" className="opacity-70">
-                    |
+                  >
+                    <span
+                      className="-rotate-45 font-serif text-xs font-semibold sm:text-sm lg:text-base"
+                    >
+                      #1
+                    </span>
                   </span>
-                  <span>{heroContent.eyebrow.secondary}</span>
-                </span>
+                  <span
+                    className="inline-flex max-w-[calc(100vw-6.5rem)] flex-wrap items-center gap-x-3 gap-y-1 border px-3 py-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-primary sm:max-w-none sm:px-4 sm:text-sm sm:tracking-[0.22em] lg:text-base"
+                    style={{
+                      borderColor: "var(--surface-border)",
+                    }}
+                  >
+                    <span>{heroContent.eyebrow.primary}</span>
+                    <span aria-hidden="true" className="opacity-70">
+                      |
+                    </span>
+                    <span>{heroContent.eyebrow.secondary}</span>
+                  </span>
+                </div>
               </div>
+
               <h1
-                className="motion-fade-up mt-8 max-w-4xl tracking-[-0.03em]"
+                className="motion-fade-up mt-5 max-w-4xl font-display text-[2rem] font-extrabold uppercase leading-none tracking-[0.075rem] sm:mt-6 sm:text-[2.5rem] sm:tracking-[0.1rem] md:text-5xl lg:mt-7 lg:text-[3.6rem] lg:tracking-[0.125rem]"
                 style={{
                   "--motion-delay": "220ms",
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "var(--layout-hero-name-size)",
-                  fontWeight: "var(--layout-hero-name-weight)",
-                  lineHeight: 0.95,
                 } as CSSProperties}
               >
                 {heroContent.displayName.lines.map((line, index) => {
@@ -135,26 +134,24 @@ export function Hero() {
               </h1>
               
               <p
-                className="motion-fade-up mt-6 max-w-2xl text-balance text-[1.3rem] leading-none text-foreground sm:text-[1.95rem]"
-                style={{ "--motion-delay": "320ms", fontFamily: "var(--font-serif)" } as CSSProperties}
+                className="motion-fade-up mt-5 max-w-2xl border-l-2 border-[color:rgb(var(--color-primary)/0.48)] pl-4 font-mono text-sm leading-6 text-foreground sm:mt-6 sm:text-base sm:leading-7 lg:mt-8 lg:text-lg"
+                style={{
+                  "--motion-delay": "320ms",
+                } as CSSProperties}
               >
-                {heroContent.statement.prefix} <em className="text-primary italic">{heroContent.statement.accent}</em>{" "}
+                {heroContent.statement.prefix}{" "}
+                <span className="text-primary">{heroContent.statement.reliabilityAccent}</span>{" "}
+                {heroContent.statement.bridge}{" "}
+                <span className="text-primary">{heroContent.statement.experienceAccent}</span>{" "}
                 {heroContent.statement.suffix}
               </p>
 
               <div
-                className="motion-fade-up mt-8 flex flex-wrap gap-3"
+                className="motion-fade-up mt-5 flex flex-wrap items-center gap-2.5 sm:mt-6 lg:mt-8"
                 style={{ "--motion-delay": "420ms" } as CSSProperties}
               >
-                <Button
-                  href="#experience"
-                  style={{
-                    borderRadius: "var(--layout-hero-button-radius)",
-                    paddingInline: "1.25rem",
-                    paddingBlock: "0.625rem",
-                    fontSize: "0.84rem",
-                  }}
-                >
+                <Button href="#work" className="gap-2">
+                  <BriefcaseBusiness aria-hidden="true" className="h-4 w-4" />
                   View My Work
                 </Button>
                 <Button
@@ -162,76 +159,51 @@ export function Hero() {
                   variant="secondary"
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    borderRadius: "var(--layout-hero-button-radius)",
-                    paddingInline: "1.25rem",
-                    paddingBlock: "0.625rem",
-                    fontSize: "0.84rem",
-                  }}
+                  className="gap-2"
                 >
+                  <FileText aria-hidden="true" className="h-4 w-4 text-primary" />
                   View Resume
                 </Button>
-              </div>
-              
-              <div
-                className="motion-fade-up mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.78rem] sm:text-sm"
-                style={{ "--motion-delay": "520ms" } as CSSProperties}
-              >
-                {siteConfig.profileLinks.map((link) => (
+                <div className="ml-1 flex items-center gap-2">
+                  {heroLinks.map((link) => {
+                    const Icon =
+                      link.label === "Email"
+                        ? Mail
+                        : link.label === "LinkedIn"
+                          ? Linkedin
+                          : link.label === "GitHub"
+                            ? Github
+                            : Globe;
+
+                    return (
                   <a
                     key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group relative inline-flex items-center gap-1 pb-1 text-muted transition-colors duration-200"
+                    aria-label={link.label}
+                    title={link.label}
+                    className="theme-button-glow inline-flex h-10 w-10 items-center justify-center border text-muted transition duration-200 hover:-translate-y-px hover:border-[color:rgb(var(--color-primary)/0.5)] hover:bg-[color:var(--accent-soft)] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     style={{
-                      fontFamily: "var(--font-mono)",
-                      color: "rgb(var(--color-primary))",
-                    }}
-                  >
-                    <span>{link.label}</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 translate-y-[-1px] transition-transform duration-200 ease-out group-hover:translate-x-[1px] group-hover:translate-y-[-2px]" />
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-x-0 bottom-0 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
-                      style={{
-                        height: "var(--layout-navbar-link-underline-height)",
-                        backgroundImage: "var(--nav-link-underline)",
-                      }}
-                    />
-                  </a>
-                ))}
-              </div>
-
-              <div
-                className="motion-fade-up mt-6 flex max-w-3xl flex-wrap gap-3"
-                style={{ "--motion-delay": "580ms" } as CSSProperties}
-              >
-                {heroHighlights.map((item) => (
-                  <span
-                    key={item}
-                    className="inline-flex items-center border px-3 py-1.5 text-[0.72rem] text-foreground sm:px-3.5 sm:text-[0.84rem]"
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      borderRadius: "var(--layout-hero-button-radius)",
+                      clipPath: "polygon(0.55rem 0, 100% 0, calc(100% - 0.55rem) 100%, 0 100%)",
                       borderColor: "var(--surface-border)",
-                      backgroundColor: "rgb(var(--color-foreground) / 0.05)",
-                      color: "rgb(var(--color-foreground))",
+                      backgroundColor: "rgb(var(--color-background) / 0.3)",
                     }}
                   >
-                    {item}
-                  </span>
-                ))}
+                    <Icon className="h-4 w-4" />
+                  </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            <div className="relative hidden min-h-[22rem] items-center justify-center lg:flex">
-              <HeroOrbitReveal
-                size="var(--layout-hero-orbit-size)"
+            <div className="relative hidden min-h-[18rem] items-center justify-center pt-8 lg:flex">
+              <HeroProfileCard
+                className="w-60"
                 delay="240ms"
                 defaultImage={heroContent.orbitReveal.defaultImage}
                 defaultAlt={heroContent.orbitReveal.defaultAlt}
-                hintLabel={heroContent.orbitReveal.hintLabel}
                 revealAriaLabel={heroContent.orbitReveal.revealAriaLabel}
                 resetAriaLabel={heroContent.orbitReveal.resetAriaLabel}
                 revealQuote={heroContent.orbitReveal.revealQuote}
@@ -239,6 +211,31 @@ export function Hero() {
                 revealWord={heroContent.orbitReveal.revealWord}
                 revealAccentIndex={heroContent.orbitReveal.revealAccentIndex}
               />
+            </div>
+          </div>
+
+          <div
+            className="motion-fade-up mt-6 border-t border-[color:var(--surface-border)] pt-3 sm:mt-7 sm:pt-4 lg:mt-16"
+            style={{ "--motion-delay": "580ms" } as CSSProperties}
+          >
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 lg:grid-cols-5">
+              {heroHighlights.map((item) => (
+                <div
+                  key={item.label}
+                  className="min-w-0 border-l border-[color:var(--surface-border)] pl-4"
+                >
+                  <div
+                    className="font-mono text-xs uppercase tracking-[0.2em] text-muted"
+                  >
+                    {item.label}
+                  </div>
+                  <div
+                    className="mt-1 font-serif text-[1.1rem] leading-tight text-foreground"
+                  >
+                    {item.value}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           

@@ -1,15 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { siteConfig } from "@/content/site";
-import { cn } from "@/lib/utils";
+import { Container } from "@/components/ui";
+import { siteConfig } from "@/content/portfolio";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-8">
+    <footer className="section-tone-alternate py-8">
       <Container>
-        <div className="theme-shell mx-auto max-w-[var(--layout-content-width)] rounded-[var(--layout-surface-radius)] border px-5 py-4">
+        <div className="theme-shell mx-auto max-w-7xl border px-5 py-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-2 text-sm text-muted">
               <span>
@@ -27,10 +26,7 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className={cn("group relative inline-flex items-center gap-1 text-muted transition-colors duration-200")}
-                  style={{
-                    color: "var(--color-muted)",
-                  }}
+                  className="group relative inline-flex items-center gap-1 text-muted transition-colors duration-200"
                 >
                   <span>{link.label}</span>
                   <ArrowUpRight className="h-3.5 w-3.5 translate-y-[-1px] transition-transform duration-200 ease-out group-hover:translate-x-[1px] group-hover:translate-y-[-2px]" />
@@ -38,8 +34,8 @@ export function Footer() {
                     aria-hidden="true"
                     className="absolute inset-x-0 origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
                     style={{
-                      bottom: "var(--layout-navbar-link-underline-offset)",
-                      height: "var(--layout-navbar-link-underline-height)",
+                      bottom: "-0.3rem",
+                      height: "1px",
                       backgroundImage: "var(--nav-link-underline)",
                     }}
                   />

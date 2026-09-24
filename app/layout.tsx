@@ -1,35 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk, JetBrains_Mono, Newsreader } from "next/font/google";
+import { Hanken_Grotesk, JetBrains_Mono, Orbitron, Oxanium } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { Providers } from "@/components/providers";
-import { siteConfig, siteSeo } from "@/content/site";
-import { defaultTheme, themeKeys } from "@/content/themes";
+import { BackToTop } from "@/components/ui/BackToTop";
+import { Providers } from "@/components/theme";
+import { siteConfig, siteSeo } from "@/content/portfolio";
 import "./globals.css";
-
-const THEME_STORAGE_KEY = "portfolio-theme";
-
-const THEME_BOOTSTRAP_SCRIPT = `
-  (() => {
-    const storageKey = "${THEME_STORAGE_KEY}";
-    const fallbackTheme = "${defaultTheme}";
-    const allowedThemes = new Set(${JSON.stringify([...themeKeys])});
-
-    try {
-      const storedTheme = window.localStorage.getItem(storageKey);
-      const theme = storedTheme && allowedThemes.has(storedTheme) ? storedTheme : fallbackTheme;
-      const root = document.documentElement;
-
-      root.setAttribute("data-theme", theme);
-      root.style.colorScheme = theme === "light" ? "light" : "dark";
-    } catch {
-      const root = document.documentElement;
-      root.setAttribute("data-theme", fallbackTheme);
-      root.style.colorScheme = fallbackTheme === "light" ? "light" : "dark";
-    }
-  })();
-`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -66,16 +43,23 @@ const sans = Hanken_Grotesk({
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["500", "600", "700"],
   display: "swap",
   variable: "--font-mono",
 });
 
-const serif = Newsreader({
+const serif = Oxanium({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-serif",
+});
+
+const display = Orbitron({
+  subsets: ["latin"],
+  weight: ["800"],
+  display: "swap",
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -110,7 +94,6 @@ export const metadata: Metadata = {
     title: siteSeo.title,
     description: siteSeo.description,
     images: [siteSeo.shareImage.url],
-    site: siteSeo.twitterHandle,
   },
   robots: {
     index: true,
@@ -133,17 +116,22 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js')`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
+      <body className={`${sans.variable} ${mono.variable} ${serif.variable} ${display.variable}`}>
         <Providers>
           <Navbar />
           {children}
           <Footer />
+          <BackToTop />
         </Providers>
       </body>
     </html>

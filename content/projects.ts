@@ -1,37 +1,53 @@
 export type Project = {
   title: string;
+  label: string;
+  category?: string;
+  status?: "WIP" | "Active learning";
+  kind: "network" | "audio" | "publications";
   description: string;
   tech: string[];
-  bullets: string[];
-  githubUrl: string;
-  liveUrl: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  githubUrl?: string;
+  liveUrl?: string;
+  publicationUrl?: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "Speaker Diarization and Emotion Recognition",
+    title: "Professional Networking Platform",
+    label: "Project 1",
+    // category: "Independent Learning Project",
+    status: "Active learning",
+    kind: "network",
     description:
-      "Built a modular speech-processing pipeline for multi-speaker diarization, timestamped transcription, and sentiment analysis.",
+      "Building seven Spring Boot components with JWT-protected routes and service discovery for authentication, posts, connections, notifications, and media, backed by Kafka, Neo4j, and PostgreSQL.",
+    tech: ["Java", "Spring Boot", "JWT", "Service Discovery", "Kafka", "Neo4j", "PostgreSQL"],
+    imageUrl: "/images/projects/professional-networking-architecture.svg",
+    imageAlt: "Architecture preview of the professional networking platform services and data systems",
+  },
+  {
+    title: "Speaker Diarization System",
+    label: "Project 2",
+    category: "Research Project",
+    kind: "audio",
+    description:
+      "A modular multi-speaker audio pipeline for diarization, timestamped transcription, and sentiment analysis, backed by Flask and spectral clustering.",
     tech: ["Python", "Flask", "Whisper", "SpeechBrain", "Scikit-learn"],
-    bullets: [
-      "Integrated speech-to-text, speaker embeddings, clustering, and Flask APIs into a working pipeline.",
-      "Generated timestamped speaker-wise transcripts for real-world multi-speaker audio.",
-      "Published related work in SSRG IJEEE 2025.",
-    ],
-    githubUrl: "",
-    liveUrl: "",
+    imageUrl: "/images/projects/speaker-diarization-preview.png",
+    imageAlt: "Abstract layered audio tracks representing the speaker diarization pipeline",
+    publicationUrl:
+      "https://www.internationaljournalssrg.org/IJEEE/paper-details?Id=1043",
   },
   {
     title: "Publications Management System",
+    label: "Project 3",
+    category: "Academic Project",
+    kind: "publications",
     description:
-      "Built a MERN application for managing and retrieving faculty publication records with a restructured MongoDB schema.",
+      "A full-stack application for a university CSE department to store, manage, search, and retrieve faculty publications through a restructured data model.",
     tech: ["MongoDB", "Express.js", "React", "Node.js"],
-    bullets: [
-      "Designed a full-stack system for the university CSE department.",
-      "Improved data organization by restructuring the database schema to reduce redundancy.",
-    ],
-    githubUrl: "",
-    liveUrl: "",
+    imageUrl: "/images/projects/publications-management-preview.png",
+    imageAlt: "Abstract digital archive representing the publications management system",
   },
 ];
-

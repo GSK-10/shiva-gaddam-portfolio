@@ -4,13 +4,11 @@ import type { CSSProperties } from "react";
 import { useState } from "react";
 import Image from "next/image";
 
-type HeroOrbitRevealProps = {
+type HeroProfileCardProps = {
   className?: string;
-  size: string;
   delay?: string;
   defaultImage: string;
   defaultAlt: string;
-  hintLabel: string;
   revealAriaLabel: string;
   resetAriaLabel: string;
   revealQuote: string;
@@ -19,20 +17,18 @@ type HeroOrbitRevealProps = {
   revealAccentIndex: number;
 };
 
-export function HeroOrbitReveal({
+export function HeroProfileCard({
   className = "",
-  size,
   delay = "0ms",
   defaultImage,
   defaultAlt,
-  hintLabel,
   revealAriaLabel,
   resetAriaLabel,
   revealQuote,
   revealMarker,
   revealWord,
   revealAccentIndex,
-}: HeroOrbitRevealProps) {
+}: HeroProfileCardProps) {
   const [revealed, setRevealed] = useState(false);
 
   return (
@@ -41,18 +37,19 @@ export function HeroOrbitReveal({
       aria-pressed={revealed}
       aria-label={revealed ? resetAriaLabel : revealAriaLabel}
       onClick={() => setRevealed((value) => !value)}
-      className={`motion-scale-in group relative rounded-full border border-[color:var(--surface-border)] bg-[color:var(--accent-soft)] ${className}`}
+      className={`motion-scale-in group relative aspect-[1/1.22] border border-[color:var(--surface-border)] bg-[color:rgb(var(--color-primary)/0.03)] ${className}`}
       style={
         {
           "--motion-delay": delay,
-          width: size,
-          height: size,
-          opacity: 0.88,
-          boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.05)",
+          opacity: 0.94,
+          clipPath: "polygon(0 0, calc(100% - 1.2rem) 0, 100% 1.2rem, 100% 100%, 0 100%)",
+          boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.05), 0 0 0 1px var(--hero-panel-glow)",
+          transform: "rotate(-4deg)",
+          transformOrigin: "center",
         } as CSSProperties
       }
     >
-      <span className="absolute inset-0 overflow-hidden rounded-full">
+      <span className="absolute inset-[0.25rem] overflow-hidden border border-[color:rgb(var(--color-primary)/0.18)] sm:inset-[0.35rem] lg:inset-[0.55rem]">
         <span
           className={`absolute inset-0 transition-[opacity,filter,transform] duration-500 ease-out ${
             revealed ? "opacity-0 blur-md scale-[1.03]" : "opacity-100 blur-0 scale-100"
@@ -63,8 +60,17 @@ export function HeroOrbitReveal({
             alt={defaultAlt}
             fill
             className="object-cover"
-            sizes="(min-width: 1024px) 384px, 168px"
+            sizes="(min-width: 1024px) 300px, 144px"
             priority
+          />
+          <span className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(3,8,14,0.34))]" />
+          <span
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0.08) 58%, transparent 100%)",
+            }}
           />
         </span>
 
@@ -78,14 +84,12 @@ export function HeroOrbitReveal({
             className="absolute inset-0 grid place-content-center justify-items-center gap-[clamp(0.35rem,2vw,0.85rem)] px-[14%] py-[16%] text-center"
             style={{
               background:
-                "radial-gradient(circle at 50% 38%, var(--surface-card-muted), rgb(var(--color-background)) 78%)",
+                "linear-gradient(180deg, rgb(var(--color-primary) / 0.07), transparent 42%), linear-gradient(135deg, var(--surface-card-muted), rgb(var(--color-background)))",
             }}
           >
             <span
+              className="font-serif text-xs sm:text-sm lg:text-base"
               style={{
-                fontFamily: "var(--font-serif)",
-                fontStyle: "italic",
-                fontSize: "var(--layout-hero-orbit-quote-size)",
                 lineHeight: 1.18,
                 color: "rgb(var(--color-foreground))",
                 maxWidth: "11ch",
@@ -94,10 +98,9 @@ export function HeroOrbitReveal({
               {revealQuote}
             </span>
             <span
+              className="font-mono text-[0.6rem] sm:text-xs"
               style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--layout-hero-orbit-marker-size)",
-                letterSpacing: "0.24em",
+                letterSpacing: "0.32em",
                 textTransform: "uppercase",
                 color: "rgb(var(--color-muted))",
               }}
@@ -106,11 +109,9 @@ export function HeroOrbitReveal({
             </span>
             <span
               aria-label={revealWord}
+              className="font-serif text-sm font-bold sm:text-lg lg:text-2xl"
               style={{
-                fontFamily: "var(--font-sans)",
-                fontWeight: 700,
-                fontSize: "var(--layout-hero-orbit-word-size)",
-                letterSpacing: "0.14em",
+                letterSpacing: "0.08em",
                 lineHeight: 1,
                 color: "rgb(var(--color-foreground))",
               }}
@@ -130,18 +131,14 @@ export function HeroOrbitReveal({
         </span>
       </span>
 
-      <span className="pointer-events-none absolute inset-0 rounded-full border border-[color:var(--surface-border)] opacity-80" />
+      <span className="pointer-events-none absolute inset-0 border border-[color:var(--surface-border)] opacity-90" />
 
       <span
-        className={`pointer-events-none absolute bottom-[8%] left-1/2 -translate-x-1/2 rounded-[var(--layout-pill-radius)] border border-[color:var(--surface-border)] bg-[color:var(--surface-card)]/84 px-3 py-1 text-[0.66rem] uppercase tracking-[0.12em] text-foreground transition-all duration-300 ease-out ${
-          revealed
-            ? "translate-y-1 opacity-0"
-            : "translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
-        }`}
-        style={{ fontFamily: "var(--font-mono)" }}
-      >
-        {hintLabel}
-      </span>
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px"
+        style={{ background: "linear-gradient(90deg, transparent, rgb(var(--color-primary) / 0.7), transparent)" }}
+      />
+
     </button>
   );
 }
