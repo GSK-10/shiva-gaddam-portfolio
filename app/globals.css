@@ -53,26 +53,24 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: 0;
-  opacity: 1;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(var(--grid-major-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-major-line) 1px, transparent 1px),
-    linear-gradient(180deg, transparent 0%, rgb(var(--color-primary) / 0.055) 100%);
-  background-size:
-    var(--grid-size) var(--grid-size),
-    var(--grid-size) var(--grid-size),
-    var(--grid-major-size) var(--grid-major-size),
-    var(--grid-major-size) var(--grid-major-size),
-    100% 100%;
-  background-position:
-    0 0,
-    0 0,
-    -1px -1px,
-    -1px -1px,
-    0 0;
-  mask-image: var(--grid-fade);
+  background:
+    linear-gradient(180deg, rgb(var(--color-primary) / 0.025), transparent 28%),
+    linear-gradient(0deg, rgb(var(--color-secondary) / 0.018), transparent 34%);
+}
+
+/* Two section shades, applied as bookends rather than alternating stripes:
+   `alternate` is the DARKER shade in every palette and wraps the page (hero,
+   contact, footer); `base` is the lighter shade and carries the whole content
+   run between them, so the content reads as lifted off a darker frame. Both
+   tones are opaque so the declared colour is the rendered colour, and the pair
+   is tuned to ~1.09:1 contrast in every palette — enough to read as separation,
+   well short of the ~1.25:1 where banding starts to look striped. */
+.section-tone-base {
+  background: var(--section-background);
+}
+
+.section-tone-alternate {
+  background: var(--section-background-alt);
 }
 
 @keyframes app-fade-up {
@@ -162,6 +160,9 @@ body::before {
 }
 
 /* Shared themed surfaces. Tailwind handles their structure and layout. */
+/* Square on every corner. The overlay below must stay unclipped to match: when
+   only the ::before carried a chamfer, the shell's own background and border
+   stayed square behind it and the mismatch read as a stray diagonal seam. */
 .theme-shell {
   background-color: var(--nav-shell-bg);
   border-color: var(--nav-shell-border);
@@ -178,7 +179,6 @@ body::before {
   background:
     linear-gradient(90deg, rgb(var(--color-primary) / 0.08), transparent 12%, transparent 88%, rgb(var(--color-primary) / 0.08)),
     linear-gradient(rgb(255 255 255 / 0.02), rgb(255 255 255 / 0));
-  clip-path: polygon(0 0, calc(100% - 1.1rem) 0, 100% 1.1rem, 100% 100%, 0 100%);
   opacity: 0.6;
 }
 
@@ -243,6 +243,12 @@ body::before {
     transform: translateY(var(--surface-hover-translate));
     box-shadow: var(--shadow-card-hover);
   }
+
+}
+
+.portfolio-card-slanted {
+  clip-path: polygon(0.9rem 0, 100% 0, calc(100% - 0.9rem) 100%, 0 100%);
+  border-radius: 0;
 }
 
 /* Accent glow for clickable cards. Must stay AFTER .theme-surface-interactive:hover
@@ -294,6 +300,21 @@ body::before {
   .motion-trace-oscillate,
   .js .reveal,
   .js .reveal.is-visible {
+    opacity: 1;
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Printing never scrolls, so the IntersectionObserver in components/ui/Reveal.tsx
+   never fires and every revealed block would print at opacity 0. Force the
+   settled state for print and for anything else that renders without scrolling. */
+@media print {
+  .js .reveal,
+  .js .reveal.is-visible,
+  .motion-fade-up,
+  .motion-scale-in {
     opacity: 1;
     animation: none;
     transition: none;

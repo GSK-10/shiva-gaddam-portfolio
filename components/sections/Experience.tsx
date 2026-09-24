@@ -73,6 +73,7 @@ export function Experience() {
   return (
     <Section
       id="experience"
+      tone="base"
       index={copy.index}
       title={copy.title}
       icon={BriefcaseBusiness}

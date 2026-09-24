@@ -6,7 +6,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-8">
+    <footer className="section-tone-alternate py-8">
       <Container>
         <div className="theme-shell mx-auto max-w-7xl border px-5 py-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

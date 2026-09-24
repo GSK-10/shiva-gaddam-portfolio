@@ -3,6 +3,7 @@ import { Hanken_Grotesk, JetBrains_Mono, Orbitron, Oxanium } from "next/font/goo
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { BackToTop } from "@/components/ui/BackToTop";
 import { Providers } from "@/components/theme";
 import { siteConfig, siteSeo } from "@/content/portfolio";
 import "./globals.css";
@@ -130,6 +131,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <BackToTop />
         </Providers>
       </body>
     </html>

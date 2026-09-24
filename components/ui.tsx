@@ -20,14 +20,16 @@ export function Container({ children, className }: ClassNameProps) {
 
 type SurfaceProps = ClassNameProps & {
   interactive?: boolean;
+  slanted?: boolean;
 };
 
-export function Surface({ children, className, interactive = true }: SurfaceProps) {
+export function Surface({ children, className, interactive = true, slanted = false }: SurfaceProps) {
   return (
     <div
       className={cn(
         "theme-surface rounded-[var(--radius-surface)] border text-card-foreground",
         interactive && "theme-surface-interactive theme-surface-glow",
+        slanted && "portfolio-card-slanted",
         className,
       )}
     >
@@ -60,6 +62,7 @@ export function Button(props: LinkButtonProps | NativeButtonProps) {
 
   if ("href" in props) {
     const { href, className, children, variant: _variant, style, ...rest } = props as LinkButtonProps;
+    void _variant;
     return (
       <a href={href} className={cn(classes, className)} style={{ ...shape, ...style }} {...rest}>
         {children}
@@ -68,6 +71,7 @@ export function Button(props: LinkButtonProps | NativeButtonProps) {
   }
 
   const { className, children, variant: _variant, style, ...rest } = props as NativeButtonProps;
+  void _variant;
   return (
     <button className={cn(classes, className)} style={{ ...shape, ...style }} {...rest}>
       {children}
@@ -82,6 +86,7 @@ type SectionProps = PropsWithChildren<{
   icon?: LucideIcon;
   displayTitle?: ReactNode;
   tagline?: string;
+  tone?: "base" | "alternate";
   className?: string;
   contentClassName?: string;
   fullWidthContent?: ReactNode;
@@ -94,6 +99,7 @@ export function Section({
   icon: Icon,
   displayTitle,
   tagline,
+  tone,
   className,
   contentClassName,
   fullWidthContent,
@@ -104,6 +110,8 @@ export function Section({
       id={id}
       className={cn(
         "relative pb-10 pt-14 sm:pb-12 sm:pt-16 lg:pb-14 lg:pt-[4.5rem]",
+        tone === "base" && "section-tone-base",
+        tone === "alternate" && "section-tone-alternate",
         className,
       )}
     >
@@ -142,7 +150,7 @@ export function Section({
             <Reveal delay="120ms">{children}</Reveal>
           </div>
           {fullWidthContent && (
-            <div className="min-w-0 pt-2 lg:col-span-2">
+            <div className="min-w-0 lg:col-span-2">
               <Reveal delay="180ms">{fullWidthContent}</Reveal>
             </div>
           )}

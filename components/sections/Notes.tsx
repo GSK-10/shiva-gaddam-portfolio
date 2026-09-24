@@ -1,42 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { ArrowUpRight, BookOpenText, X } from "lucide-react";
 import { Section, Surface } from "@/components/ui";
+import { useModalDialog } from "@/components/ui/useModalDialog";
 import { notes, sectionCopy } from "@/content/portfolio";
 
 type Note = (typeof notes)[number];
 
 function NoteDialog({ note, onClose }: { note: Note | null; onClose: () => void }) {
-  const dialogRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-
-  useEffect(() => {
-    if (!note) return;
-
-    const previouslyFocused = document.activeElement as HTMLElement | null;
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
-
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", handleKeyDown);
-    dialogRef.current?.focus();
-
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", handleKeyDown);
-      previouslyFocused?.focus();
-    };
-  }, [note, onClose]);
+  const { dialogRef, overlayRef } = useModalDialog({
+    open: Boolean(note) && mounted,
+    onClose,
+  });
 
   if (!note || !mounted) return null;
 
   return createPortal(
     <div
+      ref={overlayRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="note-dialog-title"

@@ -22,6 +22,9 @@ export type SectionCopy = {
   tagline?: string;
 };
 
+/* Optional button-style slanted edges for interactive Work and Project cards. */
+export const ENABLE_SLANTED_CARDS = false;
+
 export const siteConfig = {
   name: "Shiva Kumar Reddy Gaddam",
   role: "Software Engineer",

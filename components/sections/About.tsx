@@ -67,6 +67,7 @@ export function About() {
   return (
     <Section
       id="about"
+      tone="alternate"
       index={copy.index}
       title={copy.title}
       icon={FileText}

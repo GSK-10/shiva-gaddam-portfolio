@@ -18,7 +18,7 @@ Use Tailwind responsive classes for layout. Add a CSS variable only when multipl
 
 ## State
 
-Keep state beside its interaction: theme selection in `components/theme.tsx`, menu state in `Navbar.tsx`, work selection in `Work.tsx`, and portrait reveal state in `HeroOrbitReveal.tsx`.
+Keep state beside its interaction: theme selection in `components/theme.tsx`, menu state in `Navbar.tsx`, work selection in `Work.tsx`, and portrait reveal state in `HeroProfileCard.tsx`.
 
 Extract a component when it is reused or isolates meaningful behavior. Keep one-off presentation with its section.
 

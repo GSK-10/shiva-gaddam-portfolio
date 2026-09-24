@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { heroContent, heroHighlights, siteConfig } from "@/content/portfolio";
 import { Button, Container } from "@/components/ui";
 import { HeroProfileCard } from "@/components/ui/HeroProfileCard";
-import { Github, Globe, Linkedin, Mail } from "lucide-react";
+import { BriefcaseBusiness, FileText, Github, Globe, Linkedin, Mail } from "lucide-react";
 
 export function Hero() {
   const heroLinks = siteConfig.profileLinks.filter((link) =>
@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative mt-2 flex items-start overflow-hidden border-b border-[color:var(--surface-border)] py-8 sm:mt-4 sm:py-12 lg:mt-6 lg:min-h-[min(52rem,calc(100svh-8rem))] lg:items-center"
+      className="section-tone-alternate relative mt-2 flex items-start overflow-hidden border-b border-[color:var(--surface-border)] py-8 sm:mt-4 sm:py-12 lg:mt-6 lg:min-h-[min(52rem,calc(100svh-8rem))] lg:items-center"
     >
       <span
         aria-hidden="true"
@@ -150,7 +150,8 @@ export function Hero() {
                 className="motion-fade-up mt-5 flex flex-wrap items-center gap-2.5 sm:mt-6 lg:mt-8"
                 style={{ "--motion-delay": "420ms" } as CSSProperties}
               >
-                <Button href="#work">
+                <Button href="#work" className="gap-2">
+                  <BriefcaseBusiness aria-hidden="true" className="h-4 w-4" />
                   View My Work
                 </Button>
                 <Button
@@ -158,7 +159,9 @@ export function Hero() {
                   variant="secondary"
                   target="_blank"
                   rel="noreferrer"
+                  className="gap-2"
                 >
+                  <FileText aria-hidden="true" className="h-4 w-4 text-primary" />
                   View Resume
                 </Button>
                 <div className="ml-1 flex items-center gap-2">

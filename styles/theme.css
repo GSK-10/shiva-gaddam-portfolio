@@ -38,11 +38,6 @@
   --hero-cta-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18);
   --hero-panel-glow: rgb(var(--color-primary) / 0.14);
 
-  --grid-size: 40px;
-  --grid-major-size: 160px;
-  --grid-line: rgb(var(--color-primary) / 0.08);
-  --grid-major-line: rgb(var(--color-primary) / 0.15);
-  --grid-fade: linear-gradient(180deg, rgb(0 0 0 / 0.72), transparent 92%);
   --page-background:
     linear-gradient(180deg, rgb(var(--color-primary) / 0.025), transparent 42%),
     rgb(var(--color-background));
@@ -57,16 +52,19 @@
   color-scheme: light;
   --color-background: 242 244 247;
   --color-foreground: 17 29 48;
-  --color-muted: 106 116 132;
+  --color-muted: 92 102 119;
   --color-border: 165 178 198;
   --color-card: 246 248 252;
   --color-card-muted: 238 242 247;
   --color-card-foreground: 17 29 48;
   --color-primary: 18 97 242;
+  --color-primary-text: 16 88 224;
   --color-primary-foreground: 255 255 255;
   --color-secondary: 133 178 255;
   --shadow-color: 28 42 69;
   --shadow-opacity: 0.08;
+  --section-background: rgb(242 244 247);
+  --section-background-alt: rgb(229 235 243);
 }
 
 /* Stored light-accent dark palette — not registered in content/themes.ts. */
@@ -80,10 +78,13 @@
   --color-card-muted: 15 24 36;
   --color-card-foreground: 236 241 246;
   --color-primary: 0 194 255;
+  --color-primary-text: 0 194 255;
   --color-primary-foreground: 6 10 16;
   --color-secondary: 10 111 255;
   --shadow-color: 0 0 0;
   --shadow-opacity: 0.3;
+  --section-background: rgb(15 23 36);
+  --section-background-alt: rgb(8 12 18);
 }
 
 /* Active medium-contrast dark palette. */
@@ -97,10 +98,13 @@
   --color-card-muted: 16 24 37;
   --color-card-foreground: 238 242 248;
   --color-primary: 48 111 210;
+  --color-primary-text: 74 132 226;
   --color-primary-foreground: 255 255 255;
   --color-secondary: 91 145 218;
   --shadow-color: 0 0 0;
   --shadow-opacity: 0.3;
+  --section-background: rgb(15 23 36);
+  --section-background-alt: rgb(8 12 18);
 }
 
 /* Stored very-high-contrast dark palette — not registered in content/themes.ts. */
@@ -114,10 +118,13 @@
   --color-card-muted: 16 24 37;
   --color-card-foreground: 238 242 248;
   --color-primary: 18 97 242;
+  --color-primary-text: 96 156 255;
   --color-primary-foreground: 255 255 255;
   --color-secondary: 103 164 255;
   --shadow-color: 0 0 0;
   --shadow-opacity: 0.3;
+  --section-background: rgb(15 23 36);
+  --section-background-alt: rgb(8 12 18);
 }
 
 /* Stored steel palette — not registered in content/themes.ts. */
@@ -131,10 +138,13 @@
   --color-card-muted: 42 45 49;
   --color-card-foreground: 244 241 234;
   --color-primary: 190 199 211;
+  --color-primary-text: 190 199 211;
   --color-primary-foreground: 20 21 23;
   --color-secondary: 141 153 170;
   --shadow-color: 0 0 0;
   --shadow-opacity: 0.26;
+  --section-background: rgb(31 32 35);
+  --section-background-alt: rgb(23 24 26);
 }
 
 /* Smoky blue-grey surfaces with a quiet periwinkle accent. */
@@ -148,8 +158,11 @@
   --color-card-muted: 42 46 60;
   --color-card-foreground: 231 233 240;
   --color-primary: 157 146 211;
+  --color-primary-text: 157 146 211;
   --color-primary-foreground: 20 20 29;
   --color-secondary: 120 157 194;
   --shadow-color: 5 7 13;
   --shadow-opacity: 0.25;
+  --section-background: rgb(34 37 50);
+  --section-background-alt: rgb(27 30 40);
 }

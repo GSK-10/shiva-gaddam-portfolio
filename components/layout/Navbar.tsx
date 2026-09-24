@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { ThemeToggle } from "@/components/theme";
 import { Container } from "@/components/ui";
 import { navigationItems } from "@/content/portfolio";
@@ -71,7 +72,7 @@ export function Navbar() {
           aria-label="Primary"
           className="theme-shell mx-auto flex min-h-12 max-w-[76rem] items-center justify-between gap-2 border px-2 sm:px-3"
         >
-          <a
+          <Link
             href="/#hero"
             className="inline-flex min-w-0 items-center gap-1.5 px-2 py-2 font-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
@@ -85,7 +86,7 @@ export function Navbar() {
             <span className="min-w-0 truncate font-mono text-xs uppercase tracking-[0.2em] text-muted">
               DEV
             </span>
-          </a>
+          </Link>
 
           <ul className="ml-auto hidden items-center whitespace-nowrap lg:flex">
             {navigationItems.map((item) => {

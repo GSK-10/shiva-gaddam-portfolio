@@ -2,7 +2,7 @@ export type Project = {
   title: string;
   label: string;
   category?: string;
-  status?: "WIP";
+  status?: "WIP" | "Active learning";
   kind: "network" | "audio" | "publications";
   description: string;
   tech: string[];
@@ -15,16 +15,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Distributed Professional Network",
+    title: "Professional Networking Platform",
     label: "Project 1",
-    category: "Learning Project",
-    status: "WIP",
+    // category: "Independent Learning Project",
+    status: "Active learning",
     kind: "network",
     description:
-      "Currently building a distributed social platform to practise Spring Boot microservices, event-driven communication, observability, and Kubernetes deployment.",
-    tech: ["Java", "Spring Boot", "Spring Cloud", "Kafka", "Kubernetes", "Jenkins", "ELK", "Zipkin"],
-    imageUrl: "/images/projects/distributed-network-preview.png",
-    imageAlt: "Abstract visualization of interconnected nodes representing a distributed professional network",
+      "Building seven Spring Boot components with JWT-protected routes and service discovery for authentication, posts, connections, notifications, and media, backed by Kafka, Neo4j, and PostgreSQL.",
+    tech: ["Java", "Spring Boot", "JWT", "Service Discovery", "Kafka", "Neo4j", "PostgreSQL"],
+    imageUrl: "/images/projects/professional-networking-architecture.svg",
+    imageAlt: "Architecture preview of the professional networking platform services and data systems",
   },
   {
     title: "Speaker Diarization System",

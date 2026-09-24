@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { ArrowUpRight, Laptop, X } from "lucide-react";
 import { Section, Surface } from "@/components/ui";
-import { sectionCopy } from "@/content/portfolio";
+import { useModalDialog } from "@/components/ui/useModalDialog";
+import { ENABLE_SLANTED_CARDS, sectionCopy } from "@/content/portfolio";
 import { workCaseStudies, type WorkCaseStudy } from "@/content/work";
 
 function DetailBlock({ label, children }: { label: string; children: ReactNode }) {
@@ -27,33 +28,13 @@ function WorkDialog({
   item: WorkCaseStudy | null;
   onClose: () => void;
 }) {
-  const dialogRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-
-  useEffect(() => {
-    if (!item) {
-      return;
-    }
-
-    const previouslyFocused = document.activeElement as HTMLElement | null;
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", handleKeyDown);
-    dialogRef.current?.focus();
-
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", handleKeyDown);
-      previouslyFocused?.focus();
-    };
-  }, [item, onClose]);
+  const { dialogRef, overlayRef } = useModalDialog({
+    open: Boolean(item) && mounted,
+    onClose,
+  });
 
   if (!item || !mounted) {
     return null;
@@ -63,6 +44,7 @@ function WorkDialog({
      transform would otherwise become the containing block for position: fixed. */
   return createPortal(
     <div
+      ref={overlayRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="work-dialog-title"
@@ -158,6 +140,7 @@ export function Work() {
   return (
     <Section
       id="work"
+      tone="base"
       index={copy.index}
       title={copy.title}
       icon={Laptop}
@@ -170,7 +153,7 @@ export function Work() {
     >
       <div className="grid gap-4 md:grid-cols-2">
         {workCaseStudies.map((item, index) => (
-          <Surface key={item.title} className="overflow-hidden">
+          <Surface key={item.title} slanted={ENABLE_SLANTED_CARDS} className="overflow-hidden">
             <button
               type="button"
               onClick={() => setSelected(item)}

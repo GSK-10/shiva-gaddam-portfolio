@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { Button, Section, Surface } from "@/components/ui";
-import { sectionCopy, siteConfig } from "@/content/portfolio";
+import { ENABLE_SLANTED_CARDS, sectionCopy, siteConfig } from "@/content/portfolio";
 import { projects, type Project } from "@/content/projects";
 
 const previewIcons = {
@@ -47,7 +47,7 @@ function ProjectCard({ project }: { project: Project }) {
   const PreviewIcon = previewIcons[project.kind];
 
   return (
-    <Surface className="flex h-full flex-col overflow-hidden">
+    <Surface slanted={ENABLE_SLANTED_CARDS} className="flex h-full flex-col overflow-hidden">
       <div className="flex min-h-12 items-center gap-2 px-4 py-3 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em] sm:px-5">
         <span className="text-primary">{project.label}</span>
         {project.category && (
@@ -136,6 +136,7 @@ export function Projects() {
   return (
     <Section
       id="projects"
+      tone="base"
       index={copy.index}
       title={copy.title}
       icon={Images}
