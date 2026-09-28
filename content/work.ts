@@ -12,7 +12,7 @@ export type WorkCaseStudy = {
 export const workCaseStudies: WorkCaseStudy[] = [
   {
     title: "Release Automation Across Distributed Services",
-    focus: "Test Infrastructure",
+    focus: "Automation / Release regression",
     period: "2024-2025",
     summary:
       "Built repeatable release-regression coverage across HTTP, HTTPS, JMS, LDAP, and dynamic-routing workflows in a distributed service-activation platform.",

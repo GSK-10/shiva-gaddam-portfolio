@@ -30,19 +30,19 @@ export const siteConfig = {
   role: "Software Engineer",
   headline:
     "Software Engineer building dependable automation, distributed platform environments, and cloud-native infrastructure.",
-  location: "Hyderabad, India",
+  location: "Bengaluru, India",
   email: "shiva.kumar.reddy.gaddam19@gmail.com",
   resumeUrl: "/resume/shiva-kumar-reddy-gaddam-resume.pdf",
   /* Rendered as separate <p> blocks in the About section: one idea per paragraph. */
   about: [
-    "Hi, I’m Shiva Kumar Reddy Gaddam, a software engineer who worked for a year and a half in Oracle’s Communications division on an enterprise service activation platform, gaining experience with backend workflows, automation, Linux environments, cloud-native deployments, and debugging failures across services, databases, messaging systems, and deployment tooling.",
+    "Hi, I’m Shiva Kumar Reddy Gaddam, a software engineer who spent nearly two years in Oracle’s Communications division, starting as an intern and continuing full-time, working on an enterprise service activation platform. My work spanned backend workflows, automation, Linux environments, and cloud-native deployments, along with debugging failures across services, databases, messaging systems, and deployment tooling.",
     "That experience taught me how distributed systems behave, fail, and recover. I’m now applying that operational perspective while developing deeper expertise in Java, Spring Boot, SQL, REST APIs, AWS, and backend and platform engineering.",
   ],
   aboutPanels: [
     {
       title: "Player profile",
       items: [
-        { label: "Location", value: "Hyderabad, India" },
+        { label: "Location", value: "Bengaluru, India" },
         { label: "Experience", value: "Oracle - Software Engineer" },
         { label: "Focus", value: "Backend / Platform / Infrastructure" },
         { label: "Core stack", value: "Java, Python, Linux, Kubernetes" },
@@ -53,7 +53,7 @@ export const siteConfig = {
       title: "Currently working on",
       items: [
         { label: "Frameworks", value: "Spring Boot" },
-        { label: "Cloud", value: "AWS" },
+        { label: "Cloud", value: "GCP & AWS" },
       ],
     },
   ],
@@ -190,7 +190,7 @@ export const heroHighlights = [
 ];
 
 export const heroContent = {
-  eyebrow: { primary: "Ex-Oracle", secondary: "Software Engineer" },
+  eyebrow: { primary: "Software Engineer", secondary: "Ex-Oracle" },
   displayName: { lines: ["Shiva Kumar", "Reddy Gaddam"], accentLineIndex: 1 },
   statement: {
     prefix: "I build",
@@ -216,7 +216,7 @@ export const experiences: Experience[] = [
   {
     company: "Oracle",
     role: "Software Engineer",
-    functionalFocus: "QA Automation & Infrastructure",
+    functionalFocus: "Automation & Infrastructure",
     summary:
       "Worked in Oracle Communications on an enterprise service activation platform spanning distributed service workflows, Linux environments, and cloud-native deployments.",
     location: "Hyderabad, India",

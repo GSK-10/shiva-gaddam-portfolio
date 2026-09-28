@@ -7,10 +7,11 @@ export const themes = [
   { key: "dusk", label: "Dusk", icon: "gem" },
   { key: "light", label: "Light", icon: "sun" },
   { key: "dark-medium", label: "Dark", icon: "moon" },
+  // { key: "indigo", label: "Indigo", icon: "sparkles" },
 ] as const;
 
 /* Additional stored palettes live in theme.css as `dark-light`,
-   `dark-veryHigh`, and `steel`. They are intentionally absent here, so the
+   `dark-veryHigh`, `steel`, and `indigo`. They are intentionally absent here, so the
    visible theme cycle remains Dusk -> Light -> Dark. */
 
 export type ThemeKey = (typeof themes)[number]["key"];

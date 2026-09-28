@@ -166,3 +166,25 @@
   --section-background: rgb(34 37 50);
   --section-background-alt: rgb(27 30 40);
 }
+
+/* Stored deep-navy palette with an indigo-violet accent — not registered in
+   content/themes.ts. primary-text uses the
+   lighter violet so accent-coloured text clears 4.5:1 on the dark sections. */
+[data-theme="indigo"] {
+  color-scheme: dark;
+  --color-background: 11 16 32;
+  --color-foreground: 237 240 251;
+  --color-muted: 163 172 198;
+  --color-border: 84 92 132;
+  --color-card: 25 33 55;
+  --color-card-muted: 31 40 66;
+  --color-card-foreground: 237 240 251;
+  --color-primary: 113 104 216;
+  --color-primary-text: 150 133 235;
+  --color-primary-foreground: 255 255 255;
+  --color-secondary: 150 133 235;
+  --shadow-color: 3 5 14;
+  --shadow-opacity: 0.32;
+  --section-background: rgb(18 26 47);
+  --section-background-alt: rgb(11 16 32);
+}

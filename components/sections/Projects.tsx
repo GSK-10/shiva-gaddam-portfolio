@@ -65,15 +65,17 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="relative grid aspect-video place-items-center overflow-hidden border-b border-t border-[color:var(--surface-border)] bg-[color:var(--surface-card-muted)]">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-70"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgb(var(--color-primary)/0.09) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--color-primary)/0.09) 1px, transparent 1px)",
-            backgroundSize: "1.5rem 1.5rem",
-          }}
-        />
+        {!project.imageUrl && (
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-70"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgb(var(--color-primary)/0.09) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--color-primary)/0.09) 1px, transparent 1px)",
+              backgroundSize: "1.5rem 1.5rem",
+            }}
+          />
+        )}
         {project.imageUrl ? (
           <Image
             src={project.imageUrl}

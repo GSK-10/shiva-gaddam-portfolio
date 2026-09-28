@@ -2,13 +2,14 @@
 
 import type { PropsWithChildren } from "react";
 import { useEffect, useState } from "react";
-import { Gem, MoonStar, SunMedium } from "lucide-react";
+import { Gem, MoonStar, Sparkles, SunMedium } from "lucide-react";
 import { ThemeProvider, useTheme } from "next-themes";
 import { defaultTheme, themeKeys, themes, type ThemeKey } from "@/content/themes";
 
 const themeIcons = {
   gem: Gem,
   moon: MoonStar,
+  sparkles: Sparkles,
   sun: SunMedium,
 };
 

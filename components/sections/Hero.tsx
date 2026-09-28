@@ -79,10 +79,10 @@ export function Hero() {
                 className="motion-fade-up flex flex-wrap items-center gap-2"
                 style={{ "--motion-delay": "140ms" } as CSSProperties}
               >
-                <div className="inline-flex items-center gap-3">
+                <div className="inline-flex items-center gap-2 sm:gap-3">
                   <span
                     aria-hidden="true"
-                    className="inline-flex h-7 w-7 shrink-0 rotate-45 items-center justify-center"
+                    className="inline-flex h-6 w-6 shrink-0 rotate-45 sm:h-7 sm:w-7 items-center justify-center"
                     style={{
                       backgroundColor: "var(--hero-cta-bg)",
                       color: "var(--hero-cta-text)",
@@ -96,7 +96,7 @@ export function Hero() {
                     </span>
                   </span>
                   <span
-                    className="inline-flex max-w-[calc(100vw-6.5rem)] flex-wrap items-center gap-x-3 gap-y-1 border px-3 py-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-primary sm:max-w-none sm:px-4 sm:text-sm sm:tracking-[0.22em] lg:text-base"
+                    className="inline-flex items-center gap-x-2 whitespace-nowrap border px-2.5 py-2 font-mono text-[length:min(0.6875rem,calc((100vw_-_8.5rem)/21.5))] font-medium uppercase tracking-[0.1em] text-primary sm:gap-x-3 sm:px-4 sm:text-sm sm:tracking-[0.22em] lg:text-base"
                     style={{
                       borderColor: "var(--surface-border)",
                     }}
@@ -111,7 +111,7 @@ export function Hero() {
               </div>
 
               <h1
-                className="motion-fade-up mt-5 max-w-4xl font-display text-[2rem] font-extrabold uppercase leading-none tracking-[0.075rem] sm:mt-6 sm:text-[2.5rem] sm:tracking-[0.1rem] md:text-5xl lg:mt-7 lg:text-[3.6rem] lg:tracking-[0.125rem]"
+                className="motion-fade-up mt-5 max-w-4xl font-display text-[length:min(2rem,calc((100vw_-_4.5rem)/10.8))] font-extrabold uppercase leading-none tracking-[0.075rem] sm:mt-6 sm:text-[2.5rem] sm:tracking-[0.1rem] md:text-5xl lg:mt-7 lg:text-[length:min(3.6rem,calc(5.2vw_-_0.6rem))] lg:tracking-[0.125rem]"
                 style={{
                   "--motion-delay": "220ms",
                 } as CSSProperties}
@@ -122,7 +122,7 @@ export function Hero() {
                   return (
                     <span
                       key={line}
-                      className="block"
+                      className="block whitespace-nowrap sm:whitespace-normal lg:whitespace-nowrap"
                       style={{
                         color: isAccent ? "rgb(var(--color-primary))" : undefined,
                       }}

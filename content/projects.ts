@@ -15,7 +15,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Professional Networking Platform",
+    title: "Professional Networking System",
     label: "Project 1",
     // category: "Independent Learning Project",
     status: "Active learning",
@@ -23,8 +23,9 @@ export const projects: Project[] = [
     description:
       "Building seven Spring Boot components with JWT-protected routes and service discovery for authentication, posts, connections, notifications, and media, backed by Kafka, Neo4j, and PostgreSQL.",
     tech: ["Java", "Spring Boot", "JWT", "Service Discovery", "Kafka", "Neo4j", "PostgreSQL"],
-    imageUrl: "/images/projects/professional-networking-architecture.svg",
-    imageAlt: "Architecture preview of the professional networking platform services and data systems",
+    imageUrl: "/images/projects/professional-networking.png",
+    imageAlt: "Network graph of connected member profiles around a central user",
+    // githubUrl: "https://github.com/GSK-10/professional-networking-system",
   },
   {
     title: "Speaker Diarization System",
@@ -35,7 +36,8 @@ export const projects: Project[] = [
       "A modular multi-speaker audio pipeline for diarization, timestamped transcription, and sentiment analysis, backed by Flask and spectral clustering.",
     tech: ["Python", "Flask", "Whisper", "SpeechBrain", "Scikit-learn"],
     imageUrl: "/images/projects/speaker-diarization-preview.png",
-    imageAlt: "Abstract layered audio tracks representing the speaker diarization pipeline",
+    imageAlt: "Speaker Diarization app upload screen with audio file, speaker count, sample, and record options",
+    githubUrl: "https://github.com/GSK-10/speaker-diarization-system",
     publicationUrl:
       "https://www.internationaljournalssrg.org/IJEEE/paper-details?Id=1043",
   },
